@@ -6,6 +6,11 @@ import AdvisorType_SVG from './AdvisorType.svg';
 import MemberType_SVG from './MemberType.svg';
 import ArrowWhite_SVG from './ArrowWhite.svg';
 import Next_SVG from './Next.svg';
+import Lock_SVG from './Lock.svg';
+import BlackArrowBack_SVG from './BlackArrowBack.svg';
+import PassEye_SVG from './PassEye.svg';
+import SignIn_SVG from './SignIn.svg';
+import User_SVG from './User.svg';
 
 
 
@@ -42,4 +47,24 @@ export const ArrowWhite_Icon = ({ width, height }) => (
 
 export const Next_Icon = ({ width, height }) => (
   <Next_SVG width={width} height={height} />
+);
+
+export const Lock_Icon = ({ width, height }) => (
+  <Lock_SVG width={width} height={height} />
+);
+
+export const BlackArrowBack_Icon = ({ width, height }) => (
+  <BlackArrowBack_SVG width={width} height={height} />
+);
+
+export const PassEye_Icon = ({ width, height }) => (
+  <PassEye_SVG width={width} height={height} />
+);
+
+export const SignIn_Icon = ({ width, height }) => (
+  <SignIn_SVG width={width} height={height} />
+);
+
+export const User_Icon = ({ width, height }) => (
+  <User_SVG width={width} height={height} />
 );

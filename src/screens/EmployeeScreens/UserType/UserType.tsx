@@ -5,6 +5,7 @@ import { height, width } from '../../../res/string'
 import { colors } from '../../../res/color'
 import fonts from '../../../res/fonts'
 import { useNavigation, NavigationProp, ParamListBase } from '@react-navigation/native';
+import ScreenConstants from '../../../Navigators/ScreenConstants'
 
 
 
@@ -27,11 +28,11 @@ const UserType: React.FC<OnBoardingProps> = () => {
                 <Text style={styles.HeadingStyle} >Welcome to VL Bank</Text>
                 <Text style={styles.SubHeadingStyle} >Lorem ipsum dolor sit amet, consectetu adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magn</Text>
                 <View style={styles?.userIcons} >
-                    <Pressable style={styles?.userIconWithName} onPress={() => {console.log('Member')}} >
+                    <Pressable style={styles?.userIconWithName} onPress={() => {navigation.navigate(ScreenConstants.SIGN_IN_SCREEN)}} >
                         <MemberType_Icon height={width / 3} width={width / 3} />
                         <Text style={styles?.IconText} >Member</Text>
                     </Pressable>
-                    <Pressable style={styles?.userIconWithName} onPress={() => {console.log('Advisor')}} >
+                    <Pressable style={styles?.userIconWithName} onPress={() => {navigation.navigate(ScreenConstants.SIGN_IN_SCREEN)}} >
                         <AdvisorType_Icon height={width / 3} width={width / 3} />
                         <Text style={styles?.IconText} >Advisor</Text>
                     </Pressable>
