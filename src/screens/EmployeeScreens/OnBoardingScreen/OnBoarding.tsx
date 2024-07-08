@@ -44,7 +44,7 @@ const OnBoarding: React.FC = () => {
   };
 
   const handleSkipPress = () => {
-    navigation.navigate(ScreenConstants.ON_BOARDING_SCREEN);
+    navigation.navigate(ScreenConstants.USER_TYPE_SCREEN);
   };
 
   return (

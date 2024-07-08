@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/stack';
 import { Easing } from 'react-native';
 import ScreenConstants from './ScreenConstants';
-import { OnBoarding, SignIn, UserType } from '../screens';
+import { ForgotPassword, OnBoarding, OtpScreen, SignInAdvisor, SignInMember, UserType } from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -41,7 +41,10 @@ const AuthNavigation = () => {
         >
             <Stack.Screen name={ScreenConstants?.ON_BOARDING_SCREEN} component={OnBoarding} />
             <Stack.Screen name={ScreenConstants?.USER_TYPE_SCREEN} component={UserType} />
-            <Stack.Screen name={ScreenConstants?.SIGN_IN_SCREEN} component={SignIn} />
+            <Stack.Screen name={ScreenConstants?.SIGN_IN_MEMBER_SCREEN} component={SignInMember} />
+            <Stack.Screen name={ScreenConstants?.SIGN_IN_ADVISOR_SCREEN} component={SignInAdvisor} />
+            <Stack.Screen name={ScreenConstants?.FORGOT_PASSWORD_SCREEN} component={ForgotPassword} />
+            <Stack.Screen name={ScreenConstants?.OTP_SCREEN} component={OtpScreen} />
         </Stack.Navigator>
     );
 };

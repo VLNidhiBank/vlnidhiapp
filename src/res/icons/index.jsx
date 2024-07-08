@@ -11,6 +11,11 @@ import BlackArrowBack_SVG from './BlackArrowBack.svg';
 import PassEye_SVG from './PassEye.svg';
 import SignIn_SVG from './SignIn.svg';
 import User_SVG from './User.svg';
+import SignInAdvisor_SVG from './SignInAdvisor.svg';
+import Call_SVG from './Call.svg';
+import VerifyVector_SVG from './VerifyVector.svg';
+import ResetPassVector_SVG from './ResetPassVector.svg';
+import ForgotPass_SVG from './ForgotPass.svg';
 
 
 
@@ -67,4 +72,24 @@ export const SignIn_Icon = ({ width, height }) => (
 
 export const User_Icon = ({ width, height }) => (
   <User_SVG width={width} height={height} />
+);
+
+export const SignInAdvisor_Icon = ({ width, height }) => (
+  <SignInAdvisor_SVG width={width} height={height} />
+);
+
+export const Call_Icon = ({ width, height }) => (
+  <Call_SVG width={width} height={height} />
+);
+
+export const VerifyVector_Icon = ({ width, height }) => (
+  <VerifyVector_SVG width={width} height={height} />
+);
+
+export const ResetPassVector_Icon = ({ width, height }) => (
+  <ResetPassVector_SVG width={width} height={height} />
+);
+
+export const ForgotPass_Icon = ({ width, height }) => (
+  <ForgotPass_SVG width={width} height={height} />
 );
