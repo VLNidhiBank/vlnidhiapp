@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Pressable,
 } from 'react-native';
-import { useNavigation, NavigationProp, ParamListBase } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { OnBoardingData } from './OnBoardingData';
 import { colors } from '../../../res/color';
 import fonts from '../../../res/fonts';
@@ -15,10 +15,10 @@ import ScreenConstants from '../../../Navigators/ScreenConstants';
 import { ArrowWhite_Icon } from '../../../res/icons';
 import { height, width } from '../../../res/string';
 
-const OnBoarding: React.FC = () => {
-  const flatListRef = useRef<FlatList<any>>(null);
+const OnBoarding = () => {
+  const flatListRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const navigation = useNavigation<NavigationProp<ParamListBase>>();
+  const navigation = useNavigation();
 
   const ButtonData = {
     Title: OnBoardingData.length - 1 === currentSlide ? 'GET STARTED' : 'NEXT',
@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: height / 1.5,
-    // backgroundColor: 'red'
   },
   ContentWrapper: {
     justifyContent: 'center',

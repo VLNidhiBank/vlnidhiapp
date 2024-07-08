@@ -2,48 +2,49 @@ import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../../res/color';
 import { height, width } from '../../../res/string';
-import { BlackArrowBack_Icon, Lock_Icon, PassEye_Icon, SignIn_Icon, User_Icon } from '../../../res/icons';
+import { BlackArrowBack_Icon, Lock_Icon, PassEye_Icon, ResetPassVector_Icon } from '../../../res/icons';
 import CustomTextInput from '../../../component/CustomTextInput';
 import fonts from '../../../res/fonts';
-
-import { useNavigation,NavigationProp } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import ScreenConstants from '../../../Navigators/ScreenConstants';
 import CustomButton from '../../../component/CustomButton';
 
-type RootStackParamList = {
-  [key in keyof typeof ScreenConstants]: undefined;
-};
-const SignInMember: React.FC = () => {
-  const [userId, setUserId] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+const ResetPassword = () => {
+  const [userId, setUserId] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const navigation = useNavigation();
 
   // Define the data for userId input
-  const userIdData = {
-    title: 'User Id',
-    palceHolderText: 'Enter your User Id',
-    FirstIcon: User_Icon,
-    inputValue: userId,
-    changedText: (text: string) => setUserId(text),
-  };
+
 
   // Define the data for password input
-  const passwordData = {
-    title: 'Password',
-    palceHolderText: 'Enter your Password',
+  const confirmPasswordData = {
+    title: 'New Password',
+    palceHolderText: 'New Password',
     FirstIcon: Lock_Icon,
     SecondIcon: PassEye_Icon,
     inputValue: password,
     actionSecond: () => setShowPassword(!showPassword),
-    changedText: (text: string) => setPassword(text),
+    changedText: (text) => setPassword(text),
+    isPassword: showPassword,
+  };
+
+  const passwordData = {
+    title: 'Confirm New Password',
+    palceHolderText: 'Confirm New Password',
+    FirstIcon: Lock_Icon,
+    SecondIcon: PassEye_Icon,
+    inputValue: password,
+    actionSecond: () => setShowPassword(!showPassword),
+    changedText: (text) => setPassword(text),
     isPassword: showPassword,
   };
 
   // Define the data for button
   const buttonData = {
-    buttonTitle: 'Sign In',
+    buttonTitle: 'Reset Password',
   };
 
   return (
@@ -52,25 +53,22 @@ const SignInMember: React.FC = () => {
         <BlackArrowBack_Icon height={width / 16} width={width / 16} />
       </Pressable>
       <View style={styles.iconWrapper}>
-        <SignIn_Icon height={height / 4} width={width} />
+        <ResetPassVector_Icon height={height / 4} width={width} />
       </View>
       <View style={styles.textWrapper}>
-        <Text style={styles.heading}>Sign In</Text>
+        <Text style={styles.heading}>Reset Password</Text>
         <Text style={styles.subHeading}>
-          Sign in to your account to manage your finances with ease.
+          Your new password must be different from your previous password.
         </Text>
-        <CustomTextInput inputData={userIdData} />
+        <CustomTextInput inputData={confirmPasswordData} />
         <CustomTextInput inputData={passwordData} />
-        <Pressable style={styles.forgotPassView} onPress={() => navigation.navigate(ScreenConstants.FORGOT_PASSWORD_SCREEN)}>
-          <Text style={styles.forgotPassText}>Forgot Password?</Text>
-        </Pressable>
         <CustomButton buttonTitle={buttonData.buttonTitle} />
       </View>
     </View>
   );
 };
 
-export default SignInMember;
+export default ResetPassword;
 
 const styles = StyleSheet.create({
   container: {

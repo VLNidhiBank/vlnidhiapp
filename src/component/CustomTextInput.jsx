@@ -4,20 +4,9 @@ import fonts from '../res/fonts';
 import { colors } from '../res/color';
 import { height, width } from '../res/string';
 
-interface CustomTextInputProps {
-  inputData: {
-    title: string;
-    palceHolderText: string;
-    isPassword?: boolean;
-    inputValue: string | number;
-    actionSecond?: () => void;
-    changedText: (text: string) => void;
-    FirstIcon: React.ComponentType<{ height: number; width: number }>;
-    SecondIcon?: React.ComponentType<{ height: number; width: number }>;
-  };
-}
 
-const CustomTextInput: React.FC<CustomTextInputProps> = ({ inputData, ...rest }) => {
+
+const CustomTextInput = ({ inputData, ...rest }) => {
   return (
     <View style={styles.inputWrapper}>
       <Text style={styles.text}>{inputData.title}</Text>

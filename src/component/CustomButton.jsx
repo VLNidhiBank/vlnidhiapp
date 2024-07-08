@@ -14,16 +14,7 @@ import { height } from '../res/string';
 import { colors } from '../res/color';
 import fonts from '../res/fonts';
 
-interface CustomButtonProps {
-	buttonTitle: string;
-	style?: StyleProp<ViewStyle>;
-	disabled?: boolean;
-	loading?: boolean;
-	onPress?: () => void;
-	textStyle?: StyleProp<TextStyle>;
-}
-
-const CustomButton: React.FC<CustomButtonProps> = ({
+const CustomButton = ({
 	buttonTitle,
 	style,
 	disabled = false,

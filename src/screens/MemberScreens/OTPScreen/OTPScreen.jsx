@@ -2,100 +2,74 @@ import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../../res/color';
 import { height, width } from '../../../res/string';
-import { BlackArrowBack_Icon, Lock_Icon, PassEye_Icon, SignIn_Icon, SignInAdvisor_Icon, User_Icon } from '../../../res/icons';
+import { BlackArrowBack_Icon, Lock_Icon, PassEye_Icon, User_Icon, VerifyVector_Icon } from '../../../res/icons';
 import CustomTextInput from '../../../component/CustomTextInput';
 import fonts from '../../../res/fonts';
-import CustomButton from '../../../component/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 import ScreenConstants from '../../../Navigators/ScreenConstants';
+import CustomButton from '../../../component/CustomButton';
 
+const OTPScreen = () => {
+  const [userId, setUserId] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
+  const navigation = useNavigation();
 
-// Define the types for the props of SignIn component
-interface SignInAdvisorProps {
-  data: {
-    title: string;
-    InputValue: string | number;
-    placeholder: string;
-  };
-  inputData: {
-    title: string;
-    palceHolderText: string;
-    FirstIcon: React.FC<{ height: number; width: number }>; // Adjust according to your icon component props
-    SecondIcon?: React.FC<{ height: number; width: number }>; // Optional icon
-    inputValue: string;
-    actionSecond?: () => void;
-    changedText: (text: string) => void;
-    isPassword?: boolean;
-  };
-}
-
-const SignInAdvisor: React.FC<SignInAdvisorProps> = ({ data }) => {
-  const [userId, setUserId] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [showPassword, setShowPassword] = useState<boolean>(false);
-
-
-  const navigation = useNavigation()
   // Define the data for userId input
   const userIdData = {
     title: 'User Id',
     palceHolderText: 'Enter your User Id',
     FirstIcon: User_Icon,
     inputValue: userId,
-    changedText: (text: string) => setUserId(text),
+    changedText: (text) => setUserId(text),
   };
 
   // Define the data for password input
   const passwordData = {
     title: 'Password',
     palceHolderText: 'Enter your Password',
-    FirstIcon: User_Icon,
+    FirstIcon: Lock_Icon,
     SecondIcon: PassEye_Icon,
     inputValue: password,
     actionSecond: () => setShowPassword(!showPassword),
-    changedText: (text: string) => setPassword(text),
+    changedText: (text) => setPassword(text),
     isPassword: showPassword,
   };
 
   // Define the data for button
   const buttonData = {
-    buttonTitle: 'Sign In',
+    buttonTitle: 'Verify',
   };
 
   return (
     <View style={styles.container}>
-      <Pressable style={styles.iconWrapperBack} onPress={() => navigation?.goBack()}>
+      <Pressable style={styles.iconWrapperBack} onPress={() => navigation.goBack()}>
         <BlackArrowBack_Icon height={width / 16} width={width / 16} />
       </Pressable>
       <View style={styles.iconWrapper}>
-        <SignInAdvisor_Icon height={height / 4} width={width} />
+        <VerifyVector_Icon height={height / 3.5} width={width / 1.2} />
       </View>
       <View style={styles.textWrapper}>
-        <Text style={styles.heading}>Sign In</Text>
+        <Text style={styles.heading}>Verification Code</Text>
         <Text style={styles.subHeading}>
-          Sign in to your account to manage your finances with ease.
+          A 4 digit code has been sent to +91 701*****34
         </Text>
         <CustomTextInput inputData={userIdData} />
-        <CustomTextInput inputData={passwordData} />
-        <Pressable style={styles.forgotPassView} onPress={() => {navigation?.navigate()}} >
-        <Text style={styles.forgotPassText}>Forgot Password?</Text>
-        </Pressable>
-        <CustomButton buttonTitle={buttonData.buttonTitle} />
+        <CustomButton buttonTitle={buttonData.buttonTitle} onPress={() => navigation.navigate(ScreenConstants.RESET_PASSWORD)} />
       </View>
     </View>
   );
 };
 
-export default SignInAdvisor;
+export default OTPScreen;
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.screenBackColor,
     height: height,
-    // padding: 16,
-    paddingHorizontal: width /16,
-    paddingVertical: width /25,
+    paddingHorizontal: width / 16,
+    paddingVertical: width / 25,
   },
   iconWrapper: {
     marginBottom: 20,
@@ -122,6 +96,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.PoppinsRegular,
     width: '85%',
     textAlign: 'center',
+    lineHeight: 18,
   },
   forgotPassView: {
     width: '100%',
@@ -131,6 +106,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     width: '100%',
     textAlign: 'right',
-    marginVertical: 10,
+    marginBottom: width / 50,
   },
 });

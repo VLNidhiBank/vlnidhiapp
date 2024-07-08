@@ -3,9 +3,10 @@ import {
     createStackNavigator,
     CardStyleInterpolators,
 } from '@react-navigation/stack';
-import { Easing } from 'react-native';
+import { Easing, Platform } from 'react-native';
 import ScreenConstants from './ScreenConstants';
-import { ForgotPassword, OnBoarding, OtpScreen, SignInAdvisor, SignInMember, UserType } from '../screens';
+import { ForgotPassword, OnBoarding, OtpScreen, ResetPassword, SignInAdvisor, SignInMember, UserType } from '../screens';
+import { colors } from '../res/color';
 
 const Stack = createStackNavigator();
 
@@ -28,16 +29,20 @@ const AuthNavigation = () => {
 
     return (
         <Stack.Navigator
-            screenOptions={{
-                headerShown: false,
-                gestureEnabled: true,
-                gestureDirection: 'horizontal',
-                transitionSpec: {
-                    open: config,
-                    close: closeConfig,
-                },
-                cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
-            }}
+           screenOptions={{
+          headerTitleAlign: Platform.OS === 'android' ? 'left' : 'center',
+          headerShown: false,
+          gestureEnabled: true,
+          gestureDirection: 'horizontal',
+          transitionSpec: {
+            open: config,
+            close: closeConfig,
+          },
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          headerStyle: {
+            backgroundColor: colors?.screenBackColor
+          },
+        }}
         >
             <Stack.Screen name={ScreenConstants?.ON_BOARDING_SCREEN} component={OnBoarding} />
             <Stack.Screen name={ScreenConstants?.USER_TYPE_SCREEN} component={UserType} />
@@ -45,6 +50,7 @@ const AuthNavigation = () => {
             <Stack.Screen name={ScreenConstants?.SIGN_IN_ADVISOR_SCREEN} component={SignInAdvisor} />
             <Stack.Screen name={ScreenConstants?.FORGOT_PASSWORD_SCREEN} component={ForgotPassword} />
             <Stack.Screen name={ScreenConstants?.OTP_SCREEN} component={OtpScreen} />
+            <Stack.Screen name={ScreenConstants?.RESET_PASSWORD} component={ResetPassword} />
         </Stack.Navigator>
     );
 };

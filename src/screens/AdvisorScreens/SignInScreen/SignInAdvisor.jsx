@@ -2,25 +2,21 @@ import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../../res/color';
 import { height, width } from '../../../res/string';
-import { BlackArrowBack_Icon, Lock_Icon, PassEye_Icon, SignIn_Icon, User_Icon, VerifyVector_Icon } from '../../../res/icons';
+import { BlackArrowBack_Icon, Lock_Icon, PassEye_Icon, SignInAdvisor_Icon, User_Icon } from '../../../res/icons';
 import CustomTextInput from '../../../component/CustomTextInput';
 import fonts from '../../../res/fonts';
-
-import { useNavigation,NavigationProp } from '@react-navigation/native';
-import ScreenConstants from '../../../Navigators/ScreenConstants';
 import CustomButton from '../../../component/CustomButton';
-
-type RootStackParamList = {
-  [key in keyof typeof ScreenConstants]: undefined;
-};
+import { useNavigation } from '@react-navigation/native';
+import ScreenConstants from '../../../Navigators/ScreenConstants';
 
 
-const OTPScreen: React.FC = () => {
-  const [userId, setUserId] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+const SignInAdvisor = ({ data }) => {
+  const [userId, setUserId] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const navigation = useNavigation();
 
   // Define the data for userId input
   const userIdData = {
@@ -28,24 +24,24 @@ const OTPScreen: React.FC = () => {
     palceHolderText: 'Enter your User Id',
     FirstIcon: User_Icon,
     inputValue: userId,
-    changedText: (text: string) => setUserId(text),
+    changedText: (text) => setUserId(text),
   };
 
   // Define the data for password input
   const passwordData = {
     title: 'Password',
     palceHolderText: 'Enter your Password',
-    FirstIcon: Lock_Icon,
+    FirstIcon: User_Icon,
     SecondIcon: PassEye_Icon,
     inputValue: password,
     actionSecond: () => setShowPassword(!showPassword),
-    changedText: (text: string) => setPassword(text),
+    changedText: (text) => setPassword(text),
     isPassword: showPassword,
   };
 
   // Define the data for button
   const buttonData = {
-    buttonTitle: 'Verify',
+    buttonTitle: 'Sign In',
   };
 
   return (
@@ -54,21 +50,25 @@ const OTPScreen: React.FC = () => {
         <BlackArrowBack_Icon height={width / 16} width={width / 16} />
       </Pressable>
       <View style={styles.iconWrapper}>
-        <VerifyVector_Icon height={height / 3.5} width={width/1.2} />
+        <SignInAdvisor_Icon height={height / 4} width={width} />
       </View>
       <View style={styles.textWrapper}>
-        <Text style={styles.heading}>Verification Code</Text>
+        <Text style={styles.heading}>Sign In</Text>
         <Text style={styles.subHeading}>
-        A 4 digit code has been sent to +91 701*****34
+          Sign in to your account to manage your finances with ease.
         </Text>
         <CustomTextInput inputData={userIdData} />
+        <CustomTextInput inputData={passwordData} />
+        <Pressable style={styles.forgotPassView} onPress={() => navigation.navigate(ScreenConstants.FORGOT_PASSWORD_SCREEN)}>
+          <Text style={styles.forgotPassText}>Forgot Password?</Text>
+        </Pressable>
         <CustomButton buttonTitle={buttonData.buttonTitle} />
       </View>
     </View>
   );
 };
 
-export default OTPScreen;
+export default SignInAdvisor;
 
 const styles = StyleSheet.create({
   container: {
@@ -102,7 +102,6 @@ const styles = StyleSheet.create({
     fontFamily: fonts.PoppinsRegular,
     width: '85%',
     textAlign: 'center',
-    lineHeight: 18,
   },
   forgotPassView: {
     width: '100%',
@@ -112,6 +111,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     width: '100%',
     textAlign: 'right',
-    marginBottom: width / 50,
+    marginVertical: 10,
   },
 });
