@@ -42,26 +42,10 @@ const MemberNavigator = () => {
                 cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
             }}
         >
-            <Stack.Group
-                screenOptions={{
-                    headerTitleAlign: Platform.OS === 'android' ? 'left' : 'center',
-                    headerShown: false,
-                    gestureEnabled: true,
-                    gestureDirection: 'horizontal',
-                    transitionSpec: {
-                        open: config,
-                        close: closeConfig,
-                    },
-                    cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-                    headerStyle: {
-                        backgroundColor: colors?.primaryColor,
-                    },
-                }}
-            >
+            
             <Stack.Screen name={ScreenConstants?.MEMBER_BOTTOM_TAB} component={MemberBottomTab}   options={{ headerShown: false, title: '' }} />
             <Stack.Screen name={ScreenConstants?.MEMBER_PROFILE_SCREEN} component={MemberProfileScreen} options={{ headerShown: true, title: 'Profile',headerTitleStyle: { color: "white", fontFamily:fonts?.PoppinsSemiBold }, headerTintColor: "white", headerTitleAlign:"center"  }} />
             <Stack.Screen name={ScreenConstants?.HOME_MEMBER_SCREEN} component={HomeMemberScreen}   options={{ headerShown: false, title: '' }} />
-            </Stack.Group>
         </Stack.Navigator>
     );
 };
