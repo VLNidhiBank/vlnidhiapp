@@ -8,6 +8,7 @@ export { default as ResetPassword } from './MemberScreens/ResetPassword/RestetPa
 //Member Screens
 export { default as SignInMember } from './MemberScreens/SignInScreen/SignInMember';
 export { default as HomeMemberScreen } from './MemberScreens/HomeMemberScreen/HomeMemberScreen';
+export { default as MemberProfileScreen } from './MemberScreens/MemberProfile/MemberProfileScreen';
 
 //Advisor Screen
 export { default as SignInAdvisor } from './AdvisorScreens/SignInScreen/SignInAdvisor';

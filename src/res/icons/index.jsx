@@ -27,6 +27,9 @@ import Personalcard_SVG from './Personalcard.svg';
 import WalletSearch_SVG from './WalletSearch.svg';
 import Calculator_SVG from './Calculator.svg';
 import IntraTransfer_SVG from './IntraTransfer.svg';
+import Person_SVG from './Person.svg';
+import Member_SVG from './Member.svg';
+import BackBlack_SVG from './BackBlack.svg';
 
 
 
@@ -135,4 +138,13 @@ export const Calculator_Icon = ({ width, height }) => (
 );
 export const IntraTransfer_Icon = ({ width, height }) => (
   <IntraTransfer_SVG width={width} height={height} />
+);
+export const Person_Icon = ({ width, height }) => (
+  <Person_SVG width={width} height={height} />
+);
+export const Member_Icon = ({ width, height }) => (
+  <Member_SVG width={width} height={height} />
+);
+export const BackBlack_Icon = ({ width, height }) => (
+  <BackBlack_SVG width={width} height={height} />
 );
