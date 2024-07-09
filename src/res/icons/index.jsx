@@ -27,6 +27,14 @@ import Personalcard_SVG from './Personalcard.svg';
 import WalletSearch_SVG from './WalletSearch.svg';
 import Calculator_SVG from './Calculator.svg';
 import IntraTransfer_SVG from './IntraTransfer.svg';
+import HomeBottomActive_SVG from './HomeBottomActive.svg';
+import LoanBottomActive_SVG from './LoanBottomActive.svg';
+import ProfileBottomActive_SVG from './ProfileBottomActive.svg';
+import TransactionBottomActive_SVG from './TransactionBottomActive.svg';
+import LoanBottomInActive_SVG from './LoanBottomInActive.svg';
+import HomeBottomInactive_SVG from './HomeBottomInactive.svg';
+import ProfileBottomInactive_SVG from './ProfileBottomInactive.svg';
+import TransactionBottomInactive_SVG from './TransactionBottomInactive.svg';
 
 
 
@@ -135,4 +143,36 @@ export const Calculator_Icon = ({ width, height }) => (
 );
 export const IntraTransfer_Icon = ({ width, height }) => (
   <IntraTransfer_SVG width={width} height={height} />
+);
+
+export const HomeBottomActive_Icon = ({ width, height }) => (
+  <HomeBottomActive_SVG width={width} height={height} />
+);
+
+export const LoanBottomActive_Icon = ({ width, height }) => (
+  <LoanBottomActive_SVG width={width} height={height} />
+);
+
+export const ProfileBottomActive_Icon = ({ width, height }) => (
+  <ProfileBottomActive_SVG width={width} height={height} />
+);
+
+export const TransactionBottomActive_Icon = ({ width, height }) => (
+  <TransactionBottomActive_SVG width={width} height={height} />
+);
+
+export const LoanBottomInActive_Icon = ({ width, height }) => (
+  <LoanBottomInActive_SVG width={width} height={height} />
+);
+
+export const HomeBottomInactive_Icon = ({ width, height }) => (
+  <HomeBottomInactive_SVG width={width} height={height} />
+);
+
+export const ProfileBottomInactive_Icon = ({ width, height }) => (
+  <ProfileBottomInactive_SVG width={width} height={height} />
+);
+
+export const TransactionBottomInactive_Icon = ({ width, height }) => (
+  <TransactionBottomInactive_SVG width={width} height={height} />
 );

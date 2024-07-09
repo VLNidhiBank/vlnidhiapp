@@ -4,8 +4,14 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet } from 'react-native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
+import { HomeBottomActive_Icon, HomeBottomInactive_Icon, LoanBottomActive_Icon, LoanBottomInActive_Icon, ProfileBottomActive_Icon, ProfileBottomInactive_Icon, TransactionBottomActive_Icon, TransactionBottomInactive_Icon } from '../res/icons';
+import { colors } from '../res/color';
+import { height, width } from '../res/string';
+import fonts from '../res/fonts';
+import { HomeMemberScreen } from '../screens';
+import ScreenConstants from './ScreenConstants';
 
-const CustomerBottomTab = () => {
+const MemberBottomTab = () => {
 
 
     const Tab = createBottomTabNavigator();
@@ -29,112 +35,69 @@ const CustomerBottomTab = () => {
     };
 
 
-    function HomeStack() {
-
-        return (
-            <>
-                <Stack.Navigator
-                    screenOptions={{
-                        headerShown: false, gestureEnabled: true, gestureDirection: 'horizontal',
-                        transitionSpec: {
-                            open: config,
-                            close: closeConfig,
-                        },
-                        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-                    }}>
-                    <Stack.Screen name={NavigationStrings.CUSTOMER_HOME} component={CustomerHome} />
-                    <Stack.Screen name={NavigationStrings.MAIN_CAT_PAGE} component={MainCatPage} />
-                </Stack.Navigator>
-            </>
-
-        );
-    }
-
-    const InquiryStack = () => {
-
-        return (
-            <>
-                <Stack.Navigator
-                    initialRouteName={NavigationStrings.CUSTOMER_INQUIRY}
-                    screenOptions={{
-                        headerShown: false, gestureEnabled: true, gestureDirection: 'horizontal',
-                        transitionSpec: {
-                            open: config,
-                            close: closeConfig,
-                        },
-                        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-                    }}>
-                    <Stack.Screen name={NavigationStrings.CUSTOMER_INQUIRY} component={CustInquiry} />
-                    <Stack.Screen name={NavigationStrings.INQUIRY_SUPPORT} component={InquirySupport} />
-                </Stack.Navigator>
-            </>
-
-        );
-    };
-
-
+   
 
 
     return (
         <Tab.Navigator screenOptions={{ tabBarLabel: () => { return null; }, headerShown: false, tabBarStyle: styles.tabStyle }} >
-            <Tab.Screen name={NavigationStrings.CUSTOMER_HOME} component={CustomerHome}
+            <Tab.Screen name={ScreenConstants?.HOME_MEMBER_SCREEN} component={HomeMemberScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         focused ?
                             <View style={styles.TotalWrap} >
-                                <BottomActiveHome_Icon width={windowHeight / 20} height={windowWidth / 20} />
+                                <HomeBottomActive_Icon width={height / 20} height={width / 20} />
                                 <Text style={styles.ActiveText} >Home</Text>
                             </View>
                             :
                             <View style={styles.TotalWrap} >
-                                <BottomHome_Icon width={windowHeight / 20} height={windowWidth / 20} />
+                                <HomeBottomInactive_Icon width={height / 20} height={width / 20} />
                                 <Text style={styles.InActiveText} >Home</Text>
                             </View>
                     ),
                 }} />
-            <Tab.Screen name={NavigationStrings.CUSTOMER_INQUIRY} component={CustInquiry}
+            <Tab.Screen name={ScreenConstants.LOAN_MEMBER_SCREEN} component={HomeMemberScreen}
                 options={{
                     tabBarLabel: () => { return null; },
                     tabBarIcon: ({ focused }) => (
                         focused ?
                             <View style={styles.TotalWrap} >
-                                <BottomActiveInquiry_Icon width={windowHeight / 20} height={windowWidth / 20} />
-                                <Text style={styles.ActiveText} >Inquiry</Text>
+                                <LoanBottomActive_Icon width={height / 20} height={width / 20} />
+                                <Text style={styles.ActiveText} >Loan</Text>
                             </View>
                             :
                             <View style={styles.TotalWrap} >
-                                <BottomInquiry_Icon width={windowHeight / 20} height={windowWidth / 20} />
-                                <Text style={styles.InActiveText} >Inquiry</Text>
+                                <LoanBottomInActive_Icon width={height / 20} height={width / 20} />
+                                <Text style={styles.InActiveText} >Loan</Text>
                             </View>
                     ),
                 }}
             />
-            <Tab.Screen name={NavigationStrings.CUST_INVOICES_TAB} component={CustInvoicesTab} options={{
+            <Tab.Screen name={ScreenConstants.TRANSACTION_MEMBER_SCREEN} component={HomeMemberScreen} options={{
                 tabBarLabel: () => { return null; },
                 tabBarIcon: ({ focused }) => (
                     focused ?
                         <View style={styles.TotalWrap} >
-                            <BottomActiveInvoices_Icon width={windowHeight / 20} height={windowWidth / 20} />
-                            <Text style={styles.ActiveText} >Invoices</Text>
+                            <TransactionBottomActive_Icon width={height / 20} height={width / 20} />
+                            <Text style={styles.ActiveText} >Transaction</Text>
                         </View>
                         :
                         <View style={styles.TotalWrap} >
-                            <BottomInVoices_Icon width={windowHeight / 20} height={windowWidth / 20} />
-                            <Text style={styles.InActiveText} >Invoices</Text>
+                            <TransactionBottomInactive_Icon width={height / 20} height={width / 20} />
+                            <Text style={styles.InActiveText} >Transaction</Text>
                         </View>
                 ),
             }} />
-            <Tab.Screen name={NavigationStrings.CUSTOMER_PROFILE_SCREEN} component={CustProfile} options={{
+            <Tab.Screen name={ScreenConstants.PROFILE_MEMBER_SCREEN} component={HomeMemberScreen} options={{
                 tabBarLabel: () => { return null; },
                 tabBarIcon: ({ focused }) => (
                     focused ?
                         <View style={styles.TotalWrap} >
-                            <BottomActiveProfile_Icon width={windowHeight / 20} height={windowWidth / 20} />
+                            <ProfileBottomActive_Icon width={height / 20} height={width / 20} />
                             <Text style={styles.ActiveText} >Profile</Text>
                         </View>
                         :
                         <View style={styles.TotalWrap} >
-                            <ProfileCust_Icon width={windowHeight / 20} height={windowWidth / 20} />
+                            <ProfileBottomInactive_Icon width={height / 20} height={width / 20} />
                             <Text style={styles.InActiveText} >Profile</Text>
                         </View>
                 ),
@@ -146,14 +109,14 @@ const CustomerBottomTab = () => {
 
 
 
-export default CustomerBottomTab;
+export default MemberBottomTab;
 
 
 
 const styles = StyleSheet.create({
     tabStyle: {
-        height: windowHeight / 12,
-        backgroundColor: colors.whiteColor,
+        height: height / 12,
+        backgroundColor: colors.white,
         borderTopWidth: 0,
         elevation: 0,
     },
@@ -169,8 +132,8 @@ const styles = StyleSheet.create({
         width: '100%',
         textAlign: 'center',
         // backgroundColor: 'pink',
-        color: colors.AnotherSecondaryColor,
-        fontFamily: fonts.PoppinsBold,
+        color: colors.primaryColor,
+        fontFamily: fonts.PoppinsSemiBold,
         fontSize: 10,
         lineHeight: 15,
         paddingTop: 5,
