@@ -7,7 +7,7 @@ const index = () => {
   const [user, setUser] = useState(true)
   return (
     <NavigationContainer>
-      {!user ?
+      {user ?
         <MemberNavigator />
         :
         <AuthNavigation />
