@@ -16,6 +16,17 @@ import Call_SVG from './Call.svg';
 import VerifyVector_SVG from './VerifyVector.svg';
 import ResetPassVector_SVG from './ResetPassVector.svg';
 import ForgotPass_SVG from './ForgotPass.svg';
+import VLBank_SVG from './VLBank.svg';
+import Wallet_SVG from './Wallet.svg';
+import Back_SVG from './Back.svg';
+import WalletAdd_SVG from './WalletAdd.svg';
+import CardPost_SVG from './CardPost.svg';
+import RegularEmi_SVG from './RegularEmi.svg';
+import Bank_SVG from './Bank.svg';
+import Personalcard_SVG from './Personalcard.svg';
+import WalletSearch_SVG from './WalletSearch.svg';
+import Calculator_SVG from './Calculator.svg';
+import IntraTransfer_SVG from './IntraTransfer.svg';
 
 
 
@@ -89,7 +100,39 @@ export const VerifyVector_Icon = ({ width, height }) => (
 export const ResetPassVector_Icon = ({ width, height }) => (
   <ResetPassVector_SVG width={width} height={height} />
 );
-
 export const ForgotPass_Icon = ({ width, height }) => (
   <ForgotPass_SVG width={width} height={height} />
+);
+export const VLBank_Icon = ({ width, height }) => (
+  <VLBank_SVG width={width} height={height} />
+);
+export const Wallet_Icon = ({ width, height }) => (
+  <Wallet_SVG width={width} height={height} />
+);
+export const Back_Icon = ({ width, height }) => (
+  <Back_SVG width={width} height={height} />
+);
+export const WalletAdd_Icon = ({ width, height }) => (
+  <WalletAdd_SVG width={width} height={height} />
+);
+export const CardPost_Icon = ({ width, height }) => (
+  <CardPost_SVG width={width} height={height} />
+);
+export const RegularEmi_Icon = ({ width, height }) => (
+  <RegularEmi_SVG width={width} height={height} />
+);
+export const Bank_Icon = ({ width, height }) => (
+  <Bank_SVG width={width} height={height} />
+);
+export const Personalcard_Icon = ({ width, height }) => (
+  <Personalcard_SVG width={width} height={height} />
+);
+export const WalletSearch_Icon = ({ width, height }) => (
+  <WalletSearch_SVG width={width} height={height} />
+);
+export const Calculator_Icon = ({ width, height }) => (
+  <Calculator_SVG width={width} height={height} />
+);
+export const IntraTransfer_Icon = ({ width, height }) => (
+  <IntraTransfer_SVG width={width} height={height} />
 );

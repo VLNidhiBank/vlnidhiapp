@@ -62,7 +62,7 @@ const ResetPassword = () => {
         </Text>
         <CustomTextInput inputData={confirmPasswordData} />
         <CustomTextInput inputData={passwordData} />
-        <CustomButton buttonTitle={buttonData.buttonTitle} />
+        <CustomButton buttonTitle={buttonData.buttonTitle}/>
       </View>
     </View>
   );
