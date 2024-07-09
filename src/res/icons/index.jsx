@@ -16,6 +16,9 @@ import Call_SVG from './Call.svg';
 import VerifyVector_SVG from './VerifyVector.svg';
 import ResetPassVector_SVG from './ResetPassVector.svg';
 import ForgotPass_SVG from './ForgotPass.svg';
+import Logo_SVG from './Logo.svg';
+import NewInvestment_SVG from './NewInvestment.svg';
+import ArrowSide_SVG from './ArrowSide.svg';
 
 
 
@@ -92,4 +95,16 @@ export const ResetPassVector_Icon = ({ width, height }) => (
 
 export const ForgotPass_Icon = ({ width, height }) => (
   <ForgotPass_SVG width={width} height={height} />
+);
+
+export const Logo_Icon = ({ width, height }) => (
+  <Logo_SVG width={width} height={height} />
+);
+
+export const NewInvestment_Icon = ({ width, height }) => (
+  <NewInvestment_SVG width={width} height={height} />
+);
+
+export const ArrowSide_Icon = ({ width, height }) => (
+  <ArrowSide_SVG width={width} height={height} />
 );
