@@ -47,7 +47,6 @@ const HomeMemberScreen = () => {
     )
   }
 
-
   return (
     <View style={styles.container}>
       <View style={styles?.upperWrapper} >
