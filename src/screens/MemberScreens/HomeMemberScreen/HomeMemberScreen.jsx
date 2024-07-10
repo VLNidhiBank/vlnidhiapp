@@ -37,7 +37,7 @@ const HomeMemberScreen = () => {
         end={{ x: 1, y: 0 }}
       >
         <View style={styles.headerContent}>
-          <item.icon height={height / 12} width={width / 6} />
+          <item.icon height={height / 15} width={width / 6} />
           <View style={styles.textContainer}>
             <Text style={styles.headerTitle}>{item?.title}</Text>
             <Text style={styles.headerSubtitle}>{item?.subtitle}</Text>
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   upperWrapper: {
-    height: height / 3,
+    height: height / 4,
     // backgroundColor: 'red'
   },
   content: {
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   },
   header: {
     width: '100%',
-    height: height / 7,
+    height: height / 8.5,
     borderRadius: 14,
     justifyContent: "center",
     alignSelf: "center",
@@ -114,18 +114,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: "4%",
   },
   textContainer: {
-    marginLeft: "5%",
+    // marginLeft: "5%",
     flex: 1,
+    // backgroundColor: 'red'
+    marginHorizontal: 10,
   },
   headerTitle: {
     fontSize: 18,
-    fontWeight: "600",
     fontFamily: fonts?.PoppinsSemiBold,
     color: colors?.white,
+    marginVertical: 5,
   },
   headerSubtitle: {
     fontSize: 10,
-    fontWeight: "300",
     fontFamily: fonts?.PoppinsRegular,
     color: colors?.white,
   },
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red',
     marginTop: width / 60,
     paddingBottom: width / 3,
-    paddingHorizontal: width / 30,
+    paddingHorizontal: width / 20,
 
   },
   mainContainer: {
