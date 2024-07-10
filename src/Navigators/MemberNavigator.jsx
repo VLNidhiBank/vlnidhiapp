@@ -54,7 +54,7 @@ const MemberNavigator = () => {
             <Stack.Screen name={ScreenConstants?.MEMBER_PROFILE_SCREEN} component={MemberProfileScreen} options={{ headerShown: false, title: ''  }} />
             <Stack.Screen name={ScreenConstants?.HOME_MEMBER_SCREEN} component={HomeMemberScreen}   options={{ headerShown: false, title: '' }} />
             <Stack.Screen name={ScreenConstants?.MY_PROFILE_SCREEN} component={MyProfileScreen}   options={{ headerShown: true, title: 'MyProfile' }} />
-            <Stack.Screen name={ScreenConstants?.NEW_INVESTMENT_SCREEN} component={NewInvestment}   options={{ headerShown: true, title: 'MyProfile' }} />
+            <Stack.Screen name={ScreenConstants?.NEW_INVESTMENT_SCREEN} component={NewInvestment}   options={{ headerShown: true, title: 'New Investment' }} />
         </Stack.Navigator>
     );
 };

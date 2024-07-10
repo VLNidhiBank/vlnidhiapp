@@ -3,7 +3,7 @@ import { Text, View } from 'react-native'
 
 const StepOne = () => {
   return (
-    <View>
+    <View   >  
     <Text>Step One</Text>
       
     </View>
