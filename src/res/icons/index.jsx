@@ -37,7 +37,12 @@ import TransactionBottomActive_SVG from './TransactionBottomActive.svg';
 import LoanBottomInActive_SVG from './LoanBottomInActive.svg';
 import HomeBottomInactive_SVG from './HomeBottomInactive.svg';
 import ProfileBottomInactive_SVG from './ProfileBottomInactive.svg';
-import TransactionBottomInactive_SVG from './TransactionBottomInactive.svg';
+import TransactionBottomInactive_SVG from './TransactionBottomInactive.svg'; 
+import ChangeMpin_SVG from './ChangeMpin.svg'; 
+import FingerScan_SVG from './FingerScan.svg'; 
+import Phone_SVG from './Phone.svg'; 
+import About_SVG from './About.svg'; 
+import Logout_SVG from './Logout.svg'; 
 
 
 
@@ -187,4 +192,19 @@ export const ProfileBottomInactive_Icon = ({ width, height }) => (
 
 export const TransactionBottomInactive_Icon = ({ width, height }) => (
   <TransactionBottomInactive_SVG width={width} height={height} />
+);
+export const ChangeMpin_Icon = ({ width, height }) => (
+  <ChangeMpin_SVG width={width} height={height} />
+);
+export const FingerScan_Icon = ({ width, height }) => (
+  <FingerScan_SVG width={width} height={height} />
+);
+export const Phone_Icon = ({ width, height }) => (
+  <Phone_SVG width={width} height={height} />
+);
+export const About_Icon = ({ width, height }) => (
+  <About_SVG width={width} height={height} />
+);
+export const Logout_Icon = ({ width, height }) => (
+  <Logout_SVG width={width} height={height} />
 );

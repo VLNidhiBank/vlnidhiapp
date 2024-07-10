@@ -1,30 +1,35 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 import { colors } from '../../../res/color'
-import { Back_Icon, BackBlack_Icon, Member_Icon, Person_Icon } from '../../../res/icons'
+import { About_Icon, Back_Icon, BackBlack_Icon, ChangeMpin_Icon, FingerScan_Icon, Logout_Icon, Member_Icon, Person_Icon, Phone_Icon } from '../../../res/icons'
 import { height, width } from '../../../res/string'
 import fonts from '../../../res/fonts'
 import { FlatList } from 'react-native-gesture-handler'
+import { useNavigation } from '@react-navigation/native'
+import ScreenConstants from '../../../Navigators/ScreenConstants'
+//import ScreenConstants from '../../../Navigators/ScreenConstants'
 
 const MemberProfileScreen = () => {
 
+  const navigation = useNavigation();
+
   const DummyData = [
-    {id: 1, icon: Member_Icon, title: "Profile"},
-    {id: 2, icon: Member_Icon, title: "Change MPIN"},
-    {id: 3, icon: Member_Icon, title: "Biometric Setting"},
-    {id: 4, icon: Member_Icon, title: "Contact Us"},
-    {id: 5, icon: Member_Icon, title: "About VL Bank"},
-    {id: 6, icon: Member_Icon, title: "Logout"},
+    { id: 1, icon: Member_Icon, title: "Profile", actionNavigation: () => {navigation?.navigate(ScreenConstants?.MY_PROFILE_SCREEN)} },
+    { id: 2, icon: ChangeMpin_Icon, title: "Change MPIN" },
+    { id: 3, icon: FingerScan_Icon, title: "Biometric Setting" },
+    { id: 4, icon: Phone_Icon, title: "Contact Us" },
+    { id: 5, icon: About_Icon, title: "About VL Bank" },
+    // {id: 6, icon: Logout_Icon, title: "Logout"},
   ]
-  const Data = ({ item }) =>{
-    return(
-      <View style={{ flexDirection: "row", justifyContent: "space-between",paddingHorizontal: 10, }}>
-          <View style={{ flexDirection: "row", alignItems: "center", width: '85%', }}>
-            <item.icon height={height / 20} width={width / 14} />
-            <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsRegular, color: colors?.black, marginHorizontal: 20,  }}>{item.title}</Text>
-          </View>
-          <BackBlack_Icon height={height / 12} width={width / 12} />
+  const Data = ({ item, props }) => {
+    return (
+      <Pressable onPress={() => { item?.actionNavigation() }} style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 10, }}>
+        <View style={{ flexDirection: "row", alignItems: "center", width: '85%', }}>
+          <item.icon height={height / 20} width={width / 14} />
+          <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsRegular, color: colors?.black, marginHorizontal: 20, }}>{item.title}</Text>
         </View>
+        <BackBlack_Icon height={height / 12} width={width / 12} />
+      </Pressable>
     )
   }
   return (
@@ -39,12 +44,18 @@ const MemberProfileScreen = () => {
           data={DummyData}
           style={styles.flatlistStyles}
           renderItem={({ item }) => {
-            return(
-              <Data item={item}/>
+            return (
+              <Data item={item} />
             )
           }
-        } 
+          }
         />
+        <View style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 20, }}>
+          <View style={{ flexDirection: "row", alignItems: "center", width: '85%', }}>
+            <Logout_Icon height={height / 20} width={width / 14} />
+            <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsRegular, color:"red", marginHorizontal: 25, }}>Logout</Text>
+          </View>
+        </View>
       </View>
     </View>
   )
@@ -60,19 +71,19 @@ const styles = StyleSheet.create({
   icon: {
     justifyContent: "center",
     alignItems: "center",
-    padding: "2%"
+    //padding: "2%"
   },
   header: {
     width: width * 0.95,
     // height: height / 2,
     backgroundColor: colors?.white,
-    borderRadius: 10,
+    borderRadius: 20,
     alignSelf: "center"
   },
   flatlistStyles: {
     // backgroundColor: 'red',
-    marginTop: width / 60,
-    paddingBottom: width / 3,
+    //marginTop: width / 60,
+    // paddingBottom: width / 3,
     paddingHorizontal: width / 30,
 
   },
