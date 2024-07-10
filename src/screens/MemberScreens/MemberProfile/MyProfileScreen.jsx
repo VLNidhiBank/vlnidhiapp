@@ -27,9 +27,9 @@ const MyProfileScreen = () => {
   const Data = ({ item }) => {
     return (
 
-      <View style={{ flexDirection: "row", justifyContent: "space-between", padding: "4%", width: width * 0.8 }}>
-        <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsSemiBold, color: colors?.black }}>{item.title}</Text>
-        <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsRegular }}>{item.subtitle}</Text>
+      <View style={{ flexDirection: "row", justifyContent: "space-between",   paddingVertical: width /50,   }}>
+        <Text style={{ width: '50%', fontSize: 16, fontFamily: fonts?.PoppinsSemiBold, color: colors?.black }}>{item.title}</Text>
+        <Text style={{ width: '50%', fontSize: 16, fontFamily: fonts?.PoppinsRegular,  }}>{item.subtitle}</Text>
       </View>
     )
   }
@@ -59,9 +59,11 @@ const styles = StyleSheet.create({
   },
   content: {
     width: width * 0.95,
-    borderRadius: 10,
+    borderRadius: 20,
     backgroundColor: colors?.white,
     alignSelf: "center",
-    marginTop: "4%"
+    marginTop: "4%",
+    paddingHorizontal: width /15,
+    paddingVertical: width /30,
   },
 });
