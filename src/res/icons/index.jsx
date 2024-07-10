@@ -51,6 +51,21 @@ import StepFive_SVG from './StepFive.svg';
 import Tick_SVG from './Tick.svg';
 
 
+import CallIcon_SVG from './CallIcon.svg'; 
+import Whatsapp_SVG from './Whatsapp.svg'; 
+import Mail_SVG from './Mail.svg'; 
+import Location_SVG from './Location.svg'; 
+import Privacy_SVG from './Privacy.svg'; 
+import Info_SVG from './Info.svg'; 
+import Refund_SVG from './Refund.svg'; 
+import Daily_SVG from './Daily.svg';
+import Renewal_SVG from './Renewal.svg';
+import Amount_SVG from './Amount.svg';
+import RewenalStat_SVG from './RewenalStat.svg';
+import RecurringStat_SVG from './RecurringStat.svg';
+import EditStat_SVG from './EditStat.svg';
+import BankStat_SVG from './BankStat.svg';
+import ReceiptStat_SVG from './ReceiptStat.svg';
 
 
 
@@ -234,4 +249,49 @@ export const StepFive_Icon = ({ width, height }) => (
 
 export const Tick_Icon = ({ width, height }) => (
 	<Tick_SVG width={width} height={height} />
+);
+export const CallIcon_Icon = ({ width, height }) => (
+  <CallIcon_SVG width={width} height={height} />
+);
+export const Whatsapp_Icon = ({ width, height }) => (
+  <Whatsapp_SVG width={width} height={height} />
+);
+export const Mail_Icon = ({ width, height }) => (
+  <Mail_SVG width={width} height={height} />
+);
+export const Location_Icon = ({ width, height }) => (
+  <Location_SVG width={width} height={height} />
+);
+export const Privacy_Icon = ({ width, height }) => (
+  <Privacy_SVG width={width} height={height} />
+);
+export const Info_Icon = ({ width, height }) => (
+  <Info_SVG width={width} height={height} />
+);
+export const Refund_Icon = ({ width, height }) => (
+  <Refund_SVG width={width} height={height} />
+);
+export const Daily_Icon = ({ width, height }) => (
+  <Daily_SVG width={width} height={height} />
+);
+export const Renewal_Icon = ({ width, height }) => (
+  <Renewal_SVG width={width} height={height} />
+);
+export const Amount_Icon = ({ width, height }) => (
+  <Amount_SVG width={width} height={height} />
+);
+export const RewenalStat_Icon = ({ width, height }) => (
+  <RewenalStat_SVG width={width} height={height} />
+);
+export const RecurringStat_Icon = ({ width, height }) => (
+  <RecurringStat_SVG width={width} height={height} />
+);
+export const EditStat_Icon = ({ width, height }) => (
+  <EditStat_SVG width={width} height={height} />
+);
+export const BankStat_Icon = ({ width, height }) => (
+  <BankStat_SVG width={width} height={height} />
+);
+export const ReceiptStat_Icon = ({ width, height }) => (
+  <ReceiptStat_SVG width={width} height={height} />
 );

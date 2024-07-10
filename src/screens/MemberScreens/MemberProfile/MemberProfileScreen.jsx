@@ -15,10 +15,10 @@ const MemberProfileScreen = () => {
 
   const DummyData = [
     { id: 1, icon: Member_Icon, title: "Profile", actionNavigation: () => {navigation?.navigate(ScreenConstants?.MY_PROFILE_SCREEN)} },
-    { id: 2, icon: ChangeMpin_Icon, title: "Change MPIN" },
-    { id: 3, icon: FingerScan_Icon, title: "Biometric Setting" },
-    { id: 4, icon: Phone_Icon, title: "Contact Us" },
-    { id: 5, icon: About_Icon, title: "About VL Bank" },
+    { id: 2, icon: ChangeMpin_Icon, title: "Change MPIN", actionNavigation: () => {navigation.navigate(ScreenConstants.CHANGEMPIN_SCREEN)}},
+    { id: 3, icon: FingerScan_Icon, title: "Biometric Setting", actionNavigation: () => {navigation?.navigate(ScreenConstants?.BIOMETRIC_SCREEN)} },
+    { id: 4, icon: Phone_Icon, title: "Contact Us", actionNavigation: () => {navigation?.navigate(ScreenConstants?.CONTACTUS_SCREEN)} },
+    { id: 5, icon: About_Icon, title: "About VL Bank", actionNavigation: () => {navigation?.navigate(ScreenConstants?.POLICIES_SCREEN)} },
     // {id: 6, icon: Logout_Icon, title: "Logout"},
   ]
   const Data = ({ item, props }) => {
@@ -51,10 +51,10 @@ const MemberProfileScreen = () => {
           }
         />
         <View style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 20, }}>
-          <View style={{ flexDirection: "row", alignItems: "center", width: '85%', }}>
+          <Pressable style={{ flexDirection: "row", alignItems: "center", width: '85%', }}>
             <Logout_Icon height={height / 20} width={width / 14} />
             <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsRegular, color:"red", marginHorizontal: 25, }}>Logout</Text>
-          </View>
+          </Pressable>
         </View>
       </View>
     </View>

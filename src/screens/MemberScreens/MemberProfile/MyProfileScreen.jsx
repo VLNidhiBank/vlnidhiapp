@@ -4,8 +4,11 @@ import { colors } from '../../../res/color'
 import { width } from '../../../res/string'
 import fonts from '../../../res/fonts'
 import { FlatList } from 'react-native-gesture-handler'
+import { useNavigation } from '@react-navigation/native'
 
 const MyProfileScreen = () => {
+
+  const navigation = useNavigation()
 
   const Information = [
     { id: 1, title: "Full name:", subtitle: "Lorem Ispum" },

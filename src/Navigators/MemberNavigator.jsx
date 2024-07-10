@@ -7,7 +7,7 @@ import { Easing } from 'react-native';
 import ScreenConstants from './ScreenConstants';
 import { colors } from '../res/color';
 import fonts from '../res/fonts';
-import { HomeMemberScreen ,MemberProfileScreen, MyProfileScreen, NewInvestment} from '../screens';
+import { AccountScreen, BiometricScreen, ChangeMpinScreen, ContactUsScreen, HomeMemberScreen ,MemberProfileScreen, MyProfileScreen, PoliciesScreen, RenewalScreen, NewInvestment} from '../screens';
 import MemberBottomTab from './BottomTabNavigator';
 
 const Stack = createStackNavigator();
@@ -55,6 +55,12 @@ const MemberNavigator = () => {
             <Stack.Screen name={ScreenConstants?.HOME_MEMBER_SCREEN} component={HomeMemberScreen}   options={{ headerShown: false, title: '' }} />
             <Stack.Screen name={ScreenConstants?.MY_PROFILE_SCREEN} component={MyProfileScreen}   options={{ headerShown: true, title: 'MyProfile' }} />
             <Stack.Screen name={ScreenConstants?.NEW_INVESTMENT_SCREEN} component={NewInvestment}   options={{ headerShown: true, title: 'New Investment' }} />
+            <Stack.Screen name={ScreenConstants?.BIOMETRIC_SCREEN} component={BiometricScreen}   options={{ headerShown: true, title: 'Biometric' }} />
+            <Stack.Screen name={ScreenConstants?.CONTACTUS_SCREEN} component={ContactUsScreen}   options={{ headerShown: true, title: 'Contact Us' }} />
+            <Stack.Screen name={ScreenConstants?.POLICIES_SCREEN} component={PoliciesScreen}   options={{ headerShown: true, title: 'Policies' }} />
+            <Stack.Screen name={ScreenConstants?.CHANGEMPIN_SCREEN} component={ChangeMpinScreen}   options={{ headerShown: true, title: 'Change MPIN' }} />
+            <Stack.Screen name={ScreenConstants?.RENEWAL_SCREEN} component={RenewalScreen}   options={{ headerShown: true, title: 'Renewals' }} />
+            <Stack.Screen name={ScreenConstants?.ACCOUNT_SCREEN} component={AccountScreen}   options={{ headerShown: true, title: 'All Account Statement' }} />
         </Stack.Navigator>
     );
 };
