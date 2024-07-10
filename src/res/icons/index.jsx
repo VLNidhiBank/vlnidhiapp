@@ -43,6 +43,13 @@ import FingerScan_SVG from './FingerScan.svg';
 import Phone_SVG from './Phone.svg'; 
 import About_SVG from './About.svg'; 
 import Logout_SVG from './Logout.svg'; 
+import StepOne_SVG from './StepOne.svg';
+import StepTwo_SVG from './StepTwo.svg';
+import StepThree_SVG from './StepThree.svg';
+import StepFour_SVG from './StepFour.svg';
+import StepFive_SVG from './StepFive.svg';
+import Tick_SVG from './Tick.svg';
+
 
 
 
@@ -207,4 +214,24 @@ export const About_Icon = ({ width, height }) => (
 );
 export const Logout_Icon = ({ width, height }) => (
   <Logout_SVG width={width} height={height} />
+);
+
+export const StepOne_Icon = ({ width, height }) => (
+	<StepOne_SVG width={width} height={height} />
+);
+export const StepTwo_Icon = ({ width, height }) => (
+	<StepTwo_SVG width={width} height={height} />
+);
+export const StepThree_Icon = ({ width, height }) => (
+	<StepThree_SVG width={width} height={height} />
+);
+export const StepFour_Icon = ({ width, height }) => (
+	<StepFour_SVG width={width} height={height} />
+);
+export const StepFive_Icon = ({ width, height }) => (
+	<StepFive_SVG width={width} height={height} />
+);
+
+export const Tick_Icon = ({ width, height }) => (
+	<Tick_SVG width={width} height={height} />
 );

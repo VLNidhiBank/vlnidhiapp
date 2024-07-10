@@ -10,6 +10,7 @@ export { default as SignInMember } from './MemberScreens/SignInScreen/SignInMemb
 export { default as HomeMemberScreen } from './MemberScreens/HomeMemberScreen/HomeMemberScreen';
 export { default as MemberProfileScreen } from './MemberScreens/MemberProfile/MemberProfileScreen';
 export { default as MyProfileScreen } from './MemberScreens/MemberProfile/MyProfileScreen';
+export { default as NewInvestment } from './MemberScreens/NewInvestment/NewInvesment';
 
 //Advisor Screen
 export { default as SignInAdvisor } from './AdvisorScreens/SignInScreen/SignInAdvisor';
