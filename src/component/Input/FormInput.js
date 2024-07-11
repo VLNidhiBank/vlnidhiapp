@@ -43,6 +43,7 @@ export default FormInput;
 const styles = StyleSheet.create({
   inputWrapper: {
     width: '100%',
+    // backgroundColor: 'red'
   },
   text: {
     fontSize: 14,
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
   TextInputStyles: {
     height: height / 18,
     flexDirection: 'row',
-    backgroundColor: colors.white,
+    backgroundColor: colors.greyColorInput,
     fontSize: 16,
     paddingHorizontal: 10,
     justifyContent: 'space-between',
