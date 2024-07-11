@@ -15,7 +15,7 @@ const HomeMemberScreen = () => {
   const DummyData = [
     { id: 1, icon: Wallet_Icon, title: "New Investment", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#4338CA", color2: "#6366F1", actionNavigation: () => navigation?.navigate(ScreenConstants.NEW_INVESTMENT_SCREEN) },
     { id: 2, icon: WalletAdd_Icon, title: "Renewals", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#1F2937", color2: "#4B5563", actionNavigation: () => {navigation.navigate(ScreenConstants.RENEWAL_SCREEN)} },
-    { id: 3, icon: CardPost_Icon, title: "Apply Loan", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#4F46E5", color2: "#8B5CF6", actionNavigation: () => console?.log('Here') },
+    { id: 3, icon: CardPost_Icon, title: "Apply Loan", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#4F46E5", color2: "#8B5CF6", actionNavigation: () =>  {navigation.navigate(ScreenConstants.APPLYLOAN_SCREEN)}},
     { id: 4, icon: RegularEmi_Icon, title: "Regular EMI", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#3B82F6", color2: "#93C5FD", actionNavigation: () => console?.log('Here') },
     { id: 5, icon: RegularEmi_Icon, title: "Irregular EMI", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#7A5AF8", color2: "#A78BFA", actionNavigation: () => console?.log('Here') },
     { id: 6, icon: Bank_Icon, title: "All Account", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#22C55E", color2: "#86EFAC", actionNavigation: () => {navigation.navigate(ScreenConstants.ACCOUNT_SCREEN)} },

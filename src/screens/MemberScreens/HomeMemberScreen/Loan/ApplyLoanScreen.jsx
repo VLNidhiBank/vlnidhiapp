@@ -1,21 +1,20 @@
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native'
 import React, { useRef, useState } from 'react'
-import { colors } from '../../../res/color'
-import { height, width } from '../../../res/string'
-import fonts from '../../../res/fonts'
+import { colors } from '../../../../res/color'
+import { height, width } from '../../../../res/string'
 import { FlatList } from 'react-native-gesture-handler'
-import Spinner from '../../../component/Spinner/Spinner'
 import { useNavigation } from '@react-navigation/native'
-import { Call_Icon, StepFive_Icon, StepFour_Icon, StepOne_Icon, StepThree_Icon, StepTwo_Icon, Tick_Icon } from '../../../res/icons'
-import CustomButton from '../../../component/CustomButton'
-import FormInput from '../../../component/Input/FormInput'
-import StepOne from './StepOne'
-import StepTwo from './StepTwo'
-import StepThree from './StepThree'
-import StepFour from './StepFour'
-import StepFive from './StepFive'
+// import { Call_Icon, StepFive_Icon, StepFour_Icon, StepOne_Icon, StepThree_Icon, StepTwo_Icon, Tick_Icon } from '../../../res/icons'
+import FormInput from '../../../../component/Input/FormInput'
+import StepTwo from '../../NewInvestment/StepTwo'
+import StepThree from '../../NewInvestment/StepThree'
+import fonts from '../../../../res/fonts'
+import Spinner from '../../../../component/Spinner/Spinner'
+import CustomButton from '../../../../component/CustomButton'
+import StepOne from '../../NewInvestment/StepOne'
+import { Call_Icon, Tick_Icon } from '../../../../res/icons'
 
-const NewInvestment = () => {
+const ApplyLoanScreen = () => {
     const [page, setPage] = useState(1);
     const [active, setActive] = useState(1);
     const [loacalLoading, setloacalLoading] = useState(false);
@@ -71,11 +70,7 @@ const NewInvestment = () => {
             setActive(active + 1);
         } else if (page === 3) {
             setActive(active + 1);
-        } else if (page === 4) {
-            setActive(active + 1);
-        } else if (page === 5) {
-            setActive(active + 1);
-        }
+        } 
     };
 
     const goToStepOne = () => {
@@ -105,14 +100,14 @@ const NewInvestment = () => {
         }
     };
 
-    const goToStepFour = () => {
-        if (page === 5) {
-            setPage(page => page - 1);
-            setActive(active - 1);
-        } else {
-            return;
-        }
-    };
+    // const goToStepFour = () => {
+    //     if (page === 5) {
+    //         setPage(page => page - 1);
+    //         setActive(active - 1);
+    //     } else {
+    //         return;
+    //     }
+    // };
 
     const userIdData = {
         title: 'Branch Code',
@@ -176,37 +171,37 @@ const NewInvestment = () => {
                                     <CustomButton buttonTitle={'Next'} onPress={() => goNext()} />
 
                                 </>
-                                : page === 4 ?
-                                    <>
-                                        <StepFour />
-                                        {/* <StepFour OnNextFunction={OnNextFunction} /> */}
-                                        {/* <FormButton buttonTitle="Next" onPress={() => { goNext(); fillDetailSection() }} style={styles.ButtonStyle} /> */}
-                                        <CustomButton buttonTitle={'Next'} onPress={() => goNext()} />
+                                // : page === 4 ?
+                                //     <>
+                                //         <StepFour />
+                                //         {/* <StepFour OnNextFunction={OnNextFunction} /> */}
+                                //         {/* <FormButton buttonTitle="Next" onPress={() => { goNext(); fillDetailSection() }} style={styles.ButtonStyle} /> */}
+                                //         <CustomButton buttonTitle={'Next'} onPress={() => goNext()} />
 
-                                    </>
-                                    : page === 5 ?
-                                        <>
-                                            <StepFive />
-                                            <View style={styles.BottomButton} >
-                                            <CustomButton buttonTitle={'Save'} onPress={() => goNext()} />
+                                //     </>
+                                //     : page === 5 ?
+                                //         <>
+                                //             <StepFive />
+                                //             <View style={styles.BottomButton} >
+                                //             <CustomButton buttonTitle={'Save'} onPress={() => goNext()} />
     
-                                                {/* <StepFive FunctionForEdit={FunctionForEdit} ItemDetails={ItemDetails} /> */}
-                                                {/* <FormButton buttonTitle="Save Inspection Details" onPress={() => {
-                                                SaveItemAssessment()
-                                                // prop?.setModalVisible(true)
-                                            }} style={styles.ButtonStyle} />
-                                            {
-                                                PopUp === true ?
-                                                    <PaymentSuccessModal data={PopUpData} extraFunction={() => navigation.navigate(NavigationStrings.ASSESMENT_ITEMS)} RenderComp={(prop) => {
-                                                        prop?.setModalVisible(true)
-                                                        return (
-                                                            <>
-                                                            </>);
-                                                    }} />
-                                                    : null
-                                            } */}
-                                            </View>
-                                        </>
+                                //                 {/* <StepFive FunctionForEdit={FunctionForEdit} ItemDetails={ItemDetails} /> */}
+                                //                 {/* <FormButton buttonTitle="Save Inspection Details" onPress={() => {
+                                //                 SaveItemAssessment()
+                                //                 // prop?.setModalVisible(true)
+                                //             }} style={styles.ButtonStyle} />
+                                //             {
+                                //                 PopUp === true ?
+                                //                     <PaymentSuccessModal data={PopUpData} extraFunction={() => navigation.navigate(NavigationStrings.ASSESMENT_ITEMS)} RenderComp={(prop) => {
+                                //                         prop?.setModalVisible(true)
+                                //                         return (
+                                //                             <>
+                                //                             </>);
+                                //                     }} />
+                                //                     : null
+                                //             } */}
+                                //             </View>
+                                //         </>
 
                                         : null
                     }
@@ -296,7 +291,7 @@ const NewInvestment = () => {
                                     </Pressable>
                                 </View>
                             )}
-                            {active === 4 ? (
+                            {/* {active === 4 ? (
                                 <View style={styles.StepNameAndCircle} >
                                     <View style={styles.StepCircleTouchActive} >
                                         <Tick_Icon width={width / 15} height={width / 15} />
@@ -323,7 +318,7 @@ const NewInvestment = () => {
                                         <Tick_Icon width={width / 15} height={width / 15} />
                                     </View>
                                 </View>
-                            )}
+                            )} */}
                         </View>
 
                     </View>
@@ -345,12 +340,12 @@ const NewInvestment = () => {
                                         {page === 3 &&
                                             <StepWiseComponent />
                                         }
-                                        {page === 4 &&
+                                        {/* {page === 4 &&
                                             <StepWiseComponent />
                                         }
                                         {page === 5 &&
                                             <StepWiseComponent />
-                                        }
+                                        } */}
                                     </View>
                                 </View>
                             </ScrollView>
@@ -365,7 +360,7 @@ const NewInvestment = () => {
     )
 }
 
-export default NewInvestment
+export default ApplyLoanScreen
 
 const styles = StyleSheet.create({
     container: {

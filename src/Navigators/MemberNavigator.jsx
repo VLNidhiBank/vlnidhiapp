@@ -7,7 +7,7 @@ import { Easing } from 'react-native';
 import ScreenConstants from './ScreenConstants';
 import { colors } from '../res/color';
 import fonts from '../res/fonts';
-import { AccountScreen, BiometricScreen, ChangeMpinScreen, ContactUsScreen, HomeMemberScreen ,MemberProfileScreen, MyProfileScreen, PoliciesScreen, RenewalScreen, NewInvestment} from '../screens';
+import { AccountScreen, BiometricScreen, ChangeMpinScreen, ContactUsScreen, HomeMemberScreen ,MemberProfileScreen, MyProfileScreen, PoliciesScreen, RenewalScreen, NewInvestment, ApplyLoanScreen} from '../screens';
 import MemberBottomTab from './BottomTabNavigator';
 
 const Stack = createStackNavigator();
@@ -61,6 +61,7 @@ const MemberNavigator = () => {
             <Stack.Screen name={ScreenConstants?.CHANGEMPIN_SCREEN} component={ChangeMpinScreen}   options={{ headerShown: true, title: 'Change MPIN' }} />
             <Stack.Screen name={ScreenConstants?.RENEWAL_SCREEN} component={RenewalScreen}   options={{ headerShown: true, title: 'Renewals' }} />
             <Stack.Screen name={ScreenConstants?.ACCOUNT_SCREEN} component={AccountScreen}   options={{ headerShown: true, title: 'All Account Statement' }} />
+            <Stack.Screen name={ScreenConstants?.APPLYLOAN_SCREEN} component={ApplyLoanScreen}   options={{ headerShown: false, title: '' }} />
         </Stack.Navigator>
     );
 };
