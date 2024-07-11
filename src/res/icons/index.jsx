@@ -66,6 +66,7 @@ import RecurringStat_SVG from './RecurringStat.svg';
 import EditStat_SVG from './EditStat.svg';
 import BankStat_SVG from './BankStat.svg';
 import ReceiptStat_SVG from './ReceiptStat.svg';
+import Drop_SVG from './Drop.svg';
 
 
 
@@ -294,4 +295,7 @@ export const BankStat_Icon = ({ width, height }) => (
 );
 export const ReceiptStat_Icon = ({ width, height }) => (
   <ReceiptStat_SVG width={width} height={height} />
+);
+export const Drop_Icon = ({ width, height }) => (
+  <Drop_SVG width={width} height={height} />
 );

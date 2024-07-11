@@ -19,6 +19,7 @@ export { default as ChangeMpinScreen } from './MemberScreens/MemberProfile/Chang
 //Home Screens
 export { default as RenewalScreen } from './MemberScreens/HomeMemberScreen/RenewalScreen/RenewalScreen';
 export { default as AccountScreen } from './MemberScreens/HomeMemberScreen/AllAccountScreen/AccountScreen';
+export { default as ApplyLoanScreen } from './MemberScreens/HomeMemberScreen/Loan/ApplyLoanScreen';
 
 //Advisor Screen
 export { default as SignInAdvisor } from './AdvisorScreens/SignInScreen/SignInAdvisor';

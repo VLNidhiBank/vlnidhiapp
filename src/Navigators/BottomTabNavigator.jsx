@@ -8,7 +8,7 @@ import { HomeBottomActive_Icon, HomeBottomInactive_Icon, LoanBottomActive_Icon, 
 import { colors } from '../res/color';
 import { height, width } from '../res/string';
 import fonts from '../res/fonts';
-import { HomeMemberScreen, MemberProfileScreen } from '../screens';
+import { ApplyLoanScreen, HomeMemberScreen, MemberProfileScreen } from '../screens';
 import ScreenConstants from './ScreenConstants';
 
 const MemberBottomTab = () => {
@@ -55,7 +55,7 @@ const MemberBottomTab = () => {
                             </View>
                     ),
                 }} />
-            <Tab.Screen name={ScreenConstants.LOAN_MEMBER_SCREEN} component={HomeMemberScreen}
+            <Tab.Screen name={ScreenConstants.APPLYLOAN_SCREEN} component={ApplyLoanScreen}
                 options={{
                     tabBarLabel: () => { return null; },
                     tabBarIcon: ({ focused }) => (
