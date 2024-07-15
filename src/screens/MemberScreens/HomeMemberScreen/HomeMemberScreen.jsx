@@ -72,7 +72,6 @@ const HomeMemberScreen = () => {
           }
           }
         />
-
       </View>
     </View>
   );
