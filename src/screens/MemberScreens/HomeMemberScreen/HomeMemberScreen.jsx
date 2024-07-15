@@ -19,12 +19,12 @@ const HomeMemberScreen = () => {
     { id: 4, icon: RegularEmi_Icon, title: "Regular EMI", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#3B82F6", color2: "#93C5FD", actionNavigation: () => console?.log('Here') },
     { id: 5, icon: RegularEmi_Icon, title: "Irregular EMI", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#7A5AF8", color2: "#A78BFA", actionNavigation: () => console?.log('Here') },
     { id: 6, icon: Bank_Icon, title: "All Account", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#22C55E", color2: "#86EFAC", actionNavigation: () => {navigation.navigate(ScreenConstants.ACCOUNT_SCREEN)} },
-    { id: 7, icon: Personalcard_Icon, title: "Member Summary", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#EC4899", color2: "#E879F9", actionNavigation: () => console?.log('Here') },
-    { id: 8, icon: WalletSearch_Icon, title: "Utility Bill Payment", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#F97316", color2: "#FDBA74", actionNavigation: () => console?.log('Here') },
-    { id: 9, icon: Calculator_Icon, title: "Calculator", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#FACC15", color2: "#FEF08A", actionNavigation: () => console?.log('Here') },
-    { id: 10, icon: Wallet_Icon, title: "Virtual Account", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#881337", color2: "#AE4666", actionNavigation: () => console?.log('Here') },
-    { id: 11, icon: IntraTransfer_Icon, title: "Intra Transfer", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#C026D3", color2: "#E879F9", actionNavigation: () => console?.log('Here') },
-    { id: 12, icon: Wallet_Icon, title: "NEFT/IMPS", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#9333EA", color2: "#A855F7", actionNavigation: () => console?.log('Here') },
+    { id: 7, icon: Personalcard_Icon, title: "Member Summary", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#EC4899", color2: "#E879F9", actionNavigation: () => {navigation.navigate(ScreenConstants.MEMBERSUMMARY_SCREEN)} },
+    { id: 8, icon: WalletSearch_Icon, title: "Utility Bill Payment", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#F97316", color2: "#FDBA74", actionNavigation: () => {navigation.navigate(ScreenConstants.UTILITYBILLPAYMENT_SCREEN)} },
+    { id: 9, icon: Calculator_Icon, title: "Calculator", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#FACC15", color2: "#FEF08A", actionNavigation: () =>  {navigation.navigate(ScreenConstants.CALCULATOR_SCREEN)} },
+    { id: 10, icon: Wallet_Icon, title: "Virtual Account", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#881337", color2: "#AE4666", actionNavigation: () => {navigation.navigate(ScreenConstants.VIRTUALACCOUNT_SCREEN)} },
+    { id: 11, icon: IntraTransfer_Icon, title: "Intra Transfer", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#C026D3", color2: "#E879F9", actionNavigation: () => {navigation.navigate(ScreenConstants.INTRATRANSFER_SCREEN)} },
+    { id: 12, icon: Wallet_Icon, title: "NEFT/IMPS", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#9333EA", color2: "#A855F7", actionNavigation: () =>  {navigation.navigate(ScreenConstants.NEFT_SCREEN)} },
   ]
 
 
@@ -102,11 +102,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   header: {
-    width: '100%',
-    height: height / 8.5,
     borderRadius: 14,
     justifyContent: "center",
-    alignSelf: "center",
     // marginTop:"3%",
     marginVertical: width / 35,
   },

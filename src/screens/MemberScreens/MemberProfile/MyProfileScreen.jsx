@@ -61,10 +61,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors?.screenBackColor,
   },
   content: {
-    width: width * 0.95,
+    // width: width * 0.95,
+    margin:"2%",
     borderRadius: 20,
     backgroundColor: colors?.white,
-    alignSelf: "center",
+    // alignSelf: "center",
     marginTop: "4%",
     paddingHorizontal: width /15,
     paddingVertical: width /30,

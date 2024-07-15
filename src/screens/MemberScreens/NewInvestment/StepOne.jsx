@@ -60,11 +60,12 @@ export default StepOne
 
 const styles = StyleSheet.create({
   container: {
-    width: width * 0.95,
-    height: height / 2,
+    flex:1,
+    // width: width * 0.95,
+    // height: height / 2,
     backgroundColor: colors?.white,
     borderRadius: 20,
-    alignSelf: "center",
+    // alignSelf: "center",
     paddingVertical: width / 20,
   },
   title: {
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     paddingVertical: width / 25,
   },
   halfContent: {
-    width: width * 0.4,
+    width: width * 0.35,
     marginHorizontal: width / 40,
   },
   label: {
@@ -97,14 +98,14 @@ const styles = StyleSheet.create({
     color: colors?.black,
   },
   input: {
-    width: '100%',
+    // width: '100%',
     borderRadius: 10,
     paddingHorizontal: width / 20,
     backgroundColor: 'rgba(128, 128, 128, 0.2)',
     marginTop: 5,
   },
   input1: {
-    width: '100%',
+    // width: '100%',
     borderRadius: 10,
     paddingHorizontal: width / 20,
     backgroundColor: 'rgba(128, 128, 128, 0.2)',

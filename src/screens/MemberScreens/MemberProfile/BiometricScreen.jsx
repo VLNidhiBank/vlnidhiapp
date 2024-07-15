@@ -36,10 +36,11 @@ const styles = StyleSheet.create({
         backgroundColor: colors?.screenBackColor,
     },
     content: {
-        width: width * 0.95,
+        margin:"2%",
+        // width: width * 0.95,
         backgroundColor: colors?.white,
         borderRadius: 20,
-        alignSelf: "center",
+        // alignSelf: "center",
         marginTop: "5%",
         paddingHorizontal: width / 15,
         paddingVertical: width / 30,
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     row: {
         flexDirection: "row",
         justifyContent: "space-between",
-        width: width * 0.8,
+        // width: width * 0.8,
         paddingVertical: width / 30,
     },
     subTitle: {

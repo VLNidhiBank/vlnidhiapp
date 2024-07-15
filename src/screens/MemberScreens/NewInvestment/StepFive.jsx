@@ -35,11 +35,12 @@ export default StepFive
 
 const styles = StyleSheet.create({
     container: {
-        width: width * 0.95,
-        height: height / 2,
+        flex: 1,
+        // width: width * 0.95,
+        // height: height / 2,
         backgroundColor: colors?.white,
         borderRadius: 20,
-        alignSelf: "center",
+        // alignSelf: "center",
         paddingVertical: width / 20,
         paddingHorizontal: width / 20,
     },

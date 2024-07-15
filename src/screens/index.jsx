@@ -20,6 +20,20 @@ export { default as ChangeMpinScreen } from './MemberScreens/MemberProfile/Chang
 export { default as RenewalScreen } from './MemberScreens/HomeMemberScreen/RenewalScreen/RenewalScreen';
 export { default as AccountScreen } from './MemberScreens/HomeMemberScreen/AllAccountScreen/AccountScreen';
 export { default as ApplyLoanScreen } from './MemberScreens/HomeMemberScreen/Loan/ApplyLoanScreen';
+export { default as MemberSummaryScreen } from './MemberScreens/HomeMemberScreen/MemberSummary/MemberSummaryScreen';
+export { default as UtilityBillPaymentScreen } from './MemberScreens/HomeMemberScreen/UtilityBillPayment/UtilityBillPaymentScreen';
+export { default as VirtualAccountScreen } from './MemberScreens/HomeMemberScreen/VirtualAccount/VirtualAccountScreen';
+export { default as IntraTransferScreen } from './MemberScreens/HomeMemberScreen/IntraTransfer/IntraTransferScreen';
+
+export { default as NeftScreen } from './MemberScreens/HomeMemberScreen/NeftScreen/NeftScreen';
+//NEFT/IMPS Beneficiary Screen
+export { default as AddBeneficiaryScreen} from './MemberScreens/HomeMemberScreen/NeftScreen/AddBeneficiary/AddBeneficiaryScreen';
+
+export { default as CalculatorScreen} from './MemberScreens/HomeMemberScreen/Calculator/CalculatorScreen';
+//Calculatore Screen
+export { default as PolicyCalculatorScreen} from './MemberScreens/HomeMemberScreen/Calculator/PolicyCalculator/PolicyCalculatorScreen';
+export { default as LoanCalculatorScreen} from './MemberScreens/HomeMemberScreen/Calculator/PolicyCalculator/LoanCalculatorScreen';
+
 
 //Advisor Screen
 export { default as SignInAdvisor } from './AdvisorScreens/SignInScreen/SignInAdvisor';

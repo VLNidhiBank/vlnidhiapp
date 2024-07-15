@@ -368,17 +368,18 @@ const styles = StyleSheet.create({
         backgroundColor: colors?.screenBackColor,
     },
     content: {
-        width: width * 0.95,
+        margin:"2%",
+        // width: width * 0.95,
         borderRadius: 20,
         backgroundColor: colors?.white,
-        alignSelf: "center",
+        // alignSelf: "center",
         marginTop: "4%",
         paddingHorizontal: width / 15,
         paddingVertical: width / 30,
     },
     StepWiseWrapper: {
         marginBottom: 10,
-        height: '100%',
+        // height: '100%',
         // backgroundColor: 'pink',
     },
     StepProgressWrap: {
@@ -504,7 +505,7 @@ const styles = StyleSheet.create({
         color: colors.black,
         width: '300%',
         alignSelf: 'center',
-        top: -10,
+        // top: -10,
         textAlign: 'center',
         fontSize: 12,
         fontFamily: fonts.PoppinsSemiBold,
@@ -535,14 +536,17 @@ const styles = StyleSheet.create({
         marginBottom: '5%',
     },
     StepContentView: {
-        height: '100%',
-        paddingBottom: '15%',
-        paddingHorizontal: '5%',
+        // height: '100%',
+        paddingBottom: height/2.5,
+        paddingHorizontal: width /40,
         // backgroundColor: 'red',
         // padding: 0 5% 15% 5%,
     },
     PageContent: {
-        maxHeight: '100%',
+        flex:1,
+    // paddingVertical: 10,
+    // paddingHorizontal: 0,
+        // maxHeight: '100%',
         // backgroundColor: 'red'
     },
     TextColor: {

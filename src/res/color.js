@@ -9,4 +9,5 @@ export const colors ={
     successGreen:"#34A853",
     greyColor:"#D9D9D9",
     lightGreyColor: "#C0C0C0",
+    green: "#27C57A",
 }

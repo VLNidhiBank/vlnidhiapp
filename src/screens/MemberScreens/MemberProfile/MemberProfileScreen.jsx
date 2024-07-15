@@ -24,7 +24,7 @@ const MemberProfileScreen = () => {
   const Data = ({ item, props }) => {
     return (
       <Pressable onPress={() => { item?.actionNavigation() }} style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 10, }}>
-        <View style={{ flexDirection: "row", alignItems: "center", width: '85%', }}>
+        <View style={{ flexDirection: "row", alignItems: "center", }}>
           <item.icon height={height / 20} width={width / 14} />
           <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsRegular, color: colors?.black, marginHorizontal: 20, }}>{item.title}</Text>
         </View>
@@ -74,11 +74,12 @@ const styles = StyleSheet.create({
     //padding: "2%"
   },
   header: {
-    width: width * 0.95,
+    // width: width * 0.95,
     // height: height / 2,
     backgroundColor: colors?.white,
     borderRadius: 20,
-    alignSelf: "center"
+    // alignSelf: "center",
+    margin:"2%"
   },
   flatlistStyles: {
     // backgroundColor: 'red',

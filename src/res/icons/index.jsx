@@ -67,6 +67,17 @@ import EditStat_SVG from './EditStat.svg';
 import BankStat_SVG from './BankStat.svg';
 import ReceiptStat_SVG from './ReceiptStat.svg';
 import Drop_SVG from './Drop.svg';
+import DropWhite_SVG from './DropWhite.svg';
+import UpWhite_SVG from './UpWhite.svg';
+import Mobile_SVG from './Mobile.svg';
+import Dth_SVG from './Dth.svg';
+import Bill_SVG from './Bill.svg';
+import Loan_SVG from './Loan.svg';
+import Qrcode_SVG from './Qrcode.svg';
+import Download_SVG from './Download.svg';
+import Arrow_SVG from './Arrow.svg';
+import Flag_SVG from './Flag.svg';
+import India_SVG from './India.svg';
 
 
 
@@ -298,4 +309,37 @@ export const ReceiptStat_Icon = ({ width, height }) => (
 );
 export const Drop_Icon = ({ width, height }) => (
   <Drop_SVG width={width} height={height} />
+);
+export const DropWhite_Icon = ({ width, height }) => (
+  <DropWhite_SVG width={width} height={height} />
+);
+export const UpWhite_Icon = ({ width, height }) => (
+  <UpWhite_SVG width={width} height={height} />
+);
+export const Mobile_Icon = ({ width, height }) => (
+  <Mobile_SVG width={width} height={height} />
+);
+export const Dth_Icon = ({ width, height }) => (
+  <Dth_SVG width={width} height={height} />
+);
+export const Bill_Icon = ({ width, height }) => (
+  <Bill_SVG width={width} height={height} />
+);
+export const Loan_Icon = ({ width, height }) => (
+  <Loan_SVG width={width} height={height} />
+);
+export const Qrcode_Icon = ({ width, height }) => (
+  <Qrcode_SVG width={width} height={height} />
+);
+export const Download_Icon = ({ width, height }) => (
+  <Download_SVG width={width} height={height} />
+);
+export const Arrow_Icon = ({ width, height }) => (
+  <Arrow_SVG width={width} height={height} />
+);
+export const Flag_Icon = ({ width, height }) => (
+  <Flag_SVG width={width} height={height} />
+);
+export const India_Icon = ({ width, height }) => (
+  <India_SVG width={width} height={height} />
 );

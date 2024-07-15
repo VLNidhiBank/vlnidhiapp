@@ -1,31 +1,27 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, FlatList, Pressable } from 'react-native'
 import React from 'react'
 import { colors } from '../../../../res/color'
 import { height, width } from '../../../../res/string'
-import { Amount_Icon, BackBlack_Icon, BankStat_Icon, Daily_Icon, EditStat_Icon, ReceiptStat_Icon, RecurringStat_Icon, Renewal_Icon, RewenalStat_Icon } from '../../../../res/icons'
+import { BackBlack_Icon, Loan_Icon } from '../../../../res/icons'
+import ScreenConstants from '../../../../Navigators/ScreenConstants'
 import fonts from '../../../../res/fonts'
-import { FlatList } from 'react-native-gesture-handler'
 
-const AccountScreen = () => {
-
+const NeftScreen = ({navigation}) => {
     const Information = [
-        { id: 1, icon: RewenalStat_Icon, title: "Daily Statement" },
-        { id: 2, icon: RecurringStat_Icon, title: "Recurring Statement" },
-        { id: 3, icon: EditStat_Icon, title: "Any Amount" },
-        { id: 4, icon: RewenalStat_Icon, title: "Saving Statement" },
-        { id: 5, icon: BankStat_Icon, title: "FD Statement" },
-        { id: 6, icon: ReceiptStat_Icon, title: "Loan Statement" },
+        { id: 1, icon: Loan_Icon, title: "Add Beneficiary", Navigation: () => navigation.navigate(ScreenConstants.ADDBENEFICIARY_SCREEN)},
+        { id: 2, icon: Loan_Icon, title: "IMPS Transfer", Navigation: () => navigation.navigate(ScreenConstants.ADDBENEFICIARY_SCREEN) },
+        { id: 2, icon: Loan_Icon, title: "NEFT Transfer", Navigation: () => navigation.navigate(ScreenConstants.ADDBENEFICIARY_SCREEN) },
     ]
     const Data = ({ item }) => {
         return (
             <>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 10 }}>
+                <Pressable style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 10 }} onPress={item?.Navigation}>
                     <View style={{ flexDirection: "row", alignItems: "center", width: '70%', paddingVertical: width / 40 }}>
                         <item.icon height={height / 20} width={width / 14} />
                         <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsMedium, color: colors?.black, marginHorizontal: 20 }}>{item.title}</Text>
                     </View>
                     <BackBlack_Icon height={height / 12} width={width / 14} style={{ alignSelf: 'flex-end' }} />
-                </View>
+                </Pressable>
                 <View style={styles.separator} />
             </>
         )
@@ -45,9 +41,9 @@ const AccountScreen = () => {
             </View>
         </View>
     )
-}
+    }
 
-export default AccountScreen
+export default NeftScreen
 
 const styles = StyleSheet.create({
     container: {
@@ -69,4 +65,4 @@ const styles = StyleSheet.create({
         marginHorizontal: '15%',
         marginRight: "5%"
     },
-});
+  });
