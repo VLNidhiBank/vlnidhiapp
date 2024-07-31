@@ -4,14 +4,14 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet } from 'react-native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
-import { HomeBottomActive_Icon, HomeBottomInactive_Icon, LoanBottomActive_Icon, LoanBottomInActive_Icon, ProfileBottomActive_Icon, ProfileBottomInactive_Icon, TransactionBottomActive_Icon, TransactionBottomInactive_Icon } from '../res/icons';
+import { HomeBottomActive_Icon, HomeBottomInactive_Icon, LoanBottomActive_Icon, LoanBottomInActive_Icon, ProfileBottomActive_Icon, ProfileBottomInactive_Icon, Send_Icon, StatusUp_Icon, TransactionBottomActive_Icon, TransactionBottomInactive_Icon } from '../res/icons';
 import { colors } from '../res/color';
 import { height, width } from '../res/string';
 import fonts from '../res/fonts';
-import { ApplyLoanScreen, HomeMemberScreen, MemberProfileScreen, TransactionHistoryScreen } from '../screens';
+import { ApplyLoanScreen, HomeAdvisorScreen, HomeMemberScreen, KycScreen, LoanScreen, MemberProfileScreen, ProfileScreen, TransactionHistoryScreen } from '../screens';
 import ScreenConstants from './ScreenConstants';
 
-const MemberBottomTab = () => {
+const BottomTabNavigatorAdvisor = () => {
 
 
     const Tab = createBottomTabNavigator();
@@ -40,7 +40,7 @@ const MemberBottomTab = () => {
 
     return (
         <Tab.Navigator screenOptions={{ tabBarLabel: () => { return null; }, headerShown: false, tabBarStyle: styles.tabStyle }} >
-            <Tab.Screen name={ScreenConstants?.HOME_MEMBER_SCREEN} component={HomeMemberScreen}
+            <Tab.Screen name={ScreenConstants?.HOME_ADVISOR_SCREEN} component={HomeAdvisorScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         focused ?
@@ -55,39 +55,39 @@ const MemberBottomTab = () => {
                             </View>
                     ),
                 }} />
-            <Tab.Screen name={ScreenConstants.APPLYLOAN_SCREEN} component={ApplyLoanScreen}
+            <Tab.Screen name={ScreenConstants.KYC_SCREEN} component={KycScreen}
                 options={{
                     tabBarLabel: () => { return null; },
                     tabBarIcon: ({ focused }) => (
                         focused ?
                             <View style={styles.TotalWrap} >
-                                <LoanBottomActive_Icon width={height / 20} height={width / 20} />
-                                <Text style={styles.ActiveText} >Loan</Text>
+                                <StatusUp_Icon width={height / 20} height={width / 20} />
+                                <Text style={styles.ActiveText} >Collection</Text>
                             </View>
                             :
                             <View style={styles.TotalWrap} >
-                                <LoanBottomInActive_Icon width={height / 20} height={width / 20} />
-                                <Text style={styles.InActiveText} >Loan</Text>
+                                <StatusUp_Icon width={height / 20} height={width / 20} />
+                                <Text style={styles.InActiveText} >Collection</Text>
                             </View>
                     ),
                 }}
             />
-            <Tab.Screen name={ScreenConstants.TRANSACTION_MEMBER_SCREEN} component={TransactionHistoryScreen} options={{
+            <Tab.Screen name={ScreenConstants.LOAN_SCREEN} component={LoanScreen} options={{
                 tabBarLabel: () => { return null; },
                 tabBarIcon: ({ focused }) => (
                     focused ?
                         <View style={styles.TotalWrap} >
-                            <TransactionBottomActive_Icon width={height / 20} height={width / 20} />
-                            <Text style={styles.ActiveText} >Transaction</Text>
+                            <Send_Icon width={height / 20} height={width / 20} />
+                            <Text style={styles.ActiveText} >KYC</Text>
                         </View>
                         :
                         <View style={styles.TotalWrap} >
-                            <TransactionBottomInactive_Icon width={height / 20} height={width / 20} />
-                            <Text style={styles.InActiveText} >Transaction</Text>
+                            <Send_Icon width={height / 20} height={width / 20} />
+                            <Text style={styles.InActiveText} >KYC</Text>
                         </View>
                 ),
             }} />
-            <Tab.Screen name={ScreenConstants.MEMBER_PROFILE_SCREEN} component={MemberProfileScreen} options={{
+            <Tab.Screen name={ScreenConstants.PROFILE_SCREEN} component={ProfileScreen} options={{
                 tabBarLabel: () => { return null; },
                 tabBarIcon: ({ focused }) => (
                     focused ?
@@ -109,7 +109,7 @@ const MemberBottomTab = () => {
 
 
 
-export default MemberBottomTab;
+export default BottomTabNavigatorAdvisor;
 
 
 

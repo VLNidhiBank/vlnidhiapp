@@ -2,18 +2,23 @@ import { NavigationContainer } from '@react-navigation/native'
 import React, { useState } from 'react'
 import AuthNavigation from './AuthNavigation'
 import MemberNavigator from './MemberNavigator'
+import AdvisorNavigator from './AdvisorNavigator'
 
-const index = () => {
+const Index = () => {
   const [user, setUser] = useState(true)
+  const [userType, setUserType] = useState("ADVISOR");
+
   return (
     <NavigationContainer>
-      {user ?
-        <MemberNavigator />
-        :
+      {!user ?
         <AuthNavigation />
+        : userType === "ADVISOR" ?
+        <AdvisorNavigator />
+        :
+        <MemberNavigator />
       }
     </NavigationContainer>
   )
 }
 
-export default index
+export default Index

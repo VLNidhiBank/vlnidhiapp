@@ -49,8 +49,6 @@ import StepThree_SVG from './StepThree.svg';
 import StepFour_SVG from './StepFour.svg';
 import StepFive_SVG from './StepFive.svg';
 import Tick_SVG from './Tick.svg';
-
-
 import CallIcon_SVG from './CallIcon.svg'; 
 import Whatsapp_SVG from './Whatsapp.svg'; 
 import Mail_SVG from './Mail.svg'; 
@@ -78,7 +76,16 @@ import Download_SVG from './Download.svg';
 import Arrow_SVG from './Arrow.svg';
 import Flag_SVG from './Flag.svg';
 import India_SVG from './India.svg';
-
+import Formto_SVG from './Formto.svg';
+import History_SVG from './History.svg';
+import Card_SVG from './Card.svg';
+import PersonAdd_SVG from './PersonAdd.svg';
+import Home_SVG from './Home.svg';
+import AllLoan_SVG from './AllLoan.svg';
+import Groups_SVG from './Groups.svg';
+import StatusUp_SVG from './StatusUp.svg';
+import Send_SVG from './Send.svg';
+import Travel_SVG from './Travel.svg';
 
 
 
@@ -86,67 +93,48 @@ import India_SVG from './India.svg';
 export const OnBoradOne_Icon = ({ width, height }) => (
 	<OnBoradOne_SVG width={width} height={height} />
 );
-
-
 export const OnBoradTwo_Icon = ({ width, height }) => (
   <OnBoradTwo_SVG width={width} height={height} />
 );
-
-
 export const OnBoradThree_Icon = ({ width, height }) => (
   <OnBoradThree_SVG width={width} height={height} />
 );
-
-
 export const AdvisorType_Icon = ({ width, height }) => (
   <AdvisorType_SVG width={width} height={height} />
 );
-
-
 export const MemberType_Icon = ({ width, height }) => (
   <MemberType_SVG width={width} height={height} />
 );
-
 export const ArrowWhite_Icon = ({ width, height }) => (
   <ArrowWhite_SVG width={width} height={height} />
 );
-
 export const Next_Icon = ({ width, height }) => (
   <Next_SVG width={width} height={height} />
 );
-
 export const Lock_Icon = ({ width, height }) => (
   <Lock_SVG width={width} height={height} />
 );
-
 export const BlackArrowBack_Icon = ({ width, height }) => (
   <BlackArrowBack_SVG width={width} height={height} />
 );
-
 export const PassEye_Icon = ({ width, height }) => (
   <PassEye_SVG width={width} height={height} />
 );
-
 export const SignIn_Icon = ({ width, height }) => (
   <SignIn_SVG width={width} height={height} />
 );
-
 export const User_Icon = ({ width, height }) => (
   <User_SVG width={width} height={height} />
 );
-
 export const SignInAdvisor_Icon = ({ width, height }) => (
   <SignInAdvisor_SVG width={width} height={height} />
 );
-
 export const Call_Icon = ({ width, height }) => (
   <Call_SVG width={width} height={height} />
 );
-
 export const VerifyVector_Icon = ({ width, height }) => (
   <VerifyVector_SVG width={width} height={height} />
 );
-
 export const ResetPassVector_Icon = ({ width, height }) => (
   <ResetPassVector_SVG width={width} height={height} />
 );
@@ -342,4 +330,34 @@ export const Flag_Icon = ({ width, height }) => (
 );
 export const India_Icon = ({ width, height }) => (
   <India_SVG width={width} height={height} />
+);
+export const Formto_Icon = ({ width, height }) => (
+  <Formto_SVG width={width} height={height} />
+);
+export const History_Icon = ({ width, height }) => (
+  <History_SVG width={width} height={height} />
+);
+export const Card_Icon = ({ width, height }) => (
+  <Card_SVG width={width} height={height} />
+);
+export const PersonAdd_Icon = ({ width, height }) => (
+  <PersonAdd_SVG width={width} height={height} />
+);
+export const Home_Icon = ({ width, height }) => (
+  <Home_SVG width={width} height={height} />
+);
+export const AllLoan_Icon = ({ width, height }) => (
+  <AllLoan_SVG width={width} height={height} />
+);
+export const Groups_Icon = ({ width, height }) => (
+  <Groups_SVG width={width} height={height} />
+);
+export const StatusUp_Icon = ({ width, height }) => (
+  <StatusUp_SVG width={width} height={height} />
+);
+export const Send_Icon = ({ width, height }) => (
+  <Send_SVG width={width} height={height} />
+);
+export const Travel_Icon = ({ width, height }) => (
+  <Travel_SVG width={width} height={height} />
 );

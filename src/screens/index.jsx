@@ -34,6 +34,28 @@ export { default as CalculatorScreen} from './MemberScreens/HomeMemberScreen/Cal
 export { default as PolicyCalculatorScreen} from './MemberScreens/HomeMemberScreen/Calculator/PolicyCalculator/PolicyCalculatorScreen';
 export { default as LoanCalculatorScreen} from './MemberScreens/HomeMemberScreen/Calculator/PolicyCalculator/LoanCalculatorScreen';
 
+//NEFT/IMPS Screen
+export { default as ImpsTransferScreen} from './MemberScreens/HomeMemberScreen/NeftScreen/ImpsTransfer/ImpsTransferScreen';
+
+
+//Account Statement Screen
+export { default as DailyStatementScreen} from './MemberScreens/HomeMemberScreen/AllAccountScreen/DailyStatement/DailyStatementScreen';
+export { default as RecurringStatementScreen} from './MemberScreens/HomeMemberScreen/AllAccountScreen/RecurringStatement/RecurringStatementScreen';
+export { default as AnyAmountScreen} from './MemberScreens/HomeMemberScreen/AllAccountScreen/AnyAmount/AnyAmountScreen';
+export { default as SavingStatementScreen} from './MemberScreens/HomeMemberScreen/AllAccountScreen/SavingStatement/SavingStatementScreen';
+export { default as FDStatementScreen} from './MemberScreens/HomeMemberScreen/AllAccountScreen/FDStatement/FDStatementScreen';
+export { default as LoanStatementScreen} from './MemberScreens/HomeMemberScreen/AllAccountScreen/LoanStatement/LoanStatementScreen';
+export { default as TransactionHistoryScreen} from './MemberScreens/HomeMemberScreen/AllAccountScreen/TransactionHistory/TransactionHistoryScreen';
 
 //Advisor Screen
 export { default as SignInAdvisor } from './AdvisorScreens/SignInScreen/SignInAdvisor';
+export { default as HomeAdvisorScreen } from './AdvisorScreens/HomeScreen/HomeAdvisorScreen';
+export { default as LoanScreen } from './AdvisorScreens/HomeScreen/LoanScreen';
+export { default as ProfileScreen } from './AdvisorScreens/AdvisorProfile/ProfileScreen';
+export { default as KycScreen } from './AdvisorScreens/HomeScreen/KycScreen';
+
+//Advisor Profile Screen
+export { default as AdvisorProfile } from './AdvisorScreens/AdvisorProfile/AdvisorProfile';
+export { default as AdvisorMpinScreen } from './AdvisorScreens/AdvisorProfile/AdvisorMpinScreen';
+export { default as UploadLocation } from './AdvisorScreens/AdvisorProfile/UploadLocation';
+export { default as LocationView } from './AdvisorScreens/AdvisorProfile/LocationView';

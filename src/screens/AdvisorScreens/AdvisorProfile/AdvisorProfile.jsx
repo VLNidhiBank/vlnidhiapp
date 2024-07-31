@@ -6,7 +6,7 @@ import fonts from '../../../res/fonts'
 import { FlatList } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
-const MyProfileScreen = () => {
+const AdvisorProfile = () => {
 
   const navigation = useNavigation()
 
@@ -53,7 +53,7 @@ const MyProfileScreen = () => {
   )
 }
 
-export default MyProfileScreen
+export default AdvisorProfile
 
 const styles = StyleSheet.create({
   container: {

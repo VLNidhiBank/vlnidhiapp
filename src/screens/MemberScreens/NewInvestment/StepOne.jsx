@@ -4,7 +4,7 @@ import { height, width } from '../../../res/string'
 import { colors } from '../../../res/color'
 import fonts from '../../../res/fonts'
 import { ScrollView, TextInput } from 'react-native-gesture-handler'
-import { Drop_Icon } from '../../../res/icons'
+
 
 const StepOne = () => {
 
@@ -49,7 +49,6 @@ const StepOne = () => {
         <View style={styles.content}>
           <Text style={styles.label}>Mode of Operation</Text>
           <TextInput style={styles.input} placeholder='' />
-          {/* <Drop_Icon height={height / 20} width={width / 14}/> */}
         </View>
       </ScrollView>
     </View>
@@ -61,11 +60,8 @@ export default StepOne
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    // width: width * 0.95,
-    // height: height / 2,
     backgroundColor: colors?.white,
     borderRadius: 20,
-    // alignSelf: "center",
     paddingVertical: width / 20,
   },
   title: {
@@ -98,14 +94,12 @@ const styles = StyleSheet.create({
     color: colors?.black,
   },
   input: {
-    // width: '100%',
     borderRadius: 10,
     paddingHorizontal: width / 20,
     backgroundColor: 'rgba(128, 128, 128, 0.2)',
     marginTop: 5,
   },
   input1: {
-    // width: '100%',
     borderRadius: 10,
     paddingHorizontal: width / 20,
     backgroundColor: 'rgba(128, 128, 128, 0.2)',

@@ -9,7 +9,7 @@ import fonts from '../../../../res/fonts'
 const NeftScreen = ({navigation}) => {
     const Information = [
         { id: 1, icon: Loan_Icon, title: "Add Beneficiary", Navigation: () => navigation.navigate(ScreenConstants.ADDBENEFICIARY_SCREEN)},
-        { id: 2, icon: Loan_Icon, title: "IMPS Transfer", Navigation: () => navigation.navigate(ScreenConstants.ADDBENEFICIARY_SCREEN) },
+        { id: 2, icon: Loan_Icon, title: "IMPS Transfer", Navigation: () => navigation.navigate(ScreenConstants.IMPSTRANSFER_SCREEN) },
         { id: 2, icon: Loan_Icon, title: "NEFT Transfer", Navigation: () => navigation.navigate(ScreenConstants.ADDBENEFICIARY_SCREEN) },
     ]
     const Data = ({ item }) => {
