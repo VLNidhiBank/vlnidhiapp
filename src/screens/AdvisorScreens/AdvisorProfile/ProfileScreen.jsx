@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 import { colors } from '../../../res/color'
-import { About_Icon, Back_Icon, BackBlack_Icon, ChangeMpin_Icon, FingerScan_Icon, Logout_Icon, Member_Icon, Person_Icon, Phone_Icon, StatusUp_Icon } from '../../../res/icons'
+import { About_Icon, Back_Icon, BackBlack_Icon, ChangeMpin_Icon, FingerScan_Icon, Gps_Icon, LocationTick_Icon, Logout_Icon, Member_Icon, Person_Icon, Phone_Icon, StatusUp_Icon } from '../../../res/icons'
 import { height, width } from '../../../res/string'
 import fonts from '../../../res/fonts'
 import { FlatList } from 'react-native-gesture-handler'
@@ -16,12 +16,12 @@ const ProfileScreen = () => {
   const DummyData = [
     { id: 1, icon: Member_Icon, title: "Profile", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_PROFILE_SCREEN)}},
     { id: 2, icon: ChangeMpin_Icon, title: "Change MPIN", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_MPIN_SCREEN)}},
-    { id: 3, icon: StatusUp_Icon, title: "EMI Due Report ", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_LOCATION_SCREEN)}},
-    { id: 4, icon: StatusUp_Icon, title: "Location Upload ", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_LOCATION_VIEW_SCREEN)}},
-    { id: 5, icon: StatusUp_Icon, title: "Location View ", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_PROFILE_SCREEN)}},
-    { id: 6, icon: FingerScan_Icon, title: "Biometric Setting", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_PROFILE_SCREEN)} },
-    { id: 7, icon: Phone_Icon, title: "Contact Us", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_PROFILE_SCREEN)} },
-    { id: 8, icon: About_Icon, title: "About VL Bank", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_PROFILE_SCREEN)} },
+    { id: 3, icon: StatusUp_Icon, title: "EMI Due Report ", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_PROFILE_SCREEN)}},
+    { id: 4, icon: LocationTick_Icon, title: "Location Upload ", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_LOCATION_SCREEN)}},
+    { id: 5, icon: Gps_Icon, title: "Location View ", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_LOCATION_VIEW_SCREEN)}},
+    { id: 6, icon: FingerScan_Icon, title: "Biometric Setting", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_BIOMETRIC_SCREEN)} },
+    { id: 7, icon: Phone_Icon, title: "Contact Us", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_CONTACTUS_SCREEN)} },
+    { id: 8, icon: About_Icon, title: "About VL Bank", actionNavigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_BANKPOLICIES_SCREEN)} },
     // {id: 6, icon: Logout_Icon, title: "Logout"},
   ]
   const Data = ({ item, props }) => {

@@ -86,6 +86,11 @@ import Groups_SVG from './Groups.svg';
 import StatusUp_SVG from './StatusUp.svg';
 import Send_SVG from './Send.svg';
 import Travel_SVG from './Travel.svg';
+import LocationTick_SVG from './LocationTick.svg';
+import Gps_SVG from './Gps.svg';
+import Balance_SVG from './Balance.svg';
+import Receipt_SVG from './Receipt.svg';
+import Description_SVG from './Description.svg';
 
 
 
@@ -360,4 +365,19 @@ export const Send_Icon = ({ width, height }) => (
 );
 export const Travel_Icon = ({ width, height }) => (
   <Travel_SVG width={width} height={height} />
+);
+export const LocationTick_Icon = ({ width, height }) => (
+  <LocationTick_SVG width={width} height={height} />
+);
+export const Gps_Icon = ({ width, height }) => (
+  <Gps_SVG width={width} height={height} />
+);
+export const Balance_Icon = ({ width, height }) => (
+  <Balance_SVG width={width} height={height} />
+);
+export const Receipt_Icon = ({ width, height }) => (
+  <Receipt_SVG width={width} height={height} />
+);
+export const Description_Icon = ({ width, height }) => (
+  <Description_SVG width={width} height={height} />
 );

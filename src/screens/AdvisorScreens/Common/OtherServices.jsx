@@ -15,14 +15,14 @@ const OtherService = () => {
   // const [ balance, setBalance ] = useState(false);
 
   const DummyData = [
-    { id: 1, icon: Wallet_Icon, title: "New Investment", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#4338CA", color2: "#6366F1", actionNavigation: () => console?.log('Here') },
-    { id: 2, icon: WalletAdd_Icon, title: "Renewals", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#1F2937", color2: "#4B5563", actionNavigation: () => console?.log('Here')},
-    { id: 3, icon: RegularEmi_Icon, title: "Regular EMI", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#3B82F6", color2: "#93C5FD", actionNavigation: () => console?.log('Here') },
-    { id: 4, icon: RegularEmi_Icon, title: "Irregular EMI", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#7A5AF8", color2: "#A78BFA", actionNavigation: () => console?.log('Here') },
-    { id: 5, icon: Bank_Icon, title: "All Account", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#22C55E", color2: "#86EFAC", actionNavigation: () => console?.log('Here') },
-    { id: 6, icon: Personalcard_Icon, title: "Member Summary", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#EC4899", color2: "#E879F9", actionNavigation: () => console?.log('Here') },
-    { id: 7, icon: Wallet_Icon, title: "My Incentive", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#881337", color2: "#AE4666", actionNavigation: () => console?.log('Here') },
-    { id: 8, icon: Calculator_Icon, title: "Calculator", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#FACC15", color2: "#FEF08A", actionNavigation: () => console?.log('Here') },
+    { id: 1, icon: Wallet_Icon, title: "New Investment", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#4338CA", color2: "#6366F1", actionNavigation: () => {navigation.navigate(ScreenConstants.ADVISOR_NEW_INVESTMENT_SCREEN)} },
+    { id: 2, icon: WalletAdd_Icon, title: "Renewals", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#1F2937", color2: "#4B5563", actionNavigation: () => {navigation.navigate(ScreenConstants.ADVISOR_RENEWALS_SCREEN)}},
+    { id: 3, icon: RegularEmi_Icon, title: "Regular EMI", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#3B82F6", color2: "#93C5FD", actionNavigation: () => {navigation.navigate(ScreenConstants.ADVISOR_NEW_INVESTMENT_SCREEN)} },
+    { id: 4, icon: RegularEmi_Icon, title: "Irregular EMI", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#7A5AF8", color2: "#A78BFA", actionNavigation: () => {navigation.navigate(ScreenConstants.ADVISOR_NEW_INVESTMENT_SCREEN)} },
+    { id: 5, icon: Bank_Icon, title: "All Account", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#22C55E", color2: "#86EFAC", actionNavigation: () => {navigation.navigate(ScreenConstants.ADVISOR_ALL_ACCOUNT_STATEMENT_SCREEN)} },
+    { id: 6, icon: Personalcard_Icon, title: "Member Summary", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#EC4899", color2: "#E879F9", actionNavigation: () => {navigation.navigate(ScreenConstants.ADVISOR_NEW_INVESTMENT_SCREEN)} },
+    { id: 7, icon: Wallet_Icon, title: "My Incentive", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#881337", color2: "#AE4666", actionNavigation: () => {navigation.navigate(ScreenConstants.ADVISOR_NEW_INVESTMENT_SCREEN)}},
+    { id: 8, icon: Calculator_Icon, title: "Calculator", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#FACC15", color2: "#FEF08A", actionNavigation: () => {navigation.navigate(ScreenConstants.ADVISOR_NEW_INVESTMENT_SCREEN)} },
   ]
 
 

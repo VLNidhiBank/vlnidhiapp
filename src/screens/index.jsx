@@ -59,3 +59,24 @@ export { default as AdvisorProfile } from './AdvisorScreens/AdvisorProfile/Advis
 export { default as AdvisorMpinScreen } from './AdvisorScreens/AdvisorProfile/AdvisorMpinScreen';
 export { default as UploadLocation } from './AdvisorScreens/AdvisorProfile/UploadLocation';
 export { default as LocationView } from './AdvisorScreens/AdvisorProfile/LocationView';
+export { default as Biometric } from './AdvisorScreens/AdvisorProfile/Biometric';
+export { default as ContactUs } from './AdvisorScreens/AdvisorProfile/ContactUs';
+export { default as BankPlicies } from './AdvisorScreens/AdvisorProfile/BankPolicies';
+
+//Advisor Other Screen
+export { default as SavingAccountScreen } from './AdvisorScreens/HomeScreen/SavingAccount/SavingAccountScreen';
+export { default as NewSavingAccountScreen } from './AdvisorScreens/HomeScreen/SavingAccount/NewSavingsAccount/NewSavingsAccountScreen';
+export { default as MiniStatementScreen } from './AdvisorScreens/HomeScreen/SavingAccount/MiniStatement/MiniStatementScreen';
+export { default as AddNewMemberScreen } from './AdvisorScreens/HomeScreen/AddNewMember/AddNewMemberScreen';
+export { default as NewInvestmentScreen } from './AdvisorScreens/HomeScreen/NewInvestment/NewInvestmentScreen';
+export { default as AdvisorRenewalsScreen } from './AdvisorScreens/HomeScreen/Renewals/AdvisorRenewalsScreen';
+export { default as DailyRenewalScreen } from './AdvisorScreens/HomeScreen/Renewals/DailyRenewal/DailyRenewalScreen';
+export { default as RecurringRenewalScreen } from './AdvisorScreens/HomeScreen/Renewals/RecurringRenewal/RecurringRenewalScreen';
+export { default as AllAccountStatementScreen } from './AdvisorScreens/HomeScreen/AllAccountStatement/AllAccountStatementScreen';
+export { default as  AdvisorDailystatementScreen } from './AdvisorScreens/HomeScreen/AllAccountStatement/DailyStatement/AdvisorDailystatementScreen';
+export { default as  AdvisorRecurringStatementScreen } from './AdvisorScreens/HomeScreen/AllAccountStatement/RecurringStatement/AdvisorRecurringStatementScreen';
+export { default as  AdvisorAmountStatementScreen } from './AdvisorScreens/HomeScreen/AllAccountStatement/AnyAmountStatement/AdvisorAmountStatementScreen';
+export { default as  AdvisorSavingStatementScreen } from './AdvisorScreens/HomeScreen/AllAccountStatement/SavingStatement/AdvisorSavingStatementScreen';
+export { default as  AdvisorFDStatementScreen } from './AdvisorScreens/HomeScreen/AllAccountStatement/FDStatement/AdvisorFDStatementScreen';
+export { default as  AdvisorLoanStatementScreen} from './AdvisorScreens/HomeScreen/AllAccountStatement/LoanStatement/AdvisorLoanStatementScreen';
+

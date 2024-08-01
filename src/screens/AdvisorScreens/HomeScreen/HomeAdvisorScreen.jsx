@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Pressable } from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import { AllLoan_Icon, Groups_Icon, Home_Icon, PersonAdd_Icon, VLBank_Icon } from '../../../res/icons';
@@ -7,26 +7,29 @@ import fonts from '../../../res/fonts';
 import { colors } from '../../../res/color';
 import Slick from 'react-native-slick';
 import Banner from '../Common/Banner';
-import HomeMemberScreen from '../../MemberScreens/HomeMemberScreen/HomeMemberScreen';
 import OtherService from '../Common/OtherServices';
+import { useNavigation } from '@react-navigation/native';
+import ScreenConstants from '../../../Navigators/ScreenConstants';
 
 const HomeAdvisorScreen = () => {
 
+  const navigation = useNavigation();
+
   const DummyData = [
-    { id: 1, icon: PersonAdd_Icon, title: "New Member" },
-    { id: 2, icon: Home_Icon, title: "Saving Account" },
-    { id: 3, icon: AllLoan_Icon, title: "New Loans" },
-    { id: 4, icon: Groups_Icon, title: "My Team" },
+    { id: 1, icon: PersonAdd_Icon, title: "New Member", Navigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_ADD_NEW_MEMBER_SCREEN)} },
+    { id: 2, icon: Home_Icon, title: "Saving Account", Navigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_SAVING_ACCOUNT_SCREEN)} },
+    { id: 3, icon: AllLoan_Icon, title: "New Loans", Navigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_SAVING_ACCOUNT_SCREEN)} },
+    { id: 4, icon: Groups_Icon, title: "My Team", Navigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_SAVING_ACCOUNT_SCREEN)} },
   ]
 
   const Data = ({ item }) => {
     return (
-      <View style={{ paddingVertical: width / 30, width: width / 2, }}>
+      <Pressable style={{ paddingVertical: width / 30, width: width / 2, }} onPress={() => { item?.Navigation() }}>
         <View style={{ backgroundColor: "white", borderRadius: 10, width: width * 0.4, height: height / 10, alignItems: "center" }}>
           <item.icon height={height / 13} width={width / 10} />
           <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsMedium, color: colors?.black }}>{item.title}</Text>
         </View>
-      </View>
+      </Pressable>
     )
   }
   return (

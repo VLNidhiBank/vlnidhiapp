@@ -17,7 +17,6 @@ const UploadLocation = () => {
                     <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsLight }}>We use this to shoe nearby stores.</Text>
                     <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsLight }}> You can edit access in your phone’s settings.</Text>
                 </View>
-
                 <CustomButton buttonTitle={"Allow Access"}/>
             </View>
         </View>
