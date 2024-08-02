@@ -1,3 +1,4 @@
 export default {
-    cardOne : require('./FirstAdvisorCard.png')
+    cardOne : require('./FirstAdvisorCard.png'),
+    cardTwo : require('./AdvisorCard.png')
 }

@@ -91,6 +91,12 @@ import Gps_SVG from './Gps.svg';
 import Balance_SVG from './Balance.svg';
 import Receipt_SVG from './Receipt.svg';
 import Description_SVG from './Description.svg';
+import Search_SVG from './Search.svg';
+import Advisor_SVG from './Advisor.svg';
+import ArrowRight_SVG from './ArrowRight.svg';
+import AdvisorUser_SVG from './AdvisorUser.svg';
+import AdvisorCard_SVG from './AdvisorCard.svg';
+import Filter_SVG from './Filter.svg';
 
 
 
@@ -381,3 +387,22 @@ export const Receipt_Icon = ({ width, height }) => (
 export const Description_Icon = ({ width, height }) => (
   <Description_SVG width={width} height={height} />
 );
+export const Search_Icon = ({ width, height }) => (
+  <Search_SVG width={width} height={height} />
+);
+export const Advisor_Icon = ({ width, height }) => (
+  <Advisor_SVG width={width} height={height} />
+);
+export const ArrowRight_Icon = ({ width, height }) => (
+  <ArrowRight_SVG width={width} height={height} />
+);
+export const AdvisorUser_Icon = ({ width, height }) => (
+  <AdvisorUser_SVG width={width} height={height} />
+);
+export const AdvisorCard_Icon = ({ width, height }) => (
+  <AdvisorCard_SVG width={width} height={height} />
+);
+export const Filter_Icon = ({ width, height }) => (
+  <Filter_SVG width={width} height={height} />
+);
+

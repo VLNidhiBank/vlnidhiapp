@@ -78,5 +78,12 @@ export { default as  AdvisorRecurringStatementScreen } from './AdvisorScreens/Ho
 export { default as  AdvisorAmountStatementScreen } from './AdvisorScreens/HomeScreen/AllAccountStatement/AnyAmountStatement/AdvisorAmountStatementScreen';
 export { default as  AdvisorSavingStatementScreen } from './AdvisorScreens/HomeScreen/AllAccountStatement/SavingStatement/AdvisorSavingStatementScreen';
 export { default as  AdvisorFDStatementScreen } from './AdvisorScreens/HomeScreen/AllAccountStatement/FDStatement/AdvisorFDStatementScreen';
-export { default as  AdvisorLoanStatementScreen} from './AdvisorScreens/HomeScreen/AllAccountStatement/LoanStatement/AdvisorLoanStatementScreen';
+export { default as  AdvisorLoanStatementScreen } from './AdvisorScreens/HomeScreen/AllAccountStatement/LoanStatement/AdvisorLoanStatementScreen';
+export { default as  AdvisorMemberDetailsScreen } from './AdvisorScreens/HomeScreen/MemberDetails/AdvisorMemberDetailsScreen';
+export { default as  AdvisorIncentiveScreen } from './AdvisorScreens/HomeScreen/MyIncentive/AdvisorIncentiveScreen';
+export { default as  AdvisorMyTeamScreen } from './AdvisorScreens/HomeScreen/MyTeam/AdvisorMyTeamScreen';
+export { default as  AdvisorTeamDetails } from './AdvisorScreens/HomeScreen/MyTeam/AdvisorTeamDetails';
+export { default as  AdvisorCalcultorScreen } from './AdvisorScreens/HomeScreen/Calculator/AdvisorCalcultorScreen';
+export { default as  AdvisorSavingTransactionScreen } from './AdvisorScreens/HomeScreen/SavingAccount/SavingTransaction/AdvisorSavingTransctionScreen';
+export { default as  AdvisorSavingHistoryScreen } from './AdvisorScreens/HomeScreen/SavingAccount/SavingTransaction/AdvisorSavingHistoryScreen';
 

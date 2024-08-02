@@ -19,7 +19,7 @@ const HomeAdvisorScreen = () => {
     { id: 1, icon: PersonAdd_Icon, title: "New Member", Navigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_ADD_NEW_MEMBER_SCREEN)} },
     { id: 2, icon: Home_Icon, title: "Saving Account", Navigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_SAVING_ACCOUNT_SCREEN)} },
     { id: 3, icon: AllLoan_Icon, title: "New Loans", Navigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_SAVING_ACCOUNT_SCREEN)} },
-    { id: 4, icon: Groups_Icon, title: "My Team", Navigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_SAVING_ACCOUNT_SCREEN)} },
+    { id: 4, icon: Groups_Icon, title: "My Team", Navigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_MY_TEAM_SCREEN)} },
   ]
 
   const Data = ({ item }) => {

@@ -10,8 +10,8 @@ import ScreenConstants from '../../../../Navigators/ScreenConstants'
 const SavingAccountScreen = ({navigation}) => {
   const Information = [
     { id: 1, icon: Balance_Icon, title: "New Savings Account", Navigation: () => navigation.navigate(ScreenConstants.ADVISOR_NEW_SAVING_ACCOUNT_SCREEN)},
-    { id: 2, icon: Receipt_Icon, title: "Savings Transaction", Navigation: () => navigation.navigate(ScreenConstants.ADVISOR_NEW_SAVING_ACCOUNT_SCREEN) },
-    { id: 2, icon: Description_Icon, title: "Mini Statement", Navigation: () => navigation.navigate(ScreenConstants.ADVISOR_MINI_STATEMENT_SCREEN) },
+    { id: 2, icon: Receipt_Icon, title: "Savings Transaction", Navigation: () => navigation.navigate(ScreenConstants.ADVISOR_SAVING_TRANSACTION_SCREEN) },
+    { id: 3, icon: Description_Icon, title: "Mini Statement", Navigation: () => navigation.navigate(ScreenConstants.ADVISOR_MINI_STATEMENT_SCREEN) },
 ]
 const Data = ({ item }) => {
     return (

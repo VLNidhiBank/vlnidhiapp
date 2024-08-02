@@ -4,7 +4,7 @@ import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/
 import { colors } from '../res/color';
 import fonts from '../res/fonts';
 import ScreenConstants from './ScreenConstants';
-import { AddNewMemberScreen, AdvisorAmountStatementScreen, AdvisorDailystatementScreen, AdvisorFDStatementScreen, AdvisorLoanStatementScreen, AdvisorMpinScreen, AdvisorProfile, AdvisorRecurringStatementScreen, AdvisorRenewalsScreen, AdvisorSavingStatementScreen, AllAccountStatementScreen, BankPlicies, Biometric, ContactUs, DailyRenewalScreen, HomeAdvisorScreen, KycScreen, LoanScreen, LocationView, MiniStatementScreen, NewInvestmentScreen, NewSavingAccountScreen, ProfileScreen, RecurringRenewalScreen, RenewalScreen, SavingAccountScreen, UploadLocation } from '../screens';
+import { AddNewMemberScreen, AdvisorAmountStatementScreen, AdvisorCalcultorScreen, AdvisorDailystatementScreen, AdvisorFDStatementScreen, AdvisorIncentiveScreen, AdvisorLoanStatementScreen, AdvisorMemberDetailsScreen, AdvisorMpinScreen, AdvisorMyTeamScreen, AdvisorProfile, AdvisorRecurringStatementScreen, AdvisorRenewalsScreen, AdvisorSavingHistoryScreen, AdvisorSavingStatementScreen, AdvisorSavingTransactionScreen, AdvisorTeamDetails, AllAccountStatementScreen, BankPlicies, Biometric, ContactUs, DailyRenewalScreen, HomeAdvisorScreen, KycScreen, LoanScreen, LocationView, MiniStatementScreen, NewInvestmentScreen, NewSavingAccountScreen, ProfileScreen, RecurringRenewalScreen, RenewalScreen, SavingAccountScreen, UploadLocation } from '../screens';
 import BottomTabNavigatorAdvisor from './BottomTabNavigatorAdvisor';
 
 const Stack = createStackNavigator();
@@ -72,6 +72,13 @@ const AdvisorNavigator = () => {
     <Stack.Screen name={ScreenConstants?.ADVISOR_SAVING_STATEMENT_SCREEN} component={AdvisorSavingStatementScreen} options={{ headerShown: true, title: 'Saving Statement'}}/>
     <Stack.Screen name={ScreenConstants?.ADVISOR_FD_STATEMENT_SCREEN} component={AdvisorFDStatementScreen} options={{ headerShown: true, title: 'FD Statement'}}/>
     <Stack.Screen name={ScreenConstants?.ADVISOR_LOAN_STATEMENT_SCREEN} component={AdvisorLoanStatementScreen} options={{ headerShown: true, title: 'Loan Statement'}}/>
+    <Stack.Screen name={ScreenConstants?.ADVISOR_MEMBER_DETAILS_SCREEN} component={AdvisorMemberDetailsScreen} options={{ headerShown: true, title: 'Member Details'}}/>
+    <Stack.Screen name={ScreenConstants?.ADVISOR_MY_INCENTIVE_SCREEN} component={AdvisorIncentiveScreen} options={{ headerShown: true, title: 'My Incentive'}}/>
+    <Stack.Screen name={ScreenConstants?.ADVISOR_MY_TEAM_SCREEN} component={AdvisorMyTeamScreen} options={{ headerShown: true, title: 'My Team'}}/>
+    <Stack.Screen name={ScreenConstants?.ADVISOR_TEAM_DETAILS_SCREEN} component={AdvisorTeamDetails} options={{ headerShown: true, title: 'Team Details'}}/>
+    <Stack.Screen name={ScreenConstants?.ADVISOR_CALCULTOR_SCREEN} component={AdvisorCalcultorScreen} options={{ headerShown: true, title: 'Calcultor'}}/>
+    <Stack.Screen name={ScreenConstants?.ADVISOR_SAVING_TRANSACTION_SCREEN} component={AdvisorSavingTransactionScreen} options={{ headerShown: true, title: 'Saving Transaction'}}/>
+    <Stack.Screen name={ScreenConstants?.ADVISOR_SAVING_HISTORY_SCREEN} component={AdvisorSavingHistoryScreen} options={{ headerShown: true, title: 'Saving Transaction'}}/>
    </Stack.Navigator>
   );
 };
