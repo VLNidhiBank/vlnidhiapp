@@ -32,7 +32,7 @@ const UserType = () => {
         </View>
       </View>
       <View style={{alignItems:"center"}}>
-        <India_Icon height={height / 10} width={width} />                                                                              =-09875432`  A `
+        {/* <India_Icon height={height / 10} width={width} />                                                                              =-09875432`  A ` */}
       </View>
     </View>
   );

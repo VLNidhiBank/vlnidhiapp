@@ -17,7 +17,7 @@ const Index = () => {
         :
         <MemberNavigator />
       } */}
-      {!user ? <AuthNavigation /> : <MemberNavigator />}
+      {user ? <AuthNavigation /> : <MemberNavigator />}
     </NavigationContainer>
   )
 }
