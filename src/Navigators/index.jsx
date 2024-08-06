@@ -4,7 +4,7 @@ import AuthNavigation from './AuthNavigation'
 import MemberNavigator from './MemberNavigator'
 
 const index = () => {
-  const [user, setUser] = useState(true)
+  const [user, setUser] = useState(false)
   return (
     <NavigationContainer>
       {user ?
