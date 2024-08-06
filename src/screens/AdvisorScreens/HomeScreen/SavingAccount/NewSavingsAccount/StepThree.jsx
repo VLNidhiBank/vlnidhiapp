@@ -8,7 +8,7 @@ import { width } from '../../../../../res/string'
 const StepThree = () => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Plan Details</Text>
+            <Text style={styles.title}>Fees Details</Text>
             <ScrollView>
                 <View style={styles.content}>
                     <Text style={styles.label}>Select Plan</Text>

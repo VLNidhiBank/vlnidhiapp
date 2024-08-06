@@ -145,7 +145,7 @@ const AddNewMemberScreen = () => {
 
                                 <>
                                     <StepThree />
-                                    <CustomButton buttonTitle={'Next'} onPress={() => goNext()} />
+                                    <CustomButton buttonTitle={'Save'} onPress={() => goNext()} />
 
                                 </>
 

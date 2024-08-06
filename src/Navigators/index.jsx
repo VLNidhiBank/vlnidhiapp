@@ -10,13 +10,14 @@ const Index = () => {
 
   return (
     <NavigationContainer>
-      {!user ?
+      {/* {!user ?
         <AuthNavigation />
         : userType === "ADVISOR" ?
         <AdvisorNavigator />
         :
         <MemberNavigator />
-      }
+      } */}
+      {!user ? <AuthNavigation /> : <MemberNavigator />}
     </NavigationContainer>
   )
 }

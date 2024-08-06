@@ -1,43 +1,48 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Modal, FlatList } from 'react-native';
-import { colors } from '../../../../res/color';
-import { width } from '../../../../res/string';
-import fonts from '../../../../res/fonts';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Modal, FlatList, ScrollView } from 'react-native';
+import { colors } from '../../../../../res/color';
+import { width } from '../../../../../res/string';
+import fonts from '../../../../../res/fonts';
 
-
-const StepTwo = () => {
+const StepThree = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedRelation, setSelectedRelation] = useState('');
+  const [selectedScheme, setSelectedScheme] = useState('');
 
-  const nomineeRelations = ['Father', 'Mother', 'Son', 'Daughter', 'Spouse(Husband/Wife)', 'Husband', 'Wife', 'Brother', 'Sister', 'Daughter in Law', 'Brother in Law', 'Grand Daughter', 'Grand Son', 'Other' ];
+  const schemeNames = ['Bank A', 'Bank B', 'Bank C', 'Bank D'];
 
-  const handleSelectRelation = (relation) => {
-    setSelectedRelation(relation);
+  const handleSelectScheme = (scheme) => {
+    setSelectedScheme(scheme);
     setModalVisible(false);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Nominee Details</Text>
-      <View style={styles.content}>
-        <Text style={styles.label}>Nominee Details</Text>
-        <TextInput style={styles.input} placeholder='' />
-      </View>
-      <View style={styles.content}>
-        <Text style={styles.label}>Nominee Age</Text>
-        <TextInput style={styles.input} placeholder='' />
-      </View>
-      <View style={styles.content}>
-        <Text style={styles.label}>Nominee Relation</Text>
-        <TouchableOpacity onPress={() => setModalVisible(true)}>
-          <TextInput
-            style={styles.input}
-            placeholder='Select Nominee Relation'
-            value={selectedRelation}
-            editable={false}
-          />
-        </TouchableOpacity>
-      </View>
+      <Text style={styles.title}>Plan Details</Text>
+      <ScrollView>
+        <View style={styles.content}>
+          <Text style={styles.label}>Scheme Type</Text>
+          <TextInput style={styles.input} placeholder='' />
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.label}>Scheme Name</Text>
+          <TouchableOpacity onPress={() => setModalVisible(true)}>
+            <TextInput
+              style={styles.input}
+              placeholder='Select Scheme Name'
+              value={selectedScheme}
+              editable={false}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.label}>Term</Text>
+          <TextInput style={styles.input} placeholder='' />
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.label}>Mode</Text>
+          <TextInput style={styles.input} placeholder='' />
+        </View>
+      </ScrollView>
 
       <Modal
         transparent={true}
@@ -47,12 +52,12 @@ const StepTwo = () => {
         <View style={styles.modalBackground}>
           <View style={styles.modalContainer}>
             <FlatList
-              data={nomineeRelations}
+              data={schemeNames}
               keyExtractor={(item) => item}
               renderItem={({ item }) => (
                 <TouchableOpacity
                   style={styles.modalOption}
-                  onPress={() => handleSelectRelation(item)}
+                  onPress={() => handleSelectScheme(item)}
                 >
                   <Text style={styles.modalOptionText}>{item}</Text>
                 </TouchableOpacity>
@@ -65,7 +70,7 @@ const StepTwo = () => {
   );
 };
 
-export default StepTwo;
+export default StepThree;
 
 const styles = StyleSheet.create({
   container: {

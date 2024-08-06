@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Modal, FlatList } from 'react-native';
-import { colors } from '../../../../res/color';
-import { width } from '../../../../res/string';
-import fonts from '../../../../res/fonts';
-
+import fonts from '../../../../../res/fonts';
+import { width } from '../../../../../res/string';
+import { colors } from '../../../../../res/color';
 
 const StepTwo = () => {
   const [modalVisible, setModalVisible] = useState(false);

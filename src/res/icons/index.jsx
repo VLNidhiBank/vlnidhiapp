@@ -97,6 +97,8 @@ import ArrowRight_SVG from './ArrowRight.svg';
 import AdvisorUser_SVG from './AdvisorUser.svg';
 import AdvisorCard_SVG from './AdvisorCard.svg';
 import Filter_SVG from './Filter.svg';
+import Frame_SVG from './Frame.svg';
+import File_SVG from './File.svg';
 
 
 
@@ -404,5 +406,11 @@ export const AdvisorCard_Icon = ({ width, height }) => (
 );
 export const Filter_Icon = ({ width, height }) => (
   <Filter_SVG width={width} height={height} />
+);
+export const Frame_Icon = ({ width, height }) => (
+  <Frame_SVG width={width} height={height} />
+);
+export const File_Icon = ({ width, height }) => (
+  <File_SVG width={width} height={height} />
 );
 

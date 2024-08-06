@@ -1,19 +1,20 @@
-import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, Pressable, ScrollView , FlatList} from 'react-native'
 import React, { useRef, useState } from 'react'
-import { FlatList } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
-import StepOne from './StepOne'
-import StepTwo from './StepTwo'
-import StepThree from './StepThree'
-import FormInput from '../../../../../component/Input/FormInput'
-import { height, width } from '../../../../../res/string'
-import { colors } from '../../../../../res/color'
-import Spinner from '../../../../../component/Spinner/Spinner'
-import { Call_Icon, Tick_Icon } from '../../../../../res/icons'
-import fonts from '../../../../../res/fonts'
-import CustomButton from '../../../../../component/CustomButton'
+import { height, width } from '../../../../../res/string';
+import { colors } from '../../../../../res/color';
+import fonts from '../../../../../res/fonts';
+import { Call_Icon, Tick_Icon } from '../../../../../res/icons';
+import CustomButton from '../../../../../component/CustomButton';
+import StepOne from './StepOne';
+import StepTwo from './StepTwo';
+import StepThree from './StepThree';
+import StepFour from './StepFour';
+import StepFive from './StepFive';
+import FormInput from '../../../../../component/Input/FormInput';
+import Spinner from '../../../../../component/Spinner/Spinner';
 
-const NewSavingAccountScreen = () => {
+const AdvisorNewInvestmentScreen = () => {
     const [page, setPage] = useState(1);
     const [active, setActive] = useState(1);
     const [loacalLoading, setloacalLoading] = useState(false);
@@ -59,6 +60,7 @@ const NewSavingAccountScreen = () => {
 
     const goNext = async () => {
         if (page === 5) {
+            // FinalDataSave()
             return;
         }
         setPage(page => page + 1);
@@ -68,7 +70,11 @@ const NewSavingAccountScreen = () => {
             setActive(active + 1);
         } else if (page === 3) {
             setActive(active + 1);
-        } 
+        } else if (page === 4) {
+            setActive(active + 1);
+        } else if (page === 5) {
+            setActive(active + 1);
+        }
     };
 
     const goToStepOne = () => {
@@ -98,20 +104,36 @@ const NewSavingAccountScreen = () => {
         }
     };
 
+    const goToStepFour = () => {
+        if (page === 5) {
+            setPage(page => page - 1);
+            setActive(active - 1);
+        } else {
+            return;
+        }
+    };
+
     const userIdData = {
         title: 'Branch Code',
         palceHolderText: 'Password',
+        // FirstIcon: Call_Icon,
+        // inputValue: userId,
         changedText: (text) => setItemDetails(text),
     };
 
     const brannchData = {
         title: 'Branch Code',
+        // palceHolderText: 'Password',
+        // FirstIcon: Call_Icon,
+        // inputValue: userId,
         changedText: (text) => setItemDetails(text),
     };
 
     const branchName = {
         title: 'Branch Name',
+        // palceHolderText: 'Password',
         FirstIcon: Call_Icon,
+        // inputValue: userId,
         changedText: (text) => setItemDetails(text),
     };
 
@@ -119,13 +141,16 @@ const NewSavingAccountScreen = () => {
 
     const StepWiseComponent = () => {
 
+        // Final API HIT FOR DATA SAVE
 
         return (
             <>
                 <View>
                     {page === 1 ?
                         <>
+                            {/* <StepOne ItemDetails={ItemDetails} /> */}
                             <StepOne />
+                            {/* <FormButton buttonTitle="Next" onPress={() => { goNext(); fillDetailSection() }} style={styles.ButtonStyle} /> */}
                             <CustomButton buttonTitle={'Next'} onPress={() => goNext()} />
 
                         </>
@@ -145,9 +170,42 @@ const NewSavingAccountScreen = () => {
 
                                 <>
                                     <StepThree />
-                                    <CustomButton buttonTitle={'Save'} onPress={() => goNext()} />
+                                    {/* <StepThree OnNextFunction={OnNextFunction} ItemDetails={ItemDetails} /> */}
+                                    {/* <FormButton buttonTitle="Next" onPress={() => { goNext(); fillDetailSection() }} style={styles.ButtonStyle} /> */}
+                                    <CustomButton buttonTitle={'Next'} onPress={() => goNext()} />
 
                                 </>
+                                : page === 4 ?
+                                    <>
+                                        <StepFour />
+                                        {/* <StepFour OnNextFunction={OnNextFunction} /> */}
+                                        {/* <FormButton buttonTitle="Next" onPress={() => { goNext(); fillDetailSection() }} style={styles.ButtonStyle} /> */}
+                                        <CustomButton buttonTitle={'Next'} onPress={() => goNext()} />
+
+                                    </>
+                                    : page === 5 ?
+                                        <>
+                                            <StepFive />
+                                            <View style={styles.BottomButton} >
+                                            <CustomButton buttonTitle={'Save'} onPress={() => goNext()} />
+    
+                                                {/* <StepFive FunctionForEdit={FunctionForEdit} ItemDetails={ItemDetails} /> */}
+                                                {/* <FormButton buttonTitle="Save Inspection Details" onPress={() => {
+                                                SaveItemAssessment()
+                                                // prop?.setModalVisible(true)
+                                            }} style={styles.ButtonStyle} />
+                                            {
+                                                PopUp === true ?
+                                                    <PaymentSuccessModal data={PopUpData} extraFunction={() => navigation.navigate(NavigationStrings.ASSESMENT_ITEMS)} RenderComp={(prop) => {
+                                                        prop?.setModalVisible(true)
+                                                        return (
+                                                            <>
+                                                            </>);
+                                                    }} />
+                                                    : null
+                                            } */}
+                                            </View>
+                                        </>
 
                                         : null
                     }
@@ -237,6 +295,34 @@ const NewSavingAccountScreen = () => {
                                     </Pressable>
                                 </View>
                             )}
+                            {active === 4 ? (
+                                <View style={styles.StepNameAndCircle} >
+                                    <View style={styles.StepCircleTouchActive} >
+                                        <Tick_Icon width={width / 15} height={width / 15} />
+
+                                    </View>
+                                </View>
+                            ) : (
+                                <View style={styles.StepNameAndCircle} >
+                                    <Pressable style={[styles.StepCircleTouch, { backgroundColor: active > 3 ? colors.backCircleColor : colors.greyColor }]} onPress={goToStepFour} >
+                                        <Tick_Icon width={width / 15} height={width / 15} />
+
+                                    </Pressable>
+                                </View>
+                            )}
+                            {active === 5 ? (
+                                <View style={styles.StepNameAndCircle} >
+                                    <View style={styles.StepCircleTouchActive} >
+                                        <Tick_Icon width={width / 15} height={width / 15} />
+                                    </View>
+                                </View>
+                            ) : (
+                                <View style={styles.StepNameAndCircle} >
+                                    <View style={[styles.StepCircleTouch, { backgroundColor: active > 4 ? colors.backCircleColor : colors.greyColor }]} >
+                                        <Tick_Icon width={width / 15} height={width / 15} />
+                                    </View>
+                                </View>
+                            )}
                         </View>
 
                     </View>
@@ -258,6 +344,12 @@ const NewSavingAccountScreen = () => {
                                         {page === 3 &&
                                             <StepWiseComponent />
                                         }
+                                        {page === 4 &&
+                                            <StepWiseComponent />
+                                        }
+                                        {page === 5 &&
+                                            <StepWiseComponent />
+                                        }
                                     </View>
                                 </View>
                             </ScrollView>
@@ -272,7 +364,7 @@ const NewSavingAccountScreen = () => {
     )
 }
 
-export default NewSavingAccountScreen
+export default AdvisorNewInvestmentScreen
 
 const styles = StyleSheet.create({
     container: {

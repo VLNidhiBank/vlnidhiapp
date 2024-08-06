@@ -14,7 +14,7 @@ const AdvisorRenewalScreen = () => {
 
     const Information = [
         { id: 1, icon: Daily_Icon, title: "Daily Renewal", Navigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_DAILY_RENEWALS_SCREEN)} },
-        { id: 2, icon: Renewal_Icon, title: "Recurring Renewall", Navigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_RECURRING_RENEWALS_SCREEN)} },
+        { id: 2, icon: Renewal_Icon, title: "Recurring Renewal", Navigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_RECURRING_RENEWALS_SCREEN)} },
         { id: 3, icon: Amount_Icon, title: "Any Amount", Navigation: () => {navigation?.navigate(ScreenConstants?.ADVISOR_DAILY_RENEWALS_SCREEN)} },
     ]
     const Data = ({ item }) => {

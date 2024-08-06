@@ -86,4 +86,5 @@ export { default as  AdvisorTeamDetails } from './AdvisorScreens/HomeScreen/MyTe
 export { default as  AdvisorCalcultorScreen } from './AdvisorScreens/HomeScreen/Calculator/AdvisorCalcultorScreen';
 export { default as  AdvisorSavingTransactionScreen } from './AdvisorScreens/HomeScreen/SavingAccount/SavingTransaction/AdvisorSavingTransctionScreen';
 export { default as  AdvisorSavingHistoryScreen } from './AdvisorScreens/HomeScreen/SavingAccount/SavingTransaction/AdvisorSavingHistoryScreen';
+export { default as  AdvisorNewInvestmentScreen } from './AdvisorScreens/HomeScreen/NewInvestment/Investment/AdvisorNewInvestmentScreen';
 

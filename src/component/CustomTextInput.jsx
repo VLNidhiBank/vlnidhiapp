@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     color: colors.black,
-    backgroundColor:'rgba(128, 128, 128, 0.2)',
+    // backgroundColor:'rgba(128, 128, 128, 0.2)',
     borderRadius:10,
   },
 });

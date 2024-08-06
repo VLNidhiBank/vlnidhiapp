@@ -1,54 +1,60 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Modal, FlatList } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { colors } from '../../../../res/color';
-import { width } from '../../../../res/string';
-import fonts from '../../../../res/fonts';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Modal, FlatList, ScrollView } from 'react-native';
+import fonts from '../../../../../res/fonts';
+import { colors } from '../../../../../res/color';
+import { width } from '../../../../../res/string';
 
-const StepThree = () => {
+const StepFive = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedShareAllotedFrom, setSelectedShareAllotedFrom] = useState('');
+  const [selectedPayMode, setSelectedPayMode] = useState('');
+  const [payMode, setPayMode] = useState('');
 
-  const shareAllotedFromOptions = ['Advisor ID 1', 'Advisor ID 2', 'Advisor ID 3', 'Advisor ID 4'];
+  const payModes = ['Cash', 'SBAccount'];
 
-  const handleSelectOption = (option) => {
-    setSelectedShareAllotedFrom(option);
+  const handleSelectPayMode = (mode) => {
+    setPayMode(mode);
     setModalVisible(false);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Fees Details</Text>
+      <Text style={styles.title}>Payment Details</Text>
       <ScrollView>
         <View style={styles.content}>
-          <Text style={styles.label}>Fees(If Any)</Text>
-          <TextInput style={styles.input} placeholder='' />
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.label}>Share Alloted From</Text>
+          <Text style={styles.label}>Pay Mode</Text>
           <TouchableOpacity onPress={() => setModalVisible(true)}>
             <TextInput
               style={styles.input}
-              placeholder='Select Share Alloted From'
-              value={selectedShareAllotedFrom}
+              placeholder='Select Pay Mode'
+              value={payMode}
               editable={false}
             />
           </TouchableOpacity>
         </View>
+
+        {payMode === 'SBAccount' && (
+          <>
+            <View style={styles.content}>
+              <Text style={styles.label}>SB Account</Text>
+              <TextInput style={styles.input} placeholder='Enter Account Number' />
+            </View>
+            <View style={styles.content}>
+              <Text style={styles.label}>Balance</Text>
+              <TextInput style={styles.input} placeholder='Enter Account Holder Name' />
+            </View>
+            {/* <View style={styles.content}>
+              <Text style={styles.label}>Bank Name</Text>
+              <TextInput style={styles.input} placeholder='Enter Bank Name' />
+            </View>
+            <View style={styles.content}>
+              <Text style={styles.label}>IFSC Code</Text>
+              <TextInput style={styles.input} placeholder='Enter IFSC Code' />
+            </View> */}
+          </>
+        )}
+
         <View style={styles.content}>
-          <Text style={styles.label}>No. Of Share</Text>
-          <TextInput style={styles.input} placeholder='' />
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.label}>Share Amount</Text>
-          <TextInput style={styles.input} placeholder='' />
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.label}>Payment By</Text>
-          <TextInput style={styles.input} placeholder='' />
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.label}>Remarks</Text>
+          <Text style={styles.label}>Remark</Text>
           <TextInput style={styles.input} placeholder='' />
         </View>
       </ScrollView>
@@ -61,12 +67,12 @@ const StepThree = () => {
         <View style={styles.modalBackground}>
           <View style={styles.modalContainer}>
             <FlatList
-              data={shareAllotedFromOptions}
+              data={payModes}
               keyExtractor={(item) => item}
               renderItem={({ item }) => (
                 <TouchableOpacity
                   style={styles.modalOption}
-                  onPress={() => handleSelectOption(item)}
+                  onPress={() => handleSelectPayMode(item)}
                 >
                   <Text style={styles.modalOptionText}>{item}</Text>
                 </TouchableOpacity>
@@ -79,7 +85,7 @@ const StepThree = () => {
   );
 };
 
-export default StepThree;
+export default StepFive;
 
 const styles = StyleSheet.create({
   container: {
@@ -87,17 +93,15 @@ const styles = StyleSheet.create({
     backgroundColor: colors?.white,
     borderRadius: 20,
     paddingVertical: width / 20,
+    paddingHorizontal: width / 20,
   },
   title: {
     fontSize: 18,
     fontFamily: fonts?.PoppinsSemiBold,
     color: colors?.black,
-    paddingHorizontal: width / 20,
-    marginBottom: width / 25,
   },
   content: {
     paddingVertical: width / 30,
-    paddingHorizontal: width / 20,
   },
   label: {
     fontSize: 14,
