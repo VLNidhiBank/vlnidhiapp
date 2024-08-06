@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { AdvisorType_Icon, ArrowWhite_Icon, MemberType_Icon } from '../../../res/icons';
+import { AdvisorType_Icon, ArrowWhite_Icon, Flag_Icon, India_Icon, MemberType_Icon } from '../../../res/icons';
 import { height, width } from '../../../res/string';
 import { colors } from '../../../res/color';
 import fonts from '../../../res/fonts';
@@ -13,7 +13,7 @@ const UserType = () => {
   return (
     <View style={styles.UserTypeWrapper}>
       <View style={styles.iconStyle}>
-        <ArrowWhite_Icon height={width / 14} width={width / 14} />
+        <Flag_Icon height={height / 14} width={width / 8} />
       </View>
       <View style={styles.bottomWrapper}>
         <Text style={styles.HeadingStyle}>Welcome to VL Bank</Text>
@@ -31,6 +31,9 @@ const UserType = () => {
           </Pressable>
         </View>
       </View>
+      <View style={{alignItems:"center"}}>
+        <India_Icon height={height / 10} width={width} />                                                                              =-09875432`  A `
+      </View>
     </View>
   );
 };
@@ -44,6 +47,8 @@ const styles = StyleSheet.create({
   },
   iconStyle: {
     height: height / 2.5,
+    alignSelf:"flex-end",
+    marginRight:"3%"
   },
   bottomWrapper: {
     flex: 1,

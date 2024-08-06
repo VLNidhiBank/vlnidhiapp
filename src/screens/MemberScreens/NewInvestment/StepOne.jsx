@@ -1,12 +1,22 @@
-import React from 'react'
-import { StyleSheet, Text, View, Pressable } from 'react-native'
-import { height, width } from '../../../res/string'
-import { colors } from '../../../res/color'
-import fonts from '../../../res/fonts'
-import { ScrollView, TextInput } from 'react-native-gesture-handler'
-import { Drop_Icon } from '../../../res/icons'
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, ScrollView, TextInput, TouchableOpacity, Modal, FlatList } from 'react-native';
+import { width } from '../../../res/string';
+import fonts from '../../../res/fonts';
+import { colors } from '../../../res/color';
+
 
 const StepOne = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedMode, setSelectedMode] = useState('');
+  const [jointFields, setJointFields] = useState(false);
+
+  const modesOfOperation = ['Single', 'Joint'];
+
+  const handleSelectMode = (mode) => {
+    setSelectedMode(mode);
+    setJointFields(mode === 'Joint');
+    setModalVisible(false);
+  };
 
   return (
     <View style={styles.container}>
@@ -48,23 +58,62 @@ const StepOne = () => {
         </View>
         <View style={styles.content}>
           <Text style={styles.label}>Mode of Operation</Text>
-          <TextInput style={styles.input} placeholder='' />
-          {/* <Drop_Icon height={height / 20} width={width / 14}/> */}
+          <TouchableOpacity onPress={() => setModalVisible(true)}>
+            <TextInput
+              style={styles.input}
+              placeholder='Select Mode of Operation'
+              value={selectedMode}
+              editable={false}
+            />
+          </TouchableOpacity>
         </View>
+        {jointFields && (
+          <View>
+            <View style={styles.content}>
+              <Text style={styles.label}>Joint Code</Text>
+              <TextInput style={styles.input} placeholder='' />
+            </View>
+            <View style={styles.content}>
+              <Text style={styles.label}>Joint Name</Text>
+              <TextInput style={styles.input} placeholder='' />
+            </View>
+          </View>
+        )}
       </ScrollView>
-    </View>
-  )
-}
 
-export default StepOne
+      <Modal
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modalBackground}>
+          <View style={styles.modalContainer}>
+            <FlatList
+              data={modesOfOperation}
+              keyExtractor={(item) => item}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={styles.modalOption}
+                  onPress={() => handleSelectMode(item)}
+                >
+                  <Text style={styles.modalOptionText}>{item}</Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
+        </View>
+      </Modal>
+    </View>
+  );
+};
+
+export default StepOne;
 
 const styles = StyleSheet.create({
   container: {
-    width: width * 0.95,
-    height: height / 2,
+    flex: 1,
     backgroundColor: colors?.white,
     borderRadius: 20,
-    alignSelf: "center",
     paddingVertical: width / 20,
   },
   title: {
@@ -88,7 +137,7 @@ const styles = StyleSheet.create({
     paddingVertical: width / 25,
   },
   halfContent: {
-    width: width * 0.4,
+    width: width * 0.35,
     marginHorizontal: width / 40,
   },
   label: {
@@ -97,17 +146,36 @@ const styles = StyleSheet.create({
     color: colors?.black,
   },
   input: {
-    width: '100%',
+    borderRadius: 10,
+    paddingHorizontal: width / 20,
+    backgroundColor: 'rgba(128, 128, 128, 0.2)',
+    marginTop: 5,
+    color:colors?.black
+  },
+  input1: {
     borderRadius: 10,
     paddingHorizontal: width / 20,
     backgroundColor: 'rgba(128, 128, 128, 0.2)',
     marginTop: 5,
   },
-  input1: {
-    width: '100%',
+  modalBackground: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContainer: {
+    width: width * 0.8,
+    backgroundColor: colors?.white,
     borderRadius: 10,
-    paddingHorizontal: width / 20,
-    backgroundColor: 'rgba(128, 128, 128, 0.2)',
-    marginTop: 5,
+    padding: 20,
+  },
+  modalOption: {
+    paddingVertical: 10,
+  },
+  modalOptionText: {
+    fontSize: 16,
+    fontFamily: fonts?.PoppinsMedium,
+    color: colors?.black,
   },
 });

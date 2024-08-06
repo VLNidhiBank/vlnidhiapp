@@ -10,4 +10,5 @@ export const colors ={
     greyColor:"#D9D9D9",
     greyColorInput:"#C0C0C033",
     lightGreyColor: "#C0C0C0",
+    green: "#27C57A",
 }

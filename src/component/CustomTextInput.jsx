@@ -1,8 +1,9 @@
 import React from 'react';
 import { Pressable, Text, View, StyleSheet, TextInput } from 'react-native';
-import fonts from '../res/fonts';
+// import fonts from '../res/fonts';
 import { colors } from '../res/color';
 import { height, width } from '../res/string';
+import fonts from '../res/fonts';
 
 
 
@@ -11,7 +12,10 @@ const CustomTextInput = ({ inputData, ...rest }) => {
     <View style={styles.inputWrapper}>
       <Text style={styles.text}>{inputData.title}</Text>
       <View style={styles.TextInputStyles}>
+      {inputData.FirstIcon ?
         <inputData.FirstIcon height={width / 20} width={width / 20} />
+        : null
+      }
         <TextInput
           style={inputData.inputValue ? styles.Input : styles.placeholderStyle}
           placeholder={inputData.palceHolderText}
@@ -67,7 +71,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
   },
   Input: {
-    width: '85%',
+    width: '100%',
     fontFamily: fonts.PoppinsMedium,
     fontSize: 14,
     height: '100%',
@@ -75,10 +79,12 @@ const styles = StyleSheet.create({
     color: colors.black,
   },
   placeholderStyle: {
-    width: '85%',
+    width: '100%',
     fontSize: 14,
     justifyContent: 'center',
     alignItems: 'center',
     color: colors.black,
+    // backgroundColor:'rgba(128, 128, 128, 0.2)',
+    borderRadius:10,
   },
 });

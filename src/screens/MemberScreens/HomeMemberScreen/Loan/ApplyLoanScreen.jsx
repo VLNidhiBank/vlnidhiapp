@@ -4,7 +4,6 @@ import { colors } from '../../../../res/color'
 import { height, width } from '../../../../res/string'
 import { FlatList } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
-// import { Call_Icon, StepFive_Icon, StepFour_Icon, StepOne_Icon, StepThree_Icon, StepTwo_Icon, Tick_Icon } from '../../../res/icons'
 import FormInput from '../../../../component/Input/FormInput'
 import StepTwo from '../../NewInvestment/StepTwo'
 import StepThree from '../../NewInvestment/StepThree'
@@ -60,7 +59,6 @@ const ApplyLoanScreen = () => {
 
     const goNext = async () => {
         if (page === 5) {
-            // FinalDataSave()
             return;
         }
         setPage(page => page + 1);
@@ -100,36 +98,20 @@ const ApplyLoanScreen = () => {
         }
     };
 
-    // const goToStepFour = () => {
-    //     if (page === 5) {
-    //         setPage(page => page - 1);
-    //         setActive(active - 1);
-    //     } else {
-    //         return;
-    //     }
-    // };
-
     const userIdData = {
         title: 'Branch Code',
         palceHolderText: 'Password',
-        // FirstIcon: Call_Icon,
-        // inputValue: userId,
         changedText: (text) => setItemDetails(text),
     };
 
     const brannchData = {
         title: 'Branch Code',
-        // palceHolderText: 'Password',
-        // FirstIcon: Call_Icon,
-        // inputValue: userId,
         changedText: (text) => setItemDetails(text),
     };
 
     const branchName = {
         title: 'Branch Name',
-        // palceHolderText: 'Password',
         FirstIcon: Call_Icon,
-        // inputValue: userId,
         changedText: (text) => setItemDetails(text),
     };
 
@@ -137,16 +119,13 @@ const ApplyLoanScreen = () => {
 
     const StepWiseComponent = () => {
 
-        // Final API HIT FOR DATA SAVE
 
         return (
             <>
                 <View>
                     {page === 1 ?
                         <>
-                            {/* <StepOne ItemDetails={ItemDetails} /> */}
                             <StepOne />
-                            {/* <FormButton buttonTitle="Next" onPress={() => { goNext(); fillDetailSection() }} style={styles.ButtonStyle} /> */}
                             <CustomButton buttonTitle={'Next'} onPress={() => goNext()} />
 
                         </>
@@ -166,42 +145,9 @@ const ApplyLoanScreen = () => {
 
                                 <>
                                     <StepThree />
-                                    {/* <StepThree OnNextFunction={OnNextFunction} ItemDetails={ItemDetails} /> */}
-                                    {/* <FormButton buttonTitle="Next" onPress={() => { goNext(); fillDetailSection() }} style={styles.ButtonStyle} /> */}
                                     <CustomButton buttonTitle={'Next'} onPress={() => goNext()} />
 
                                 </>
-                                // : page === 4 ?
-                                //     <>
-                                //         <StepFour />
-                                //         {/* <StepFour OnNextFunction={OnNextFunction} /> */}
-                                //         {/* <FormButton buttonTitle="Next" onPress={() => { goNext(); fillDetailSection() }} style={styles.ButtonStyle} /> */}
-                                //         <CustomButton buttonTitle={'Next'} onPress={() => goNext()} />
-
-                                //     </>
-                                //     : page === 5 ?
-                                //         <>
-                                //             <StepFive />
-                                //             <View style={styles.BottomButton} >
-                                //             <CustomButton buttonTitle={'Save'} onPress={() => goNext()} />
-    
-                                //                 {/* <StepFive FunctionForEdit={FunctionForEdit} ItemDetails={ItemDetails} /> */}
-                                //                 {/* <FormButton buttonTitle="Save Inspection Details" onPress={() => {
-                                //                 SaveItemAssessment()
-                                //                 // prop?.setModalVisible(true)
-                                //             }} style={styles.ButtonStyle} />
-                                //             {
-                                //                 PopUp === true ?
-                                //                     <PaymentSuccessModal data={PopUpData} extraFunction={() => navigation.navigate(NavigationStrings.ASSESMENT_ITEMS)} RenderComp={(prop) => {
-                                //                         prop?.setModalVisible(true)
-                                //                         return (
-                                //                             <>
-                                //                             </>);
-                                //                     }} />
-                                //                     : null
-                                //             } */}
-                                //             </View>
-                                //         </>
 
                                         : null
                     }
@@ -291,34 +237,6 @@ const ApplyLoanScreen = () => {
                                     </Pressable>
                                 </View>
                             )}
-                            {/* {active === 4 ? (
-                                <View style={styles.StepNameAndCircle} >
-                                    <View style={styles.StepCircleTouchActive} >
-                                        <Tick_Icon width={width / 15} height={width / 15} />
-
-                                    </View>
-                                </View>
-                            ) : (
-                                <View style={styles.StepNameAndCircle} >
-                                    <Pressable style={[styles.StepCircleTouch, { backgroundColor: active > 3 ? colors.backCircleColor : colors.greyColor }]} onPress={goToStepFour} >
-                                        <Tick_Icon width={width / 15} height={width / 15} />
-
-                                    </Pressable>
-                                </View>
-                            )}
-                            {active === 5 ? (
-                                <View style={styles.StepNameAndCircle} >
-                                    <View style={styles.StepCircleTouchActive} >
-                                        <Tick_Icon width={width / 15} height={width / 15} />
-                                    </View>
-                                </View>
-                            ) : (
-                                <View style={styles.StepNameAndCircle} >
-                                    <View style={[styles.StepCircleTouch, { backgroundColor: active > 4 ? colors.backCircleColor : colors.greyColor }]} >
-                                        <Tick_Icon width={width / 15} height={width / 15} />
-                                    </View>
-                                </View>
-                            )} */}
                         </View>
 
                     </View>
@@ -340,12 +258,6 @@ const ApplyLoanScreen = () => {
                                         {page === 3 &&
                                             <StepWiseComponent />
                                         }
-                                        {/* {page === 4 &&
-                                            <StepWiseComponent />
-                                        }
-                                        {page === 5 &&
-                                            <StepWiseComponent />
-                                        } */}
                                     </View>
                                 </View>
                             </ScrollView>
@@ -368,17 +280,18 @@ const styles = StyleSheet.create({
         backgroundColor: colors?.screenBackColor,
     },
     content: {
-        width: width * 0.95,
+        margin:"2%",
+        // width: width * 0.95,
         borderRadius: 20,
         backgroundColor: colors?.white,
-        alignSelf: "center",
+        // alignSelf: "center",
         marginTop: "4%",
         paddingHorizontal: width / 15,
         paddingVertical: width / 30,
     },
     StepWiseWrapper: {
         marginBottom: 10,
-        height: '100%',
+        // height: '100%',
         // backgroundColor: 'pink',
     },
     StepProgressWrap: {
@@ -504,7 +417,7 @@ const styles = StyleSheet.create({
         color: colors.black,
         width: '300%',
         alignSelf: 'center',
-        top: -10,
+        // top: -10,
         textAlign: 'center',
         fontSize: 12,
         fontFamily: fonts.PoppinsSemiBold,
@@ -535,14 +448,17 @@ const styles = StyleSheet.create({
         marginBottom: '5%',
     },
     StepContentView: {
-        height: '100%',
-        paddingBottom: '15%',
-        paddingHorizontal: '5%',
+        // height: '100%',
+        paddingBottom: height/2.5,
+        paddingHorizontal: width /40,
         // backgroundColor: 'red',
         // padding: 0 5% 15% 5%,
     },
     PageContent: {
-        maxHeight: '100%',
+        flex:1,
+    // paddingVertical: 10,
+    // paddingHorizontal: 0,
+        // maxHeight: '100%',
         // backgroundColor: 'red'
     },
     TextColor: {
