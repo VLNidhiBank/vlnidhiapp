@@ -99,6 +99,7 @@ import AdvisorCard_SVG from './AdvisorCard.svg';
 import Filter_SVG from './Filter.svg';
 import Frame_SVG from './Frame.svg';
 import File_SVG from './File.svg';
+import Close_SVG from './Close.svg';
 
 
 
@@ -412,5 +413,8 @@ export const Frame_Icon = ({ width, height }) => (
 );
 export const File_Icon = ({ width, height }) => (
   <File_SVG width={width} height={height} />
+);
+export const Close_Icon = ({ width, height }) => (
+  <Close_SVG width={width} height={height} />
 );
 

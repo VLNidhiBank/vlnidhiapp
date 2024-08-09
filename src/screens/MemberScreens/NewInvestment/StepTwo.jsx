@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Modal, FlatList } from 'react-native';
 import fonts from '../../../res/fonts';
 import { colors } from '../../../res/color';
-import { width } from '../../../res/string';
+import { height, width } from '../../../res/string';
+import { Close_Icon } from '../../../res/icons';
 
 
 const StepTwo = () => {
@@ -46,6 +47,9 @@ const StepTwo = () => {
       >
         <View style={styles.modalBackground}>
           <View style={styles.modalContainer}>
+          <TouchableOpacity style={styles.closeButton} onPress={() => setModalVisible(false)}>
+              <Close_Icon width={width/14} height={height/20} />
+            </TouchableOpacity>
             <FlatList
               data={nomineeRelations}
               keyExtractor={(item) => item}
@@ -109,6 +113,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors?.white,
     borderRadius: 10,
     padding: 20,
+  },
+  closeButton: {
+    position: 'absolute',
+    // top: 10,
+    right: 10,
+    // zIndex: 1, // Ensure it's above other elements
   },
   modalOption: {
     paddingVertical: 10,

@@ -31,9 +31,6 @@ const UserType = () => {
           </Pressable>
         </View>
       </View>
-      <View style={{alignItems:"center"}}>
-        <India_Icon height={height / 10} width={width} />                                                                              =-09875432`  A `
-      </View>
     </View>
   );
 };
@@ -59,26 +56,25 @@ const styles = StyleSheet.create({
     fontFamily: fonts.PoppinsBold,
     fontSize: 24,
     textAlign: 'center',
-    marginVertical: 10,
+    // marginVertical: 10,
   },
   IconText: {
     fontSize: 16,
     fontFamily: fonts.PoppinsMedium,
     color: colors.black,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    marginVertical: width / 20,
+    // justifyContent: 'space-around',
+    // alignItems: 'center',
+    // marginVertical: width / 20,
   },
   SubHeadingStyle: {
     color: colors.black,
     fontFamily: fonts.PoppinsRegular,
     fontSize: 14,
     textAlign: 'center',
-    width: '90%',
+    width: width*0.8,
     alignSelf: 'center',
   },
   userIcons: {
-    height: '50%',
     justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'row',

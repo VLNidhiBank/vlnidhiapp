@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   upperWrapper: {
     height: height / 4,
-    // backgroundColor: 'red'
+    // backgroundColor: 'red',
   },
   content: {
     width: width,

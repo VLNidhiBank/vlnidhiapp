@@ -1,28 +1,32 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 import { colors } from '../../../../res/color'
 import { height, width } from '../../../../res/string'
 import { Amount_Icon, BackBlack_Icon, Daily_Icon, Renewal_Icon } from '../../../../res/icons'
 import fonts from '../../../../res/fonts'
 import { FlatList } from 'react-native-gesture-handler'
+import { useNavigation } from '@react-navigation/native'
+import ScreenConstants from '../../../../Navigators/ScreenConstants'
 
 const RenewalScreen = () => {
 
+    const navigation = useNavigation();
+
     const Information = [
-        { id: 1, icon: Daily_Icon, title: "Daily Renewal" },
-        { id: 2, icon: Renewal_Icon, title: "Recurring Renewall" },
-        { id: 3, icon: Amount_Icon, title: "Any Amount" },
+        { id: 1, icon: Daily_Icon, title: "Daily Renewal", Navigation: () => navigation?.navigate(ScreenConstants.MEMBER_DAILY_RENEWAL_SCREEN) },
+        { id: 2, icon: Renewal_Icon, title: "Recurring Renewal", Navigation: () => navigation?.navigate(ScreenConstants.MEMBER_RECURRING_RENEWAL_SCREEN) },
+        { id: 3, icon: Amount_Icon, title: "Any Amount", Navigation: () => navigation?.navigate(ScreenConstants.MEMBER_ANY_AMOUNT_SCREEN) },
     ]
     const Data = ({ item }) => {
         return (
             <>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 10 }}>
+                <Pressable style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 10 }} onPress={() => { item?.Navigation() }}>
                     <View style={{ flexDirection: "row", alignItems: "center", width: '70%', paddingVertical: width / 40 }}>
                         <item.icon height={height / 20} width={width / 14} />
                         <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsMedium, color: colors?.black, marginHorizontal: 20 }}>{item.title}</Text>
                     </View>
                     <BackBlack_Icon height={height / 12} width={width / 14} style={{ alignSelf: 'flex-end' }} />
-                </View>
+                </Pressable>
                 <View style={styles.separator} />
             </>
         )

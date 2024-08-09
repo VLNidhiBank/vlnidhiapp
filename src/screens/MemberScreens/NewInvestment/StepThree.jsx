@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Modal, FlatList, ScrollView } from 'react-native';
-import { width } from '../../../res/string';
+import { height, width } from '../../../res/string';
 import fonts from '../../../res/fonts';
 import { colors } from '../../../res/color';
+import { Close_Icon } from '../../../res/icons';
 
 
 const StepThree = () => {
@@ -24,8 +25,8 @@ const StepThree = () => {
                 <View style={styles.content}>
                     <Text style={styles.label}>Scheme Type</Text>
                     <TouchableOpacity onPress={() => setModalVisible(true)}>
-                        <TextInput 
-                            style={styles.input} 
+                        <TextInput
+                            style={styles.input}
                             placeholder='Select Scheme Type'
                             value={selectedScheme}
                             editable={false}
@@ -60,6 +61,9 @@ const StepThree = () => {
             >
                 <View style={styles.modalBackground}>
                     <View style={styles.modalContainer}>
+                        <TouchableOpacity style={styles.closeButton} onPress={() => setModalVisible(false)}>
+                            <Close_Icon width={width / 14} height={height / 20} />
+                        </TouchableOpacity>
                         <FlatList
                             data={schemeNames}
                             keyExtractor={(item) => item}
@@ -123,6 +127,12 @@ const styles = StyleSheet.create({
         backgroundColor: colors?.white,
         borderRadius: 10,
         padding: 20,
+    },
+    closeButton: {
+        position: 'absolute',
+        // top: 10,
+        right: 10,
+        // zIndex: 1, // Ensure it's above other elements
     },
     modalOption: {
         paddingVertical: 10,
