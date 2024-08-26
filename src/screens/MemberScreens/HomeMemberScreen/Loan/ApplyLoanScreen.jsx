@@ -58,7 +58,7 @@ const ApplyLoanScreen = () => {
 
 
     const goNext = async () => {
-        if (page === 5) {
+        if (page === 3) {
             return;
         }
         setPage(page => page + 1);
@@ -89,14 +89,14 @@ const ApplyLoanScreen = () => {
         }
     };
 
-    const goToStepThree = () => {
-        if (page === 4) {
-            setPage(page => page - 1);
-            setActive(active - 1);
-        } else {
-            return;
-        }
-    };
+    // const goToStepThree = () => {
+    //     if (page === 4) {
+    //         setPage(page => page - 1);
+    //         setActive(active - 1);
+    //     } else {
+    //         return;
+    //     }
+    // };
 
     const userIdData = {
         title: 'Branch Code',
@@ -149,7 +149,7 @@ const ApplyLoanScreen = () => {
 
                                 </>
 
-                                        : null
+                            : null
                     }
 
 
@@ -224,14 +224,14 @@ const ApplyLoanScreen = () => {
                             )}
                             {active === 3 ? (
                                 <View style={styles.StepNameAndCircle} >
-                                    <View style={styles.StepCircleTouchActive} onPress={goToStepThree}>
+                                    <View style={styles.StepCircleTouchActive}>
                                         <Tick_Icon width={width / 15} height={width / 15} />
 
                                     </View>
                                 </View>
                             ) : (
                                 <View style={styles.StepNameAndCircle} >
-                                    <Pressable style={[styles.StepCircleTouch, { backgroundColor: active > 2 ? colors.backCircleColor : colors.greyColor }]} onPress={goToStepThree}>
+                                    <Pressable style={[styles.StepCircleTouch, { backgroundColor: active > 2 ? colors.backCircleColor : colors.greyColor }]}>
                                         <Tick_Icon width={width / 15} height={width / 15} />
 
                                     </Pressable>

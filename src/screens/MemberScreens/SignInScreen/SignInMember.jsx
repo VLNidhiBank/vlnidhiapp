@@ -77,14 +77,13 @@ const styles = StyleSheet.create({
     paddingVertical: width / 25,
   },
   iconWrapper: {
-    marginBottom: 20,
+    marginBottom: "2%",
     marginVertical: width / 10,
   },
   iconWrapperBack: {
-    width: width / 12,
+    // width: width / 12,
   },
   textWrapper: {
-    marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },

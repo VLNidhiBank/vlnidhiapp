@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { addBeneficiaryApi, memberBeneficiaryListApi } from "./addBeneficiaryApi";
+import { addBeneficiaryApi, memberBeneficiaryListApi, SavingAccountApi } from "./addBeneficiaryApi";
 
 export const addBeneficiary = createAsyncThunk(
     'addBeneficiary',
@@ -28,12 +28,44 @@ export const memberBeneficiaryList = createAsyncThunk(
     },
 );
 
+export const impsBeneficiary = createAsyncThunk(
+    'impsBeneficiary',
+    async payload => {
+        try {
+            const response = await memberImpsListApi(payload);
+            console.log(response, "Response after validate")
+            return response;
+        } catch (error) {
+            console.log('error', error);
+            throw new Error(error);
+        }
+    },
+);
+
+export const accountSaving = createAsyncThunk(
+    'accountSaving',
+    async payload => {
+        try {
+            const response = await SavingAccountApi(payload);
+            console.log(response, "Response after validate")
+            return response;
+        } catch (error) {
+            console.log('error', error);
+            throw new Error(error);
+        }
+    },
+);
+
 
 const initialState = {
     addBeneficiaryData: [],
     addBeneficiaryLoading: false,
     memberBeneficiaryListData: [],
     memberBeneficiaryListLoading: false,
+    impsBeneficiaryData: [],
+    impsBeneficiaryLoading: false,
+    savingAccountData: [],
+    savingAccountLoading: false,
 };
 
 export const addBeneficiarySlice = createSlice({
@@ -61,6 +93,26 @@ export const addBeneficiarySlice = createSlice({
             })
             .addCase(memberBeneficiaryList.rejected, (state) => {
                 state.memberBeneficiaryListLoading = false;
+            })
+            .addCase(impsBeneficiary.pending, (state) => {
+                state.impsBeneficiaryLoading = true;
+            })
+            .addCase(impsBeneficiary.fulfilled, (state, action) => {
+                state.impsBeneficiaryData = action.payload;
+                state.impsBeneficiaryLoading = false;
+            })
+            .addCase(impsBeneficiary.rejected, (state) => {
+                state.impsBeneficiaryLoading = false;
+            })
+            .addCase(accountSaving.pending, (state) => {
+                state.savingAccountLoading = true;
+            })
+            .addCase(accountSaving.fulfilled, (state, action) => {
+                state.savingAccountData = action.payload;
+                state.savingAccountLoading = false;
+            })
+            .addCase(accountSaving.rejected, (state) => {
+                state.savingAccountLoading = false;
             })
     },
 });

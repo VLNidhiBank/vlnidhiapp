@@ -189,22 +189,6 @@ const NewInvestment = () => {
                                             <StepFive />
                                             <View style={styles.BottomButton} >
                                             <CustomButton buttonTitle={'Save'} onPress={() => goNext()} />
-    
-                                                {/* <StepFive FunctionForEdit={FunctionForEdit} ItemDetails={ItemDetails} /> */}
-                                                {/* <FormButton buttonTitle="Save Inspection Details" onPress={() => {
-                                                SaveItemAssessment()
-                                                // prop?.setModalVisible(true)
-                                            }} style={styles.ButtonStyle} />
-                                            {
-                                                PopUp === true ?
-                                                    <PaymentSuccessModal data={PopUpData} extraFunction={() => navigation.navigate(NavigationStrings.ASSESMENT_ITEMS)} RenderComp={(prop) => {
-                                                        prop?.setModalVisible(true)
-                                                        return (
-                                                            <>
-                                                            </>);
-                                                    }} />
-                                                    : null
-                                            } */}
                                             </View>
                                         </>
 

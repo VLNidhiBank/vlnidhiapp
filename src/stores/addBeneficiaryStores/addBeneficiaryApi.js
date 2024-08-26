@@ -1,5 +1,5 @@
 import { axios } from "../../helper/axios";
-import { ADD_DETAILS, MEMBER_LIST, } from "./addBeneficiaryConstant";
+import { ADD_DETAILS, MEMBER_LIST, SAVING_ACCOUNTS, } from "./addBeneficiaryConstant";
 
 
 export const addBeneficiaryApi = async (payload) => {
@@ -10,5 +10,15 @@ export const addBeneficiaryApi = async (payload) => {
 export const memberBeneficiaryListApi = async (payload) => {
     // console.log(payload,"This is my payload");
     return axios.get(MEMBER_LIST);
+
+};
+export const memberImpsListApi = async (payload) => {
+    console.log(payload,"This is my payload");
+    return axios.post(IMPS_DETAILS,payload);
+
+};
+export const SavingAccountApi = async (payload) => {
+    console.log(payload,"This is my payload");
+    return axios.post(SAVING_ACCOUNTS,payload);
 
 };

@@ -1,12 +1,26 @@
 import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
-import React, { useState } from 'react';
+import React from 'react';
 import { colors } from '../../../../../res/color';
 import { height, width } from '../../../../../res/string';
 import fonts from '../../../../../res/fonts';
 import CustomButton from '../../../../../component/CustomButton';
 import { useDispatch } from 'react-redux';
 import { addBeneficiary } from '../../../../../stores/addBeneficiaryStores/addBeneficiarySlice';
-import { useNavigation } from '@react-navigation/native'; // Import useNavigation
+import { useNavigation } from '@react-navigation/native'; 
+import { Formik, Field, Form } from 'formik';
+import * as Yup from 'yup';
+
+// Define validation schema with Yup
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required('Name is required'),
+  email: Yup.string().email('Invalid email format').required('Email is required'),
+  phone: Yup.string().matches(/^[0-9]+$/, 'Phone number must be numeric').required('Phone number is required'),
+  bankName: Yup.string().required('Bank name is required'),
+  accountNumber: Yup.string().matches(/^[0-9]+$/, 'Account number must be numeric').required('Account number is required'),
+  confirmAccountNumber: Yup.string().oneOf([Yup.ref('accountNumber'), null], 'Account numbers must match').required('Confirm account number is required'),
+  ifsc: Yup.string().required('IFSC code is required'),
+  upiId: Yup.string().required('UPI ID is required'),
+});
 
 const inputFields = [
   { name: 'name', label: 'Name', keyboardType: 'default' },
@@ -20,50 +34,56 @@ const inputFields = [
 ];
 
 const AddBeneficiaryScreen = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    bankName: '',
-    accountNumber: '',
-    confirmAccountNumber: '',
-    ifsc: '',
-    upiId: '',
-  });
-
   const dispatch = useDispatch();
-  const navigation = useNavigation(); // Initialize useNavigation
+  const navigation = useNavigation(); 
 
-  const onHandleSubmit = () => {
-    dispatch(addBeneficiary(formData));
-    navigation.goBack(); // Navigate back to the previous screen
-  };
-
-  const handleInputChange = (name, value) => {
-    setFormData({ ...formData, [name]: value });
+  const handleSubmit = (values) => {
+    dispatch(addBeneficiary(values));
+    navigation.goBack(); 
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.content}>
         <Text style={{ fontSize: 18, fontFamily: fonts?.PoppinsSemiBold, color: colors?.black }}>Add Beneficiary</Text>
-        <ScrollView>
-          {inputFields.map((field) => (
-            <View key={field.name} style={{ marginTop: "3%" }}>
-              <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsRegular, color: colors?.black }}>{field.label}</Text>
-              <TextInput
-                style={styles.input}
-                placeholder=''
-                keyboardType={field.keyboardType}
-                onChangeText={(text) => handleInputChange(field.name, text)}
-                value={formData[field.name]}
-              />
-            </View>
-          ))}
-        </ScrollView>
-      </View>
-      <View style={{ padding: "3%" }}>
-        <CustomButton buttonTitle={"Save"} onPress={onHandleSubmit} />
+        <Formik
+          initialValues={{
+            name: '',
+            email: '',
+            phone: '',
+            bankName: '',
+            accountNumber: '',
+            confirmAccountNumber: '',
+            ifsc: '',
+            upiId: '',
+          }}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
+            <ScrollView>
+              {inputFields.map((field) => (
+                <View key={field.name} style={{ marginTop: "3%" }}>
+                  <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsRegular, color: colors?.black }}>{field.label}</Text>
+                  <TextInput
+                    style={[styles.input, touched[field.name] && errors[field.name] ? styles.inputError : null]}
+                    placeholder={field.label}
+                    keyboardType={field.keyboardType}
+                    onChangeText={handleChange(field.name)}
+                    onBlur={handleBlur(field.name)}
+                    value={values[field.name]}
+                  />
+                  {touched[field.name] && errors[field.name] ? (
+                    <Text style={styles.errorText}>{errors[field.name]}</Text>
+                  ) : null}
+                </View>
+              ))}
+              <View style={{ padding: "3%" }}>
+                <CustomButton buttonTitle={"Save"} onPress={handleSubmit} />
+              </View>
+            </ScrollView>
+          )}
+        </Formik>
       </View>
     </View>
   );
@@ -90,5 +110,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(128, 128, 128, 0.2)',
     borderRadius: 12,
     padding: 10,
+  },
+  inputError: {
+    borderColor: 'red',
+    borderWidth: 1,
+  },
+  errorText: {
+    fontSize: 12,
+    color: 'red',
+    marginTop: 4,
   },
 });
