@@ -46,11 +46,11 @@ const StepThree = () => {
                 </View>
                 <View style={styles.content}>
                     <Text style={styles.label}>Term</Text>
-                    <TextInput style={styles.input} placeholder='' />
+                    <TextInput style={styles.input} placeholder='365' value='365' />
                 </View>
                 <View style={styles.content}>
                     <Text style={styles.label}>Mode</Text>
-                    <TextInput style={styles.input} placeholder='' />
+                    <TextInput style={styles.input} placeholder='Dly.' value='Dly.' />
                 </View>
             </ScrollView>
 

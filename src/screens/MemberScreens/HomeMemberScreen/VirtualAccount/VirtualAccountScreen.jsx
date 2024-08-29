@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     content: {
         margin:"2%",
         // width: width * 0.95,
-        backgroundColor: colors?.green,
+        backgroundColor: colors?.primaryColor,
         // alignSelf: "center",
         marginTop: "4%",
         paddingHorizontal: width / 20,
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     content1: {
         margin:"2%",
         // width: width * 0.95,
-        backgroundColor: colors?.green,
+        backgroundColor: colors?.primaryColor,
         // alignSelf: "center",
         marginTop: "-1%",
         paddingHorizontal: width / 20,
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     content2: {
         margin:"2%",
         // width: width * 0.95,
-        backgroundColor: colors?.green,
+        backgroundColor: colors?.primaryColor,
         // alignSelf: "center",
         marginTop: "-1%",
         paddingHorizontal: width / 20,
@@ -148,10 +148,12 @@ const styles = StyleSheet.create({
         color: colors?.white,
     },
     infoBox: {
-        width: width * 0.95,
+        width: width * 0.96,
+        margin:"3%",
         backgroundColor: colors?.white,
         alignSelf: "center",
         padding: 10,
+        marginTop:"-2%",
         borderBottomRightRadius: 15,
         borderBottomLeftRadius: 15,
     },

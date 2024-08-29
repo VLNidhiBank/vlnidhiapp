@@ -7,7 +7,7 @@ import { Easing } from 'react-native';
 import ScreenConstants from './ScreenConstants';
 import { colors } from '../res/color';
 import fonts from '../res/fonts';
-import { AccountScreen, BiometricScreen, ChangeMpinScreen, ContactUsScreen, HomeMemberScreen ,MemberProfileScreen, MyProfileScreen, PoliciesScreen, RenewalScreen, NewInvestment, ApplyLoanScreen, MemberSummaryScreen, UtilityBillPaymentScreen, CalculatorScreen, PolicyCalculator, PolicyCalculatorScreen, LoanCalculatorScreen, VirtualAccountScreen, NeftScreen, AddBeneficiaryScreen, IntraTransferScreen, DailyStatementScreen, RecurringStatementScreen, AnyAmountScreen, SavingStatementScreen, FDStatementScreen, LoanStatementScreen, ImpsTransferScreen, TransactionHistoryScreen, MemberDailyRenewalScreen, MemberRecurringRenewalScren, MemberAnyAmountScreen, NeftTransferScreen} from '../screens';
+import { AccountScreen, BiometricScreen, ChangeMpinScreen, ContactUsScreen, HomeMemberScreen ,MemberProfileScreen, MyProfileScreen, PoliciesScreen, RenewalScreen, NewInvestment, ApplyLoanScreen, MemberSummaryScreen, UtilityBillPaymentScreen, CalculatorScreen, PolicyCalculator, PolicyCalculatorScreen, LoanCalculatorScreen, VirtualAccountScreen, NeftScreen, AddBeneficiaryScreen, IntraTransferScreen, DailyStatementScreen, RecurringStatementScreen, AnyAmountScreen, SavingStatementScreen, FDStatementScreen, LoanStatementScreen, ImpsTransferScreen, TransactionHistoryScreen, MemberDailyRenewalScreen, MemberRecurringRenewalScren, MemberAnyAmountScreen, NeftTransferScreen, HistoryTransaction, AmortizationScreen, RegularScreen} from '../screens';
 import MemberBottomTab from './BottomTabNavigator';
 
 const Stack = createStackNavigator();
@@ -83,6 +83,9 @@ const MemberNavigator = () => {
             <Stack.Screen name={ScreenConstants?.MEMBER_RECURRING_RENEWAL_SCREEN} component={MemberRecurringRenewalScren}   options={{ headerShown: true, title: 'Recurring Renewal' }} />
             <Stack.Screen name={ScreenConstants?.MEMBER_ANY_AMOUNT_SCREEN} component={MemberAnyAmountScreen}   options={{ headerShown: true, title: 'Any Amount' }} />
             <Stack.Screen name={ScreenConstants?.NEFT_TRANSFER_SCREEN} component={NeftTransferScreen}   options={{ headerShown: true, title: 'NEFT Transfer' }} />
+            <Stack.Screen name={ScreenConstants?.HISTORYTRANSACTION_SCREEN} component={HistoryTransaction}   options={{ headerShown: true, title: 'Saving Statement History' }} />
+            <Stack.Screen name={ScreenConstants?.AMORTIZATION_SCREEN} component={AmortizationScreen}   options={{ headerShown: true, title: 'Amortization' }} />
+            <Stack.Screen name={ScreenConstants?.REGULAR_EMI_SCREEN} component={RegularScreen}   options={{ headerShown: true, title: 'Regular EMI' }} />
         </Stack.Navigator>
     );
 };

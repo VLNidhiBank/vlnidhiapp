@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, Modal, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Modal, TouchableOpacity, TextInput } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { colors } from '../../../../../res/color';
 import fonts from '../../../../../res/fonts';
@@ -9,36 +9,55 @@ import CustomTextInput from '../../../../../component/CustomTextInput';
 import CustomButton from '../../../../../component/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
+import CustomSelect from '../../../../../component/Common/CustomSelect';
+
+// Define validation schema with Yup
+const validationSchema = Yup.object().shape({
+  beneficiaryId: Yup.string().required('Beneficiary ID is required'),
+  beneficiaryName: Yup.string().required('Beneficiary Name is required'),
+  beneficiaryEmail: Yup.string().email('Invalid email format').required('Beneficiary Email is required'),
+  beneficiaryPhone: Yup.string().matches(/^[0-9]+$/, 'Phone number must be numeric').required('Beneficiary Phone is required'),
+  beneficiaryBankName: Yup.string().required('Beneficiary Bank Name is required'),
+  beneficiaryAccountNumber: Yup.string().matches(/^[0-9]+$/, 'Account number must be numeric').required('Beneficiary Account Number is required'),
+  beneficiaryIfsc: Yup.string().required('Beneficiary IFSC is required'),
+  beneficiaryUpiId: Yup.string().required('Beneficiary UPI ID is required'),
+  beneficiaryTransferMode: Yup.string().required('Beneficiary Transfer Mode is required'),
+  accountNumber: Yup.string().matches(/^[0-9]+$/, 'Account number must be numeric').required('Account Number is required'),
+  amount: Yup.number().positive('Amount must be positive').required('Amount is required'),
+  balance: Yup.number().positive('Balance must be positive').required('Balance is required'),
+  remark: Yup.string().optional(),
+});
 
 const NeftTransferScreen = () => {
   const List = useSelector(state => state.addBeneficiarySlice.memberBeneficiaryListData);
-  
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
   const [isManualInput, setIsManualInput] = useState(false);
 
-  const [modalVisible, setModalVisible] = useState(false); // State for modal visibility
-  const [selectedBeneficiary, setSelectedBeneficiary] = useState(false); // State to store selected beneficiary
 
   useEffect(() => {
     dispatch(memberBeneficiaryList());
   }, [dispatch]);
 
-  const handleSelectBeneficiary = (beneficiary, setFieldValue) => {
-    setSelectedBeneficiary(beneficiary);
-    setFieldValue('beneficiaryId', beneficiary.id);
-    setFieldValue('beneficiaryName', beneficiary.name);
-    setFieldValue('beneficiaryEmail', beneficiary.email);
-    setFieldValue('beneficiaryPhone', beneficiary.phone);
-    setFieldValue('beneficiaryBankName', beneficiary.bankName);
-    setFieldValue('beneficiaryAccountNumber', beneficiary.accountNumber);
-    setFieldValue('beneficiaryIfsc', beneficiary.ifsc);
-    setFieldValue('beneficiaryUpiId', beneficiary.upiId);
-    // setFieldValue('beneficiaryTransferMode', mode);
-    setModalVisible(false);
+  const handleSelectChange = (value, setFieldValue) => {
+    if (value) {
+      const selectedData = List.find(item => item.name === value);
+      if (selectedData) {
+        console.log(selectedData,"This is selectedDatas")
+        setIsManualInput(false);
+        setFieldValue('beneficiaryId', selectedData.id.toString())
+        setFieldValue('beneficiaryName', selectedData.name);
+        setFieldValue('beneficiaryBankName', selectedData.bankName);
+        setFieldValue('beneficiaryAccountNumber', selectedData.accountNumber);
+        setFieldValue('beneficiaryIfsc', selectedData.ifsc);
+      }
+    }
   };
 
+
+  console.log(List,"List inside ocmponent")
   return (
     <Formik
       initialValues={{
@@ -50,31 +69,34 @@ const NeftTransferScreen = () => {
         beneficiaryAccountNumber: '',
         beneficiaryIfsc: '',
         beneficiaryUpiId: '',
-        beneficiaryTransferMode: '',
-        accountNumber: '',
-        amount: '',
-        balance: '',
-        remark: '',
+        beneficiaryTransferMode: 'NEFT', // Default value for Transfer Mode
+        // accountNumber: '',
+        // amount: '',
+        // balance: '',
+        // remark: '',
       }}
+      validationSchema={validationSchema}
       onSubmit={(values) => {
         dispatch(impsBeneficiary(values));
         navigation.goBack();
       }}
     >
-      {({ handleChange, handleBlur, handleSubmit, values, setFieldValue }) => (
+      {({ handleChange, handleBlur, handleSubmit, values, setFieldValue, errors, touched }) => (
         <View style={styles.container}>
           <View style={styles.card}>
             <Text style={styles.title}>Beneficiary Details</Text>
-            <TouchableOpacity
-              style={styles.selectBeneficiaryButton}
-              onPress={() => setModalVisible(true)} // Open modal on press
-            >
-              <Text style={styles.selectBeneficiaryText}>Select Beneficiary</Text>
-            </TouchableOpacity>
+            <CustomSelect
+              data={List}
+              placeholder="Select Beneficiary"
+              value={isManualInput ? '' : values.name}
+              onValueChange={value => {
+                handleSelectChange(value, setFieldValue);
+              }}
+            />
           </View>
 
           <FlatList
-            data={[1]}
+            data={[1]} // Data here is a placeholder; modify as needed
             ListHeaderComponent={() => (
               <>
                 <View style={styles.mainContainer}>
@@ -89,14 +111,15 @@ const NeftTransferScreen = () => {
                       { title: 'Bene. IFSC', inputValue: values.beneficiaryIfsc, setInputValue: handleChange('beneficiaryIfsc') },
                     ]}
                     renderItem={({ item }) => (
-                      <CustomTextInput
-                        inputData={{
-                          title: item.title,
-                          inputValue: item.inputValue,
-                          actionSecond: handleBlur(item.title),
-                          isId: item.inputValue,
-                        }}
-                      />
+                      <View style={styles.inputContainer}>
+                        <Text style={styles.inputLabel}>{item.title}</Text>
+                        <TextInput
+                          style={styles.textInput}
+                          value={item.inputValue}
+                          onChangeText={item.setInputValue}
+                          onBlur={handleBlur(item.title)}
+                        />
+                      </View>
                     )}
                     keyExtractor={(item) => item.title}
                   />
@@ -111,49 +134,27 @@ const NeftTransferScreen = () => {
                       { title: 'Remarks', inputValue: values.remark, setInputValue: handleChange('remark') },
                     ]}
                     renderItem={({ item }) => (
-                      <CustomTextInput
-                        inputData={{
-                          title: item.title,
-                          inputValue: item.inputValue,
-                          actionSecond: handleBlur(item.title),
-                          isId: item.inputValue,
-                        }}
-                      />
+                      <View style={styles.inputContainer}>
+                        <Text style={styles.inputLabel}>{item.title}</Text>
+                        <TextInput
+                          style={styles.textInput}
+                          value={item.inputValue}
+                          onChangeText={item.setInputValue}
+                          onBlur={handleBlur(item.title)}
+                        />
+                      </View>
                     )}
                     keyExtractor={(item) => item.title}
-                  />
+                    />
+                  {touched && Object.keys(errors).length > 0 && (
+                    <Text style={styles.errorText}>Please correct the errors before submitting.</Text>
+                  )}
                   <CustomButton buttonTitle={"Confirm"} onPress={handleSubmit} />
                 </View>
               </>
             )}
           />
 
-          <Modal
-            transparent={true}
-            visible={modalVisible}
-            animationType="slide"
-            onRequestClose={() => setModalVisible(false)}
-          >
-            <View style={styles.modalContainer}>
-              <View style={styles.modalContent}>
-                <Text style={styles.modalTitle}>Select Beneficiary</Text>
-                <FlatList
-                  data={List}
-                  renderItem={({ item }) => (
-                    <TouchableOpacity
-                      style={styles.beneficiaryItem}
-                      onPress={() => handleSelectBeneficiary(item, setFieldValue)}
-                    >
-                      <Text style={styles.beneficiaryName}>{item.id} - {item.name}</Text>
-                      <Text style={styles.beneficiaryDetails}>{item.accountNumber} - {item.bankName}</Text>
-                    </TouchableOpacity>
-                  )}
-                  keyExtractor={item => item.id.toString()}
-                />
-                <CustomButton buttonTitle={"Close"} onPress={() => setModalVisible(false)} />
-              </View>
-            </View>
-          </Modal>
         </View>
       )}
     </Formik>
@@ -166,6 +167,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors?.screenBackColor,
+  },
+  inputContainer: {
+    marginBottom: 10,
   },
   card: {
     borderRadius: 12,
@@ -234,6 +238,27 @@ const styles = StyleSheet.create({
   policyDetailsText: {
     fontSize: 18,
     fontFamily: fonts?.PoppinsMedium,
+    color: colors?.black,
+  },
+  errorText: {
+    color: 'red',
+    fontSize: 14,
+    fontFamily: fonts?.PoppinsRegular,
+    marginTop: 10,
+  },
+  inputLabel: {
+    fontSize: 16,
+    fontFamily: fonts?.PoppinsRegular,
+    color: colors?.black,
+    marginBottom: 5,
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: colors?.greyColor,
+    borderRadius: 8,
+    padding: 10,
+    fontSize: 16,
+    fontFamily: fonts?.PoppinsRegular,
     color: colors?.black,
   },
 });

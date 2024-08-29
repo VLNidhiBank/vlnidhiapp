@@ -21,12 +21,12 @@ const StepTwo = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Nominee Details</Text>
       <View style={styles.content}>
-        <Text style={styles.label}>Nominee Details</Text>
-        <TextInput style={styles.input} placeholder='' />
+        <Text style={styles.label}>Nominee Name</Text>
+        <TextInput style={styles.input} placeholder='John Doe' value="John Doe" />
       </View>
       <View style={styles.content}>
         <Text style={styles.label}>Nominee Age</Text>
-        <TextInput style={styles.input} placeholder='' />
+        <TextInput style={styles.input} placeholder='12' value='12' />
       </View>
       <View style={styles.content}>
         <Text style={styles.label}>Nominee Relation</Text>

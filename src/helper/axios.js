@@ -4,7 +4,7 @@ import { ShowErrorMessage, ShowSuccessMessage } from "../component/Common/FlashM
 
 
 export const axios = CoreAxios.default.create({
-    baseURL: "http://192.168.1.44:9090",
+    baseURL: "http://192.168.179.212:9090",
     headers: {
         "Content-Type": "application/json"
     }

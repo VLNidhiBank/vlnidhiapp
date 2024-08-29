@@ -12,15 +12,15 @@ const StepFive = () => {
             <ScrollView>
                 <View style={styles.content}>
                     <Text style={styles.label}>Pay Mode</Text>
-                    <TextInput style={styles.input} placeholder='' />
+                    <TextInput style={styles.input} placeholder='SBAccount' value='SBAccount' />
                 </View>
                 <View style={styles.content}>
                     <Text style={styles.label}>SB Account</Text>
-                    <TextInput style={styles.input} placeholder='' />
+                    <TextInput style={styles.input} placeholder='VLN2247770044' value='VLN2247770044' />
                 </View>
                 <View style={styles.content}>
                     <Text style={styles.label}>Balance</Text>
-                    <TextInput style={styles.input} placeholder='' />
+                    <TextInput style={styles.input} placeholder='100' value='100' />
                 </View>
                 <View style={styles.content}>
                     <Text style={styles.label}>Remark</Text>

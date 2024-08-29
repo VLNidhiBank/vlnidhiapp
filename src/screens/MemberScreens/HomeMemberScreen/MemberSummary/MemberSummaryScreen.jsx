@@ -345,6 +345,9 @@ const MemberSummaryScreen = () => {
                     </View>
                 )}
 
+                <View style={{margin:"5%"}}>
+                </View>
+
             </ScrollView>
         </View>
     );
@@ -358,7 +361,7 @@ const styles = StyleSheet.create({
     content: {
         margin:"2%",
         // width: width * 0.95,
-        backgroundColor: colors?.green,
+        backgroundColor: colors?.primaryColor,
         // alignSelf: "center",
         marginTop: "4%",
         paddingHorizontal: width / 20,
@@ -369,7 +372,7 @@ const styles = StyleSheet.create({
     content1: {
         margin:"2%",
         // width: width * 0.95,
-        backgroundColor: colors?.green,
+        backgroundColor: colors?.primaryColor,
         // alignSelf: "center",
         marginTop: "-1%",
         paddingHorizontal: width / 20,
@@ -380,7 +383,7 @@ const styles = StyleSheet.create({
     content2: {
         margin:"2%",
         // width: width * 0.95,
-        backgroundColor: colors?.green,
+        backgroundColor: colors?.primaryColor,
         // alignSelf: "center",
         marginTop: "-1%",
         paddingHorizontal: width / 20,
@@ -394,18 +397,20 @@ const styles = StyleSheet.create({
         color: colors?.white,
     },
     infoBox: {
-        width: width * 0.95,
+        margin:"3%",
+        width: width * 0.96 ,
         backgroundColor: colors?.white,
         alignSelf: "center",
-        padding: 10,
+        padding: "3%",
         borderBottomRightRadius: 15,
         borderBottomLeftRadius: 15,
+        marginTop:"-2%",
     },
     infoRow: {
         width: width * 0.84,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginLeft: "3%"
+        marginLeft: "3%",
     },
     infoText: {
         fontSize: 16,

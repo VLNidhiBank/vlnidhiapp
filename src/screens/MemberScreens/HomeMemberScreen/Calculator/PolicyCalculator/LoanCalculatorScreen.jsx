@@ -4,19 +4,22 @@ import { colors } from '../../../../../res/color';
 import { width } from '../../../../../res/string';
 import fonts from '../../../../../res/fonts';
 import CustomButton from '../../../../../component/CustomButton';
+import { useNavigation } from '@react-navigation/native';
+import ScreenConstants from '../../../../../Navigators/ScreenConstants';
 
 const inputFields = [
-  { label: 'Scheme Type', placeholder: '' },
-  { label: 'Scheme Name', placeholder: '' },
-  { label: 'Term', placeholder: '', width: width * 0.4 },
-  { label: 'Mode', placeholder: '', width: width * 0.4 },
-  { label: 'Amount', placeholder: '' },
-  { label: 'Deposit Amount', placeholder: '' },
-  { label: 'Maturity Amount', placeholder: '' },
-  { label: 'MIS Interest', placeholder: '' }
+  { label: 'ROI Type', placeholder: '' },
+  { label: 'EMI Collection', placeholder: '' },
+  { label: 'ROI(%p.a.)', placeholder: '' },
+  { label: 'Loan Amount', placeholder: '' },
+  { label: 'Term', placeholder: '' },
+  { label: 'EMI', placeholder: '' }
 ];
 
 const LoanCalculatorScreen = () => {
+  const navigation = useNavigation();
+
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -41,6 +44,9 @@ const LoanCalculatorScreen = () => {
 
           <View style={{ padding: "3%" }}>
             <CustomButton buttonTitle={"Calculate"} />
+            <CustomButton buttonTitle={"View Amortization"} onPress={() =>{
+              navigation.navigate(ScreenConstants.AMORTIZATION_SCREEN)
+            }}/>
           </View>
         </View>
       </ScrollView>

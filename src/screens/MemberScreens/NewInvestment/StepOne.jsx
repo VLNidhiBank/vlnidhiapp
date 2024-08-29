@@ -25,37 +25,37 @@ const StepOne = () => {
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.content}>
           <Text style={styles.label}>Policy Date</Text>
-          <TextInput style={styles.input} placeholder='' />
+          <TextInput style={styles.input} placeholder='01/01/2024' value="01/01/2024" />
         </View>
         <View style={styles.content}>
           <Text style={styles.label}>Member Code</Text>
-          <TextInput style={styles.input} placeholder='' />
+          <TextInput style={styles.input} placeholder='VL123456' value="VL123456" />
         </View>
         <View style={styles.content}>
           <Text style={styles.label}>Member Name</Text>
-          <TextInput style={styles.input} placeholder='' />
+          <TextInput style={styles.input} placeholder='John Doe' value="John Doe" />
         </View>
         <View style={styles.content}>
           <Text style={styles.label}>Relative Details</Text>
-          <TextInput style={styles.input} placeholder='' />
+          <TextInput style={styles.input} placeholder='Spouse: Jane Doe' value="Spouse: Jane Doe"  />
         </View>
         <View style={styles.content}>
           <Text style={styles.label}>Mobile Number</Text>
-          <TextInput style={styles.input} placeholder='' />
+          <TextInput style={styles.input} placeholder='2345678901' value="2345678901"  />
         </View>
         <View style={styles.rowContent}>
           <View style={styles.halfContent}>
             <Text style={styles.label}>DOB</Text>
-            <TextInput style={styles.input1} placeholder='' keyboardType='numeric'/>
+            <TextInput style={styles.input1} placeholder='01/01/1980' value="01/01/1980"  keyboardType='numeric'/>
           </View>
           <View style={styles.halfContent}>
             <Text style={styles.label}>Age</Text>
-            <TextInput style={styles.input1} placeholder='' keyboardType='numeric' />
+            <TextInput style={styles.input1} placeholder='44' value="44" keyboardType='numeric' />
           </View>
         </View>
         <View style={styles.content}>
           <Text style={styles.label}>Address</Text>
-          <TextInput style={styles.input} placeholder='' />
+          <TextInput style={styles.input} placeholder='123 Main St, Springfield, IL' value="123 Main St, Springfield, IL" />
         </View>
         <View style={styles.content}>
           <Text style={styles.label}>Mode of Operation</Text>

@@ -4,10 +4,16 @@ import { colors } from '../../../../../res/color'
 import fonts from '../../../../../res/fonts'
 import CustomTextInput from '../../../../../component/CustomTextInput'
 import { height, width } from '../../../../../res/string'
-import { Download_Icon, Formto_Icon } from '../../../../../res/icons'
+import { Date_Icon, Download_Icon, Formto_Icon } from '../../../../../res/icons'
 import CustomButton from '../../../../../component/CustomButton'
+import DateTimePicker from '../../../../../component/Common/DateTimePicker'
+import { useNavigation } from '@react-navigation/native'
+import ScreenConstants from '../../../../../Navigators/ScreenConstants'
+// import DateTimePicker from '../../../../../component/Common/DateTimePicker'
 
 const SavingStatementScreen = () => {
+  const navigation = useNavigation(); 
+
   const [accNumber, setAccNumber] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
   const [holderName, setHolderName] = useState('');
@@ -44,21 +50,27 @@ const SavingStatementScreen = () => {
         <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: 'center' }}>
           <View>
             <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsRegular, color: colors?.black }}>Form</Text>
-            <TextInput style={styles.input} placeholder='' />
+            <View style={styles?.content1}>
+              <DateTimePicker/>
+            </View>
           </View>
           <View style={{ marginTop: width / 15, alignItems: 'center', alignSelf: 'center' }} >
             <Formto_Icon height={width / 16} width={width / 16} />
           </View>
           <View>
             <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsRegular, color: colors?.black }}>To</Text>
-            <TextInput style={styles.input} placeholder='' />
+            <View style={styles?.content1}>
+              <DateTimePicker/>
+            </View>
           </View>
         </View>
       </View>
       <View style={{ margin: "2%" }}>
-        <CustomButton buttonTitle={"Show"} />
+        <CustomButton buttonTitle={"Show"} onPress={() =>{
+          navigation.navigate(ScreenConstants.HISTORYTRANSACTION_SCREEN);
+        }}/>
       </View>
-      <View style={{ position:"absolute", bottom:width/50, right:width /50 }}>
+      <View style={{ position: "absolute", bottom: width / 50, right: width / 50 }}>
         <Download_Icon height={height / 12} width={width / 6} />
       </View>
     </View>
@@ -78,6 +90,13 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: "4%"
   },
+  content1: {
+    width: width * 0.4,
+    flexDirection: 'row',
+    borderRadius: 10,
+    marginTop: '3%',
+    backgroundColor: 'rgba(128, 128, 128, 0.2)',
+},
   input: {
     width: width * 0.4,
     borderRadius: 10,

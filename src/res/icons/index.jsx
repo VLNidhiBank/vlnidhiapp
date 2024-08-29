@@ -100,6 +100,11 @@ import Filter_SVG from './Filter.svg';
 import Frame_SVG from './Frame.svg';
 import File_SVG from './File.svg';
 import Close_SVG from './Close.svg';
+import Cross_SVG from './Cross.svg';
+import Failed_SVG from './Failed.svg';
+import Success_SVG from './Success.svg';
+import Calendar_SVG from './Calendar.svg';
+import Date_SVG from './Date.svg';
 
 
 
@@ -416,5 +421,20 @@ export const File_Icon = ({ width, height }) => (
 );
 export const Close_Icon = ({ width, height }) => (
   <Close_SVG width={width} height={height} />
+);
+export const Cross_Icon = ({ width, height }) => (
+  <Cross_SVG width={width} height={height} />
+);
+export const Failed_Icon = ({ width, height }) => (
+  <Failed_SVG width={width} height={height} />
+);
+export const Success_Icon = ({ width, height }) => (
+  <Success_SVG width={width} height={height} />
+);
+export const Calendar_Icon = ({ width, height }) => (
+  <Calendar_SVG width={width} height={height} />
+);
+export const Date_Icon = ({ width, height }) => (
+  <Date_SVG width={width} height={height} />
 );
 

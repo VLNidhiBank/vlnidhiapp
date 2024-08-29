@@ -151,7 +151,7 @@ const MemberDailyRenewalScreen = () => {
                 renderItem={renderItem}
                 keyExtractor={(item) => item.title}
               />
-              <View style={{borderRadius: 10, backgroundColor:colors?.white, borderColor:colors?.primaryColor, borderWidth:1, width: width*0.85, height: height/14, alignItems:"center", alignSelf:"center", justifyContent:"center"}}>
+              <View style={styles.viewButton}>
                 <Text style={{fontSize:14, fontFamily:fonts?.PoppinsSemiBold, color:colors?.primaryColor, }}>View Statement</Text>
               </View>
               <CustomButton buttonTitle={"Save"} />
@@ -197,4 +197,16 @@ const styles = StyleSheet.create({
     fontFamily: fonts?.PoppinsMedium,
     color: colors?.black,
   },
+  viewButton:{
+    borderRadius: 10, 
+    backgroundColor:colors?.white, 
+    borderColor:colors?.primaryColor, 
+    borderWidth:1, 
+    width: width*0.85, 
+    height: height/14, 
+    alignItems:"center", 
+    alignSelf:"center", 
+    justifyContent:"center", 
+    marginTop:"3%"
+  }
 });

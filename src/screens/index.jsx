@@ -26,6 +26,11 @@ export { default as VirtualAccountScreen } from './MemberScreens/HomeMemberScree
 export { default as IntraTransferScreen } from './MemberScreens/HomeMemberScreen/IntraTransfer/IntraTransferScreen';
 
 export { default as NeftScreen } from './MemberScreens/HomeMemberScreen/NeftScreen/NeftScreen';
+export { default as HistoryTransaction } from './MemberScreens/HomeMemberScreen/AllAccountScreen/SavingStatement/HistoryTransaction';
+export { default as AmortizationScreen } from './MemberScreens/HomeMemberScreen/Calculator/PolicyCalculator/Amortization/AmortizationScreen';
+export { default as RegularScreen } from './MemberScreens/HomeMemberScreen/RegularEMI/RegularScreen';
+
+
 //NEFT/IMPS Beneficiary Screen
 export { default as AddBeneficiaryScreen} from './MemberScreens/HomeMemberScreen/NeftScreen/AddBeneficiary/AddBeneficiaryScreen';
 
