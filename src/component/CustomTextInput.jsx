@@ -1,37 +1,42 @@
 import React from 'react';
 import { Pressable, Text, View, StyleSheet, TextInput } from 'react-native';
-// import fonts from '../res/fonts';
 import { colors } from '../res/color';
 import { height, width } from '../res/string';
 import fonts from '../res/fonts';
 
-
-
-const CustomTextInput = ({ inputData, ...rest }) => {
+const CustomTextInput = ({
+  title,
+  placeholder,
+  leftIcon: LeftIcon,
+  rightIcon: RightIcon,
+  value,
+  onChangeText,
+  onRightIconPress,
+  secureTextEntry,
+  ...rest
+}) => {
   return (
     <View style={styles.inputWrapper}>
-      <Text style={styles.text}>{inputData.title}</Text>
-      <View style={styles.TextInputStyles}>
-      {inputData.FirstIcon ?
-        <inputData.FirstIcon height={width / 20} width={width / 20} />
-        : null
-      }
+      <Text style={styles.text}>{title}</Text>
+      <View style={styles.textInputContainer}>
+        {LeftIcon && (
+          <LeftIcon height={width / 20} width={width / 20} />
+        )}
         <TextInput
-          style={inputData.inputValue ? styles.Input : styles.placeholderStyle}
-          placeholder={inputData.palceHolderText}
-          onChangeText={inputData.changedText}
-          autoCorrect={false}
-          secureTextEntry={!!inputData.isPassword}
+          style={[styles.textInput, value ? styles.textFilled : styles.placeholderStyle]}
+          placeholder={placeholder}
+          value={value}
+          onChangeText={onChangeText}
+          secureTextEntry={secureTextEntry}
           autoCapitalize="none"
+          autoCorrect={false}
           {...rest}
         />
-        {inputData.SecondIcon ? (
-          <Pressable onPress={inputData.actionSecond}>
-            <inputData.SecondIcon height={width / 20} width={width / 20} />
-          </Pressable>)
-		  :
-		  <View/>
-        }
+        {RightIcon && (
+          <Pressable onPress={onRightIconPress}>
+            <RightIcon height={width / 20} width={width / 20} />
+          </Pressable>
+        )}
       </View>
     </View>
   );
@@ -42,50 +47,33 @@ export default CustomTextInput;
 const styles = StyleSheet.create({
   inputWrapper: {
     width: '100%',
+    marginBottom: 15,
   },
   text: {
     fontSize: 14,
     color: colors.black,
     fontFamily: fonts.PoppinsRegular,
-    lineHeight: 21,
-    marginVertical: width / 50,
+    marginBottom: 8,
   },
-  TextInputStyles: {
-    height: height / 18,
+  textInputContainer: {
     flexDirection: 'row',
-    backgroundColor: colors.greyColor,
-    fontSize: 16,
-    paddingHorizontal: 10,
-    justifyContent: 'space-between',
     alignItems: 'center',
-    color: '#000',
+    backgroundColor: colors.greyColor,
     borderRadius: 5,
-    // marginBottom: 20,
-    // shadowColor: 'rgba(0, 110, 233, 0.02)',
-    // elevation: 8,
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 0,
-    // },
-    // shadowRadius: 20,
-    // shadowOpacity: 0.25,
+    paddingHorizontal: 10,
+    height: height / 18,
   },
-  Input: {
-    // width: '100%',
+  textInput: {
+    flex: 1,
     fontFamily: fonts.PoppinsMedium,
     fontSize: 14,
-    // height: '100%',
-    padding: 0,
+    paddingLeft: 10,
+    color: colors.black,
+  },
+  textFilled: {
     color: colors.black,
   },
   placeholderStyle: {
-    width:width*0.7,
-    fontSize: 14,
-    // justifyContent: "flex-start",
-    // alignItems: 'center',
-    color: colors.black,
-    // backgroundColor:"red",
-    // backgroundColor:'rgba(128, 128, 128, 0.2)',
-    borderRadius:10,
+    color: colors.grey,
   },
 });

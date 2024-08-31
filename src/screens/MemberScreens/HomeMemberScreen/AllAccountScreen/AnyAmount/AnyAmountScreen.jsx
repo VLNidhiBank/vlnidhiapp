@@ -1,16 +1,14 @@
-import { View, Text, StyleSheet, TextInput } from 'react-native'
-import React, { useState } from 'react'
-import { colors } from '../../../../../res/color'
-import { width } from '../../../../../res/string'
-import fonts from '../../../../../res/fonts'
-import CustomTextInput from '../../../../../component/CustomTextInput'
-import { User_Icon } from '../../../../../res/icons'
-import CustomButton from '../../../../../component/CustomButton'
-import { ScrollView } from 'react-native-gesture-handler'
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { colors } from '../../../../../res/color';
+import { width } from '../../../../../res/string';
+import fonts from '../../../../../res/fonts';
+import CustomTextInput from '../../../../../component/CustomTextInput';
+import CustomButton from '../../../../../component/CustomButton';
 
 const AnyAmountScreen = () => {
-    const [userId, setUserId] = useState('');
-
+    const [memberName, setMemberName] = useState('');
+    const [policyNo, setPolicyNo] = useState('');
 
     const data = [
         { id: '01', dueDate: '27/01/2024', payDate: '27/01/2024', amount: '100', balance: '200' },
@@ -19,94 +17,116 @@ const AnyAmountScreen = () => {
         { id: '04', dueDate: '28/01/2024', payDate: '28/01/2024', amount: '150', balance: '250' },
         { id: '05', dueDate: '28/01/2024', payDate: '28/01/2024', amount: '150', balance: '250' },
         { id: '06', dueDate: '28/01/2024', payDate: '28/01/2024', amount: '150', balance: '250' },
-      ];
+    ];
 
-
-
-    const memberNameData = {
-        title: 'Select Policy Name',
-        palceHolderText: 'Enter your policy name',
-        // FirstIcon: User_Icon,
-        inputValue: userId,
-        changedText: (text) => setUserId(text),
-    };
-    const policyNoData = {
-        title: 'Policy No',
-        palceHolderText: 'Enter your policy no',
-        // FirstIcon: User_Icon,
-        inputValue: userId,
-        changedText: (text) => setUserId(text),
-    };
     return (
         <View style={styles.container}>
-            <View style={styles.content}>
-                <Text style={{ fontSize: 18, fontFamily: fonts?.PoppinsSemiBold, color: colors?.black }}>Select Policy No.</Text>
-                <View style={styles.content1}>
-                    {/* <Text style={styles.label}>Member Code</Text> */}
-                    {/* <TextInput style={styles.input} placeholder='' /> */}
-                    {/* <CustomTextInput/> */}
-                    <CustomTextInput inputData={memberNameData} />
-                    <CustomTextInput inputData={policyNoData} />
+            <ScrollView contentContainerStyle={styles.contentContainer}>
+                <View style={styles.content}>
+                    <Text style={styles.title}>Select Policy No.</Text>
+                    <View style={styles.inputContainer}>
+                        <CustomTextInput
+                            title="Member Name"
+                            placeholder="Enter your member name"
+                            value={memberName}
+                            onChangeText={setMemberName}
+                        />
+                        <CustomTextInput
+                            title="Policy No"
+                            placeholder="Enter your policy no"
+                            value={policyNo}
+                            onChangeText={setPolicyNo}
+                        />
+                    </View>
+                    <CustomButton buttonTitle="Search" />
                 </View>
-                <CustomButton buttonTitle={"Search"} />
-            </View>
-           <ScrollView>
-      {data.map((item, index) => (
-        <View key={index} style={styles.history}>
-          <Text style={{ fontSize: 18, fontFamily: fonts?.PoppinsSemiBold, color: colors?.black }}>{item.id}</Text>
-          <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-            <View>
-              <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsLight }}>Due Date</Text>
-              <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsRegular, color: colors?.black }}>{item.dueDate}</Text>
-            </View>
-            <View>
-              <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsLight }}>Pay Date</Text>
-              <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsRegular, color: colors?.black }}>{item.payDate}</Text>
-            </View>
-          </View>
-          <View style={styles.separator} />
-          <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: "4%" }}>
-            <View>
-              <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsLight }}>Amount</Text>
-              <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsRegular, color: colors?.black }}>{item.amount}</Text>
-            </View>
-            <View>
-              <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsLight }}>Balance</Text>
-              <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsRegular, color: colors?.black }}>{item.balance}</Text>
-            </View>
-          </View>
+                {data.map((item) => (
+                    <View key={item.id} style={styles.history}>
+                        <Text style={styles.id}>{item.id}</Text>
+                        <View style={styles.dateContainer}>
+                            <View>
+                                <Text style={styles.label}>Due Date</Text>
+                                <Text style={styles.value}>{item.dueDate}</Text>
+                            </View>
+                            <View>
+                                <Text style={styles.label}>Pay Date</Text>
+                                <Text style={styles.value}>{item.payDate}</Text>
+                            </View>
+                        </View>
+                        <View style={styles.separator} />
+                        <View style={styles.amountContainer}>
+                            <View>
+                                <Text style={styles.label}>Amount</Text>
+                                <Text style={styles.value}>{item.amount}</Text>
+                            </View>
+                            <View>
+                                <Text style={styles.label}>Balance</Text>
+                                <Text style={styles.value}>{item.balance}</Text>
+                            </View>
+                        </View>
+                    </View>
+                ))}
+            </ScrollView>
         </View>
-      ))}
-    </ScrollView>
-        </View>
-    )
-}
+    );
+};
 
-export default AnyAmountScreen
+export default AnyAmountScreen;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors?.screenBackColor,
     },
+    contentContainer: {
+        paddingBottom: 20,
+    },
     content: {
         backgroundColor: colors?.white,
-        margin: "2%",
+        margin: '2%',
         borderRadius: 12,
-        padding: "4%"
+        padding: '4%',
     },
-    content1: {
-        padding: "1%"
+    title: {
+        fontSize: 18,
+        fontFamily: fonts?.PoppinsSemiBold,
+        color: colors?.black,
+    },
+    inputContainer: {
+        paddingVertical: '1%',
     },
     history: {
         backgroundColor: colors?.white,
-        margin: "2%",
+        margin: '2%',
         borderRadius: 20,
-        padding: "4%"
+        padding: '4%',
+    },
+    id: {
+        fontSize: 18,
+        fontFamily: fonts?.PoppinsSemiBold,
+        color: colors?.black,
+    },
+    dateContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    amountContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: '4%',
+    },
+    label: {
+        fontSize: 14,
+        fontFamily: fonts?.PoppinsLight,
+    },
+    value: {
+        fontSize: 16,
+        fontFamily: fonts?.PoppinsRegular,
+        color: colors?.black,
     },
     separator: {
         height: 1,
         backgroundColor: colors?.greyColor,
-        marginHorizontal: '1%',
+        marginVertical: '2%',
     },
 });

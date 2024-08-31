@@ -154,7 +154,7 @@ const ImpsTransferScreen = () => {
                     <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsRegular, color: "black" }}>Savings A/C No.</Text>
                     <TextInput
                       style={styles.input}
-                      placeholder=''
+                      placeholder='VLN22447770024' value='VLN22447770024'
                     // onChangeText={savingsAccountNumber}
                     />
                   </View>
@@ -162,7 +162,7 @@ const ImpsTransferScreen = () => {
                     <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsRegular, color: "black" }}>Balance</Text>
                     <TextInput
                       style={styles.input}
-                      placeholder=''
+                      placeholder='1000' value='1000'
                     // onChangeText={savingsBalance}
                     />
                   </View>

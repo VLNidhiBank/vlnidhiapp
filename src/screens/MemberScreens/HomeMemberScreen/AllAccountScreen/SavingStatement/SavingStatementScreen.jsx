@@ -12,30 +12,11 @@ import ScreenConstants from '../../../../../Navigators/ScreenConstants'
 // import DateTimePicker from '../../../../../component/Common/DateTimePicker'
 
 const SavingStatementScreen = () => {
-  const navigation = useNavigation(); 
+  const navigation = useNavigation();
 
   const [accNumber, setAccNumber] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
   const [holderName, setHolderName] = useState('');
-
-  const accNumberData = {
-    title: 'A/C Number',
-    palceHolderText: 'Enter your member name',
-    inputValue: accNumber,
-    changedText: (text) => setAccNumber(text),
-  };
-  const accountNumberData = {
-    title: 'Account Number',
-    palceHolderText: 'Enter your policy no',
-    inputValue: accountNumber,
-    changedText: (text) => setAccountNumber(text),
-  };
-  const holderNameData = {
-    title: 'Account Holder Name',
-    palceHolderText: 'Enter your policy no',
-    inputValue: holderName,
-    changedText: (text) => setHolderName(text),
-  };
 
 
   return (
@@ -43,15 +24,30 @@ const SavingStatementScreen = () => {
       <View style={styles.content}>
         <Text style={{ fontSize: 18, fontFamily: fonts?.PoppinsSemiBold, color: colors?.black }}>Statement</Text>
         <View>
-          <CustomTextInput inputData={accNumberData} />
-          <CustomTextInput inputData={accountNumberData} />
-          <CustomTextInput inputData={holderNameData} />
+          <CustomTextInput
+            title="A/C Number"
+            placeholder="Enter your member name"
+            value={accNumber}
+            onChangeText={setAccNumber}
+          />
+          <CustomTextInput
+            title="Account Number"
+            placeholder="Enter your account number"
+            value={accountNumber}
+            onChangeText={setAccountNumber}
+          />
+          <CustomTextInput
+            title="Account Holder Name"
+            placeholder="Enter your account holder name"
+            value={holderName}
+            onChangeText={setHolderName}
+          />
         </View>
         <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: 'center' }}>
           <View>
             <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsRegular, color: colors?.black }}>Form</Text>
             <View style={styles?.content1}>
-              <DateTimePicker/>
+              <DateTimePicker />
             </View>
           </View>
           <View style={{ marginTop: width / 15, alignItems: 'center', alignSelf: 'center' }} >
@@ -60,15 +56,15 @@ const SavingStatementScreen = () => {
           <View>
             <Text style={{ fontSize: 14, fontFamily: fonts?.PoppinsRegular, color: colors?.black }}>To</Text>
             <View style={styles?.content1}>
-              <DateTimePicker/>
+              <DateTimePicker />
             </View>
           </View>
         </View>
       </View>
       <View style={{ margin: "2%" }}>
-        <CustomButton buttonTitle={"Show"} onPress={() =>{
+        <CustomButton buttonTitle={"Show"} onPress={() => {
           navigation.navigate(ScreenConstants.HISTORYTRANSACTION_SCREEN);
-        }}/>
+        }} />
       </View>
       <View style={{ position: "absolute", bottom: width / 50, right: width / 50 }}>
         <Download_Icon height={height / 12} width={width / 6} />
@@ -96,7 +92,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: '3%',
     backgroundColor: 'rgba(128, 128, 128, 0.2)',
-},
+  },
   input: {
     width: width * 0.4,
     borderRadius: 10,

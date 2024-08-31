@@ -6,45 +6,37 @@ import { BlackArrowBack_Icon, Lock_Icon, PassEye_Icon, ResetPassVector_Icon } fr
 import CustomTextInput from '../../../component/CustomTextInput';
 import fonts from '../../../res/fonts';
 import { useNavigation } from '@react-navigation/native';
-import ScreenConstants from '../../../Navigators/ScreenConstants';
 import CustomButton from '../../../component/CustomButton';
 
 const ResetPassword = () => {
-  const [userId, setUserId] = useState('');
-  const [password, setPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   const navigation = useNavigation();
 
-  // Define the data for userId input
-
-
-  // Define the data for password input
-  const confirmPasswordData = {
+  // Define the data for new password input
+  const newPasswordInputProps = {
     title: 'New Password',
-    palceHolderText: 'New Password',
-    FirstIcon: Lock_Icon,
-    SecondIcon: PassEye_Icon,
-    inputValue: password,
-    actionSecond: () => setShowPassword(!showPassword),
-    changedText: (text) => setPassword(text),
-    isPassword: showPassword,
+    placeholder: 'Enter your new password',
+    leftIcon: Lock_Icon,
+    rightIcon: PassEye_Icon,
+    value: newPassword,
+    onChangeText: setNewPassword,
+    isPassword: !showPassword,
+    onRightIconPress: () => setShowPassword(!showPassword),
   };
 
-  const passwordData = {
+  // Define the data for confirm password input
+  const confirmPasswordInputProps = {
     title: 'Confirm New Password',
-    palceHolderText: 'Confirm New Password',
-    FirstIcon: Lock_Icon,
-    SecondIcon: PassEye_Icon,
-    inputValue: password,
-    actionSecond: () => setShowPassword(!showPassword),
-    changedText: (text) => setPassword(text),
-    isPassword: showPassword,
-  };
-
-  // Define the data for button
-  const buttonData = {
-    buttonTitle: 'Reset Password',
+    placeholder: 'Confirm your new password',
+    leftIcon: Lock_Icon,
+    rightIcon: PassEye_Icon,
+    value: confirmPassword,
+    onChangeText: setConfirmPassword,
+    isPassword: !showPassword,
+    onRightIconPress: () => setShowPassword(!showPassword),
   };
 
   return (
@@ -60,9 +52,18 @@ const ResetPassword = () => {
         <Text style={styles.subHeading}>
           Your new password must be different from your previous password.
         </Text>
-        <CustomTextInput inputData={confirmPasswordData} />
-        <CustomTextInput inputData={passwordData} />
-        <CustomButton buttonTitle={buttonData.buttonTitle}/>
+        <CustomTextInput {...newPasswordInputProps} />
+        <CustomTextInput {...confirmPasswordInputProps} />
+        <CustomButton 
+          buttonTitle={"Reset Password"} 
+          onPress={() => {
+            if (newPassword === confirmPassword && newPassword.length > 0) {
+              navigation.navigate(ScreenConstants.SUCCESS_SCREEN); // Assuming you have a success screen
+            } else {
+              alert("Passwords do not match or are empty.");
+            }
+          }} 
+        />
       </View>
     </View>
   );
@@ -72,21 +73,20 @@ export default ResetPassword;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: colors.screenBackColor,
-    height: height,
     paddingHorizontal: width / 16,
     paddingVertical: width / 25,
   },
-  iconWrapper: {
-    marginBottom: 20,
-    marginVertical: width / 10,
-  },
   iconWrapperBack: {
-    width: width / 12,
+    alignSelf: 'flex-start',
+    padding: 10,
+  },
+  iconWrapper: {
+    alignItems: 'center',
+    marginBottom: width / 10,
   },
   textWrapper: {
-    marginTop: 20,
-    justifyContent: 'center',
     alignItems: 'center',
   },
   heading: {
@@ -103,15 +103,5 @@ const styles = StyleSheet.create({
     width: '85%',
     textAlign: 'center',
     lineHeight: 18,
-  },
-  forgotPassView: {
-    width: '100%',
-  },
-  forgotPassText: {
-    fontFamily: fonts.PoppinsRegular,
-    fontSize: 12,
-    width: '100%',
-    textAlign: 'right',
-    marginBottom: width / 50,
   },
 });

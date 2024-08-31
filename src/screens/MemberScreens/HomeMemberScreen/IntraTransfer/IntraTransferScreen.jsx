@@ -101,15 +101,16 @@ const IntraTransferScreen = () => {
             >
                 <View style={styles.modalOverlay}>
                     <View style={styles.modalContent}>
-                        <Text style={styles.modalTitle}>Enter Details</Text>
-
+                        <Text style={styles.modalTitle}>Transfer Fund</Text>
+                        <Text style={{fontSize:15, fontFamily:fonts?.PoppinsSemiBold, color:colors?.black}}>Name</Text>
                         <TextInput
                             style={styles.input}
                             placeholder="Name"
                             value={name}
                             onChangeText={setName}
                         />
-
+                        
+                        <Text style={{fontSize:15, fontFamily:fonts?.PoppinsSemiBold, color:colors?.black}}>Amount</Text>
                         <TextInput
                             style={styles.input}
                             placeholder="Amount"
@@ -199,7 +200,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
     modalContent: {
-        width: '80%',
+        width: '95%',
         backgroundColor: colors?.white,
         borderRadius: 10,
         padding: 20,
@@ -213,7 +214,7 @@ const styles = StyleSheet.create({
     },
     input: {
         borderWidth: 1,
-        borderColor: colors?.gray,
+        borderColor: colors?.greyColor,
         borderRadius: 5,
         padding: 10,
         fontSize: 16,

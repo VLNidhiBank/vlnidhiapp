@@ -30,97 +30,95 @@ const MemberRecurringRenewalScreen = () => {
   const data = [
     {
       title: 'Applicant Name',
-      inputValue: applicatName,
-      setInputValue: setApplicatName
+      value: applicatName,
+      onChangeText: setApplicatName
     },
     {
       title: 'Relative Name',
-      inputValue: relativeName,
-      setInputValue: setRelativetName
+      value: relativeName,
+      onChangeText: setRelativetName
     },
     {
       title: 'Member Code',
-      inputValue: memberCode,
-      setInputValue: setMemberCode
+      value: memberCode,
+      onChangeText: setMemberCode
     },
     {
       title: 'Mobile No',
-      inputValue: mobileNo,
-      setInputValue: setMobileNo
+      value: mobileNo,
+      onChangeText: setMobileNo
     },
     {
       title: 'Policy Amount',
-      inputValue: policyAmount,
-      setInputValue: setPolicyAmount
+      value: policyAmount,
+      onChangeText: setPolicyAmount
     },
     {
       title: 'Plan Code',
-      inputValue: planCode,
-      setInputValue: setPlanCode
+      value: planCode,
+      onChangeText: setPlanCode
     },
     {
       title: 'Net Deposited',
-      inputValue: netDeposited,
-      setInputValue: setNetDeposited
+      value: netDeposited,
+      onChangeText: setNetDeposited
     },
     {
       title: 'Amount Due',
-      inputValue: amountDue,
-      setInputValue: setAmountDue
+      value: amountDue,
+      onChangeText: setAmountDue
     },
     {
       title: 'Last Inst. Paid',
-      inputValue: lastPaid,
-      setInputValue: setLastPaid
+      value: lastPaid,
+      onChangeText: setLastPaid
     },
   ];
 
   const detail = [
     {
       title: 'Entry Date',
-      inputValue: date,
-      setInputValue: setDate
+      value: date,
+      onChangeText: setDate
     },
     {
       title: 'Entry Branch',
-      inputValue: branch,
-      setInputValue: setBranch
+      value: branch,
+      onChangeText: setBranch
     },
     {
       title: 'Late Fine',
-      inputValue: lateFine,
-      setInputValue: setLateFine
+      value: lateFine,
+      onChangeText: setLateFine
     },
     {
       title: 'Amount',
-      inputValue: amount,
-      setInputValue: setAmount
+      value: amount,
+      onChangeText: setAmount
     },
     {
       title: 'Pay Mode',
-      inputValue: payMode,
-      setInputValue: setPayMode
+      value: payMode,
+      onChangeText: setPayMode
     },
     {
       title: 'Balance',
-      inputValue: balance,
-      setInputValue: setBalance
+      value: balance,
+      onChangeText: setBalance
     },
     {
       title: 'Remarks',
-      inputValue: remark,
-      setInputValue: setRemark
+      value: remark,
+      onChangeText: setRemark
     },
   ];
 
   const renderItem = ({ item }) => (
     <CustomTextInput
-      inputData={{
-        title: item.title,
-        inputValue: item.inputValue,
-        actionSecond: () => item.setInputValue(!item.inputValue),
-        isId: item.inputValue
-      }}
+      title={item.title}
+      placeholder={`Enter ${item.title}`}
+      value={item.value}
+      onChangeText={item.onChangeText}
     />
   );
 

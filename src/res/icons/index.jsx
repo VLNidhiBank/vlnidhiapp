@@ -105,6 +105,8 @@ import Failed_SVG from './Failed.svg';
 import Success_SVG from './Success.svg';
 import Calendar_SVG from './Calendar.svg';
 import Date_SVG from './Date.svg';
+import Circle_SVG from './Circle.svg';
+import GrayBack_SVG from './GrayBack.svg';
 
 
 
@@ -436,5 +438,11 @@ export const Calendar_Icon = ({ width, height }) => (
 );
 export const Date_Icon = ({ width, height }) => (
   <Date_SVG width={width} height={height} />
+);
+export const Circle_Icon = ({ width, height }) => (
+  <Circle_SVG width={width} height={height} />
+);
+export const GrayBack_Icon = ({ width, height }) => (
+  <GrayBack_SVG width={width} height={height} />
 );
 

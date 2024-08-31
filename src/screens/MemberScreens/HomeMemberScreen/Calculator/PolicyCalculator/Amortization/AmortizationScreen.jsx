@@ -57,9 +57,9 @@ const AmortizationScreen = () => {
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
             />
-            <View style={{ margin: '2%' }}>
+            {/* <View style={{ margin: '2%' }}>
                 <CustomButton buttonTitle={'OK'} />
-            </View>
+            </View> */}
         </View>
     );
 };

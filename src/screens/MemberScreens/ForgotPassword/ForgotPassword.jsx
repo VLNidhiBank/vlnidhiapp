@@ -15,41 +15,39 @@ import CustomTextInput from '../../../component/CustomTextInput';
 import CustomButton from '../../../component/CustomButton';
 
 const ForgotPassword = () => {
-    const [userId, setUserId] = useState('');
-  
+    const [phoneNumber, setPhoneNumber] = useState('');
+
     const navigation = useNavigation();
 
-    // Define the data for userId input
-    const userIdData = {
-      title: 'Phone No',
-      palceHolderText: 'Password',
-      FirstIcon: Call_Icon,
-      inputValue: userId,
-      changedText: (text) => setUserId(text),
-    };
-  
-    // Define the data for button
-    const buttonData = {
-      buttonTitle: 'Submit',
+    // Define the data for phone number input
+    const phoneNumberInputProps = {
+        title: 'Phone Number',
+        placeholder: 'Enter your Phone Number',
+        leftIcon: Call_Icon,
+        value: phoneNumber,
+        onChangeText: setPhoneNumber,
     };
 
     return (
         <View style={styles.container}>
-        <Pressable style={styles.iconWrapperBack} onPress={() => navigation.goBack()}>
-          <BlackArrowBack_Icon height={width / 16} width={width / 16} />
-        </Pressable>
-        <View style={styles.iconWrapper}>
-          <ForgotPass_Icon height={height / 4} width={width} />
+            <Pressable style={styles.iconWrapperBack} onPress={() => navigation.goBack()}>
+                <BlackArrowBack_Icon height={width / 16} width={width / 16} />
+            </Pressable>
+            <View style={styles.iconWrapper}>
+                <ForgotPass_Icon height={height / 4} width={width} />
+            </View>
+            <View style={styles.textWrapper}>
+                <Text style={styles.heading}>Forgot Password</Text>
+                <Text style={styles.subHeading}>
+                    Don’t worry! It happens. Please enter the phone number associated with your account.
+                </Text>
+                <CustomTextInput {...phoneNumberInputProps} />
+                <CustomButton 
+                    buttonTitle={"Submit"} 
+                    onPress={() => navigation.navigate(ScreenConstants.OTP_SCREEN)} 
+                />
+            </View>
         </View>
-        <View style={styles.textWrapper}>
-          <Text style={styles.heading}>Forgot Password</Text>
-          <Text style={styles.subHeading}>
-            Don’t worry! It happens. Please enter the email address associated with your account.
-          </Text>
-          <CustomTextInput inputData={userIdData} />
-          <CustomButton buttonTitle={buttonData.buttonTitle} onPress={() => navigation.navigate(ScreenConstants.OTP_SCREEN)} />
-        </View>
-      </View>
     );
 };
 
@@ -57,21 +55,20 @@ export default ForgotPassword;
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         backgroundColor: colors.screenBackColor,
-        height: height,
         paddingHorizontal: width / 16,
         paddingVertical: width / 25,
     },
-    iconWrapper: {
-        marginBottom: 20,
-        marginVertical: width / 10,
-    },
     iconWrapperBack: {
-        width: width / 12,
+        alignSelf: 'flex-start',
+        padding: 10,
+    },
+    iconWrapper: {
+        alignItems: 'center',
+        marginBottom: width / 10,
     },
     textWrapper: {
-        marginTop: 20,
-        justifyContent: 'center',
         alignItems: 'center',
     },
     heading: {
@@ -87,5 +84,6 @@ const styles = StyleSheet.create({
         fontFamily: fonts.PoppinsRegular,
         width: '85%',
         textAlign: 'center',
+        lineHeight: 18,
     },
 });
