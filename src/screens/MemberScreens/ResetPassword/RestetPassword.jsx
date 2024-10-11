@@ -15,7 +15,6 @@ const ResetPassword = () => {
 
   const navigation = useNavigation();
 
-  // Define the data for new password input
   const newPasswordInputProps = {
     title: 'New Password',
     placeholder: 'Enter your new password',
@@ -27,7 +26,6 @@ const ResetPassword = () => {
     onRightIconPress: () => setShowPassword(!showPassword),
   };
 
-  // Define the data for confirm password input
   const confirmPasswordInputProps = {
     title: 'Confirm New Password',
     placeholder: 'Confirm your new password',

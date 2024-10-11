@@ -9,7 +9,7 @@ export const addBeneficiaryApi = async (payload) => {
 };
 export const memberBeneficiaryListApi = async (payload) => {
     // console.log(payload,"This is my payload");
-    return axios.get(MEMBER_LIST);
+    return axios.get(MEMBER_LIST+`/${payload}`);
 
 };
 export const memberImpsListApi = async (payload) => {

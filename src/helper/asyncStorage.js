@@ -9,8 +9,8 @@ asyncStorage.getToken = () => AsyncStorage.getItem("AUTH_TOKEN");
 asyncStorage.setLoginMessage = (success) => AsyncStorage.setItem("LOGIN_MESSAGE", success);
 
 asyncStorage.getLoginMessage = () => AsyncStorage.getItem("LOGIN_MESSAGE");
-asyncStorage.setId = (id) => AsyncStorage.setItem("USER_ID", id);
-asyncStorage.getId = () => AsyncStorage.getItem("USER_ID");
+asyncStorage.setId = (id) => AsyncStorage.setItem("MEMBER_ID", id);
+asyncStorage.getId = () => AsyncStorage.getItem("MEMBER_ID");
 asyncStorage.removeToken = () => AsyncStorage.removeItem("AUTH_TOKEN");
 // asyncStorage.removePassword = () => AsyncStorage.removeItem("USER_PASSWORD");
 // asyncStorage.removeName = () => AsyncStorage.removeItem("USER_NAME");

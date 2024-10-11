@@ -11,12 +11,13 @@ import CustomButton from '../../../component/CustomButton';
 const OTPScreen = () => {
   const [otp, setOtp] = useState('');
 
+  
+
   const navigation = useNavigation();
 
-  // Define the data for OTP input
   const otpInputProps = {
     title: 'Verification Code',
-    placeholder: 'Enter your 4-digit code',
+    placeholder: 'Enter your 6-digit code',
     value: otp,
     onChangeText: setOtp,
     keyboardType: 'numeric',
@@ -33,7 +34,7 @@ const OTPScreen = () => {
       <View style={styles.textWrapper}>
         <Text style={styles.heading}>Verification Code</Text>
         <Text style={styles.subHeading}>
-          A 4-digit code has been sent to +91 701*****34
+          A 6-digit code has been sent to +91 701*****34
         </Text>
         <CustomTextInput {...otpInputProps} />
         <CustomButton 

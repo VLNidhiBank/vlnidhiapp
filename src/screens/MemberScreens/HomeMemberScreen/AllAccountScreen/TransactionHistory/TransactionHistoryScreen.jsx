@@ -4,6 +4,7 @@ import { colors } from '../../../../../res/color';
 import fonts from '../../../../../res/fonts';
 import { height, width } from '../../../../../res/string';
 import { Circle_Icon, GrayBack_Icon, Search_Icon } from '../../../../../res/icons';
+import { useDispatch } from 'react-redux';
 
 const allTransactions = [
   { id: '1', name: 'Amelia Dawson', dateCategory: 'Today', date: '25 Nov 2024', time: '3:24', amount: '-2,000'},
@@ -22,6 +23,9 @@ const TransactionHistoryScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredTransactions, setFilteredTransactions] = useState(allTransactions);
 
+
+  const dispatch = useDispatch();
+  
   const handleSearch = (query) => {
     setSearchQuery(query);
     if (query === '') {
@@ -106,6 +110,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors?.white,
     borderRadius: 10,
+    marginHorizontal: width/30,
     // paddingHorizontal: '4%',
     // paddingVertical: '2%',
     // marginBottom: '4%',

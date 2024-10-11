@@ -7,18 +7,28 @@ import fonts from '../../../res/fonts'
 import { FlatList } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 import ScreenConstants from '../../../Navigators/ScreenConstants'
+import { persistor } from '../../../stores'
+import { useDispatch } from 'react-redux'
+import { logout } from '../../../stores/loginStores/loginSlice'
 //import ScreenConstants from '../../../Navigators/ScreenConstants'
 
 const MemberProfileScreen = () => {
 
+  const dispatch = useDispatch();
+  onHandleLogout = async () => {
+    dispatch(logout());
+    persistor.purge().then(() => {
+      console.log("Persisted stete has been purged");
+    })
+  }
   const navigation = useNavigation();
 
   const DummyData = [
-    { id: 1, icon: Member_Icon, title: "Profile", actionNavigation: () => {navigation?.navigate(ScreenConstants?.MY_PROFILE_SCREEN)} },
-    { id: 2, icon: ChangeMpin_Icon, title: "Change MPIN", actionNavigation: () => {navigation.navigate(ScreenConstants.CHANGEMPIN_SCREEN)}},
-    { id: 3, icon: FingerScan_Icon, title: "Biometric Setting", actionNavigation: () => {navigation?.navigate(ScreenConstants?.BIOMETRIC_SCREEN)} },
-    { id: 4, icon: Phone_Icon, title: "Contact Us", actionNavigation: () => {navigation?.navigate(ScreenConstants?.CONTACTUS_SCREEN)} },
-    { id: 5, icon: About_Icon, title: "About VL Bank", actionNavigation: () => {navigation?.navigate(ScreenConstants?.POLICIES_SCREEN)} },
+    { id: 1, icon: Member_Icon, title: "Profile", actionNavigation: () => { navigation?.navigate(ScreenConstants?.MY_PROFILE_SCREEN) } },
+    { id: 2, icon: ChangeMpin_Icon, title: "Change MPIN", actionNavigation: () => { navigation.navigate(ScreenConstants.CHANGEMPIN_SCREEN) } },
+    { id: 3, icon: FingerScan_Icon, title: "Biometric Setting", actionNavigation: () => { navigation?.navigate(ScreenConstants?.BIOMETRIC_SCREEN) } },
+    { id: 4, icon: Phone_Icon, title: "Contact Us", actionNavigation: () => { navigation?.navigate(ScreenConstants?.CONTACTUS_SCREEN) } },
+    { id: 5, icon: About_Icon, title: "About VL Bank", actionNavigation: () => { navigation?.navigate(ScreenConstants?.POLICIES_SCREEN) } },
     // {id: 6, icon: Logout_Icon, title: "Logout"},
   ]
   const Data = ({ item, props }) => {
@@ -51,9 +61,9 @@ const MemberProfileScreen = () => {
           }
         />
         <View style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 20, }}>
-          <Pressable style={{ flexDirection: "row", alignItems: "center", width: '85%', }}>
+          <Pressable style={{ flexDirection: "row", alignItems: "center", width: '85%', }} onPress={() => onHandleLogout()}>
             <Logout_Icon height={height / 20} width={width / 14} />
-            <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsRegular, color:"red", marginHorizontal: 25, }}>Logout</Text>
+            <Text style={{ fontSize: 16, fontFamily: fonts?.PoppinsRegular, color: "red", marginHorizontal: 25, }}>Logout</Text>
           </Pressable>
         </View>
       </View>
@@ -71,21 +81,13 @@ const styles = StyleSheet.create({
   icon: {
     justifyContent: "center",
     alignItems: "center",
-    //padding: "2%"
   },
   header: {
-    // width: width * 0.95,
-    // height: height / 2,
     backgroundColor: colors?.white,
     borderRadius: 20,
-    // alignSelf: "center",
-    margin:"2%"
+    margin: "2%"
   },
   flatlistStyles: {
-    // backgroundColor: 'red',
-    //marginTop: width / 60,
-    // paddingBottom: width / 3,
     paddingHorizontal: width / 30,
-
   },
 });

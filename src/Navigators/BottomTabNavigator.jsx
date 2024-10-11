@@ -3,7 +3,7 @@ import { View, Text, Easing } from 'react-native';
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet } from 'react-native';
-import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import { HomeBottomActive_Icon, HomeBottomInactive_Icon, LoanBottomActive_Icon, LoanBottomInActive_Icon, ProfileBottomActive_Icon, ProfileBottomInactive_Icon, TransactionBottomActive_Icon, TransactionBottomInactive_Icon } from '../res/icons';
 import { colors } from '../res/color';
 import { height, width } from '../res/string';

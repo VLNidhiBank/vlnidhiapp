@@ -8,39 +8,30 @@ import fonts from '../../../res/fonts';
 import { useNavigation } from '@react-navigation/native';
 import ScreenConstants from '../../../Navigators/ScreenConstants';
 import CustomButton from '../../../component/CustomButton';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, loginSlice } from '../../../stores/loginStores/loginSlice';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+
+const validationSchema = Yup.object().shape({
+  memberCode: Yup.string().required('User ID is required'),
+  mPassword: Yup.string().required('Password is required'),
+});
 
 const SignInMember = () => {
-  const [userId, setUserId] = useState('');
-  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  const loginData = useSelector((state) => state?.loginSlice?.loginData);
+
+  const dispatch = useDispatch();
   const navigation = useNavigation();
 
-  // Define the data for userId input
-  const userIdInputProps = {
-    title: 'User Id',
-    placeholder: 'Enter your User Id',
-    leftIcon: User_Icon,
-    value: userId,
-    onChangeText: setUserId,
+  const handleSignIn = (values) => {
+    dispatch(login(values));
+    console.log('Sign In Pressed', values);
   };
 
-  // Define the data for password input
-  const passwordInputProps = {
-    title: 'Password',
-    placeholder: 'Enter your Password',
-    leftIcon: Lock_Icon,
-    rightIcon: PassEye_Icon,
-    value: password,
-    onRightIconPress: () => setShowPassword(!showPassword),
-    onChangeText: setPassword,
-    secureTextEntry: !showPassword,
-  };
-
-  const handleSignIn = () => {
-    // Handle sign-in logic
-    console.log('Sign In Pressed');
-  };
+console.log(loginData, "This is Lgin Data");
 
   return (
     <View style={styles.container}>
@@ -55,12 +46,50 @@ const SignInMember = () => {
         <Text style={styles.subHeading}>
           Sign in to your account to manage your finances with ease.
         </Text>
-        <CustomTextInput {...userIdInputProps} />
-        <CustomTextInput {...passwordInputProps} />
-        <Pressable style={styles.forgotPasswordWrapper} onPress={() => navigation.navigate(ScreenConstants.FORGOT_PASSWORD_SCREEN)}>
-          <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-        </Pressable>
-        <CustomButton buttonTitle={"Sign In"} onPress={handleSignIn} />
+        <Formik
+          initialValues={{
+            memberCode: '',
+            mPassword: '',
+          }}
+          validationSchema={validationSchema}
+          onSubmit={handleSignIn}
+        >
+          {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
+            <>
+              <CustomTextInput
+                title="User Id"
+                placeholder="Enter your User Id"
+                leftIcon={User_Icon}
+                value={values.memberCode}
+                onChangeText={handleChange('memberCode')}
+                onBlur={handleBlur('memberCode')}
+                error={touched.memberCode && errors.memberCode}
+              />
+
+              <CustomTextInput
+                title="Password"
+                placeholder="Enter your Password"
+                leftIcon={Lock_Icon}
+                rightIcon={PassEye_Icon}
+                onRightIconPress={() => setShowPassword(!showPassword)}
+                value={values.mPassword}
+                onChangeText={handleChange('mPassword')}
+                onBlur={handleBlur('mPassword')}
+                secureTextEntry={!showPassword}
+                error={touched.mPassword && errors.mPassword}
+              />
+
+              <Pressable
+                style={styles.forgotPasswordWrapper}
+                onPress={() => navigation.navigate(ScreenConstants.FORGOT_PASSWORD_SCREEN)}
+              >
+                <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+              </Pressable>
+
+              <CustomButton buttonTitle="Sign In" onPress={handleSubmit} />
+            </>
+          )}
+        </Formik>
       </View>
     </View>
   );
