@@ -15,7 +15,7 @@ import { BlackArrowBack_Icon, Call_Icon, ForgotPass_Icon } from '../../../res/ic
 import CustomTextInput from '../../../component/CustomTextInput';
 import CustomButton from '../../../component/CustomButton';
 import { useDispatch } from 'react-redux';
-import { validateMobile } from '../../../stores/loginStores/loginSlice';
+import { validateMobile } from '../../../stores/MemberAPI/loginStores/loginSlice';
 
 const ForgotPassword = () => {
     const [phoneNumber, setPhoneNumber] = useState('');

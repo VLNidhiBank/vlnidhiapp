@@ -1,4 +1,4 @@
-import { axios } from "../../helper/axios";
+import { axios } from "../../../helper/axios";
 import { ADD_DETAILS, MEMBER_LIST, SAVING_ACCOUNTS, } from "./addBeneficiaryConstant";
 
 

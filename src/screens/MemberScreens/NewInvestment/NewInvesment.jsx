@@ -124,7 +124,8 @@ const NewInvestment = () => {
 
     const brannchData = {
         title: 'Branch Code',
-        // palceHolderText: 'Password',
+        palceHolderText: '001',
+        value: '001',
         // FirstIcon: Call_Icon,
         // inputValue: userId,
         changedText: (text) => setItemDetails(text),
@@ -132,7 +133,8 @@ const NewInvestment = () => {
 
     const branchName = {
         title: 'Branch Name',
-        // palceHolderText: 'Password',
+        palceHolderText: 'MAIN OFFICE',
+        value: 'MAIN OFFICE',
         FirstIcon: Call_Icon,
         // inputValue: userId,
         changedText: (text) => setItemDetails(text),

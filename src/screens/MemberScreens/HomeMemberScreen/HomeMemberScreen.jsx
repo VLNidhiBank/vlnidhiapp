@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { height, width } from '../../../res/string';
 import { Back_Icon, Bank_Icon, Calculator_Icon, CardPost_Icon, History_Icon, IntraTransfer_Icon, Personalcard_Icon, RegularEmi_Icon, VLBank_Icon, Wallet_Icon, WalletAdd_Icon, WalletSearch_Icon } from '../../../res/icons';
@@ -8,11 +8,13 @@ import { colors } from '../../../res/color';
 import { FlatList } from 'react-native-gesture-handler';
 import ScreenConstants from '../../../Navigators/ScreenConstants';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import { memberDetails } from '../../../stores/MemberAPI/memberData/memberDataSlice';
 
 const HomeMemberScreen = () => {
   const navigation = useNavigation();
 
-  const [ balance, setBalance ] = useState(false);
+  const [balance, setBalance] = useState(false);
 
   const DummyData = [
     { id: 1, icon: History_Icon, title: "Transaction History", subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", color1: "#CABB38", color2: "#E0C978", actionNavigation: () => navigation?.navigate(ScreenConstants.TRANSACTION_MEMBER_SCREEN) },
@@ -68,23 +70,22 @@ const HomeMemberScreen = () => {
       <View style={styles.mainContainer}>
         <FlatList
           data={DummyData}
-          //style
           ListHeaderComponent={
             <LinearGradient
-            colors={['#171F67', '#2E3ECD']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={styles.heading}>
-            <Text style={{fontSize:12, fontFamily:fonts?.PoppinsSemiBold, color:colors?.white}}>My Account Deatils</Text>
-            <View style={{alignItems:"center", alignSelf:"center"}}>
-              <Text style={{fontSize:11, fontFamily:fonts?.PoppinsRegular, color:colors?.white}}>Name: Person Name</Text>
-              <Text style={{fontSize:11, fontFamily:fonts?.PoppinsRegular, color:colors?.white}}>A/c No.: 12345678987</Text>
-  
-              <Pressable style={{borderRadius:10, borderWidth:1, borderColor:colors?.white, padding:"2%",}} onPress={()=>{setBalance(true)}}>
-                {!balance ?  <Text style={{fontSize:11, fontFamily:fonts?.PoppinsSemiBold, color:colors?.white}}>View Balance</Text> : <Text style={{fontSize:11, fontFamily:fonts?.PoppinsSemiBold, color:colors?.white}}>₹ 1000</Text>}
-              </Pressable>
-            </View>
-          </LinearGradient>
+              colors={['#171F67', '#2E3ECD']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={styles.heading}>
+              <Text style={{ fontSize: 12, fontFamily: fonts?.PoppinsSemiBold, color: colors?.white }}>My Account Deatils</Text>
+              <View style={{ alignItems: "center", alignSelf: "center" }}>
+                <Text style={{ fontSize: 11, fontFamily: fonts?.PoppinsRegular, color: colors?.white }}>Name: Person Name</Text>
+                <Text style={{ fontSize: 11, fontFamily: fonts?.PoppinsRegular, color: colors?.white }}>A/c No.: 12345678987</Text>
+
+                <Pressable style={{ borderRadius: 10, borderWidth: 1, borderColor: colors?.white, padding: "2%", }} onPress={() => { setBalance(true) }}>
+                  {!balance ? <Text style={{ fontSize: 11, fontFamily: fonts?.PoppinsSemiBold, color: colors?.white }}>View Balance</Text> : <Text style={{ fontSize: 11, fontFamily: fonts?.PoppinsSemiBold, color: colors?.white }}>₹ 1000</Text>}
+                </Pressable>
+              </View>
+            </LinearGradient>
           }
           contentContainerStyle={styles?.flatlistStyles}
           renderItem={({ item }) => {
@@ -170,8 +171,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     // marginTop:"3%",
     // marginVertical: width / 35,
-    paddingHorizontal: width/20,
-    paddingVertical:width/25,
+    paddingHorizontal: width / 20,
+    paddingVertical: width / 25,
     // margin:"5%"
   }
 });

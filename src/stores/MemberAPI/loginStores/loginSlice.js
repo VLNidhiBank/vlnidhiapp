@@ -1,11 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { loginApi, validateMobileApi, whatsappOtpApi } from "./loginApi";
+import { asyncStorage } from "../../../helper/asyncStorage";
 
 
 
 export const login = createAsyncThunk('login', async (payload) => {
     try {
         const response = await loginApi(payload);
+        asyncStorage.setToken(response.Token);
+        asyncStorage.setId(response.username);
         console.log(response, "This is my response"); 
         return response;
     } catch (error) {

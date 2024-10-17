@@ -59,7 +59,6 @@ export { default as LoanStatementScreen} from './MemberScreens/HomeMemberScreen/
 export { default as TransactionHistoryScreen} from './MemberScreens/HomeMemberScreen/AllAccountScreen/TransactionHistory/TransactionHistoryScreen';
 
 //Advisor Screen
-export { default as SignInAdvisor } from './AdvisorScreens/SignInScreen/SignInAdvisor';
 export { default as HomeAdvisorScreen } from './AdvisorScreens/HomeScreen/HomeAdvisorScreen';
 export { default as LoanScreen } from './AdvisorScreens/HomeScreen/LoanScreen';
 export { default as ProfileScreen } from './AdvisorScreens/AdvisorProfile/ProfileScreen';

@@ -1,4 +1,4 @@
-import { axios } from "../../helper/axios";
+import { axios } from "../../../helper/axios";
 import { ALL_TRANSACTION } from "./transactionConstant"
 
 

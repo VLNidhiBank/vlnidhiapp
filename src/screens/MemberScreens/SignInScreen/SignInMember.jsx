@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import ScreenConstants from '../../../Navigators/ScreenConstants';
 import CustomButton from '../../../component/CustomButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, loginSlice } from '../../../stores/loginStores/loginSlice';
+import { login } from '../../../stores/MemberAPI/loginStores/loginSlice';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 

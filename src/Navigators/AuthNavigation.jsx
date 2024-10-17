@@ -47,7 +47,6 @@ const AuthNavigation = () => {
             <Stack.Screen name={ScreenConstants?.ON_BOARDING_SCREEN} component={OnBoarding} />
             <Stack.Screen name={ScreenConstants?.USER_TYPE_SCREEN} component={UserType} />
             <Stack.Screen name={ScreenConstants?.SIGN_IN_MEMBER_SCREEN} component={SignInMember} />
-            <Stack.Screen name={ScreenConstants?.SIGN_IN_ADVISOR_SCREEN} component={SignInAdvisor} />
             <Stack.Screen name={ScreenConstants?.FORGOT_PASSWORD_SCREEN} component={ForgotPassword} />
             <Stack.Screen name={ScreenConstants?.OTP_SCREEN} component={OtpScreen} />
             <Stack.Screen name={ScreenConstants?.RESET_PASSWORD} component={ResetPassword} />

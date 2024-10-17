@@ -13,7 +13,6 @@ import ScreenConstants from './ScreenConstants';
 
 const MemberBottomTab = () => {
 
-
     const Tab = createBottomTabNavigator();
     const Stack = createStackNavigator();
 

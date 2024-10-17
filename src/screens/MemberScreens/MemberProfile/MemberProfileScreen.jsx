@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native'
 import ScreenConstants from '../../../Navigators/ScreenConstants'
 import { persistor } from '../../../stores'
 import { useDispatch } from 'react-redux'
-import { logout } from '../../../stores/loginStores/loginSlice'
+import { logout } from '../../../stores/MemberAPI/loginStores/loginSlice'
 //import ScreenConstants from '../../../Navigators/ScreenConstants'
 
 const MemberProfileScreen = () => {

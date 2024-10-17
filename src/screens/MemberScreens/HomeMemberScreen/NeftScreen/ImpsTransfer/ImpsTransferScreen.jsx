@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { colors } from '../../../../../res/color';
 import fonts from '../../../../../res/fonts';
 import { useDispatch, useSelector } from 'react-redux';
-import { impsBeneficiary, memberBeneficiaryList } from '../../../../../stores/addBeneficiaryStores/addBeneficiarySlice';
 import { width } from '../../../../../res/string';
 import CustomButton from '../../../../../component/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import CustomSelect from '../../../../../component/Common/CustomSelect';
+import { impsBeneficiary, memberBeneficiaryList } from '../../../../../stores/MemberAPI/addBeneficiaryStores/addBeneficiarySlice';
 
 // Define validation schema with Yup
 const validationSchema = Yup.object().shape({

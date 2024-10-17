@@ -1,0 +1,1 @@
+export const MEMBER_INVESTMENT_DETAILS = "/api/investment/details";

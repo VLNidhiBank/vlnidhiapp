@@ -25,14 +25,13 @@ const UserType = () => {
             <MemberType_Icon height={width / 3} width={width / 3} />
             <Text style={styles.IconText}>Member</Text>
           </Pressable>
-          <Pressable style={styles.userIconWithName} onPress={() => navigation.navigate(ScreenConstants.SIGN_IN_ADVISOR_SCREEN)}>
+          <Pressable style={styles.userIconWithName} onPress={() => navigation.navigate(ScreenConstants.SIGN_IN_MEMBER_SCREEN)}>
             <AdvisorType_Icon height={width / 3} width={width / 3} />
             <Text style={styles.IconText}>Advisor</Text>
           </Pressable>
         </View>
       </View>
       <View style={{alignItems:"center"}}>
-        {/* <India_Icon height={height / 10} width={width} />                                                                              =-09875432`  A ` */}
       </View>
     </View>
   );

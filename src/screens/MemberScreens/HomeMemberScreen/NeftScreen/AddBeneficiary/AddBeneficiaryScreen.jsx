@@ -4,12 +4,12 @@ import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { addBeneficiary } from '../../../../../stores/addBeneficiaryStores/addBeneficiarySlice';
 import CustomButton from '../../../../../component/CustomButton';
 import { colors } from '../../../../../res/color';
 import { height, width } from '../../../../../res/string';
 import fonts from '../../../../../res/fonts';
 import CustomModal from '../../../../../component/Common/CustomModal';
+import { addBeneficiary } from '../../../../../stores/MemberAPI/addBeneficiaryStores/addBeneficiarySlice';
 
 // Define validation schema with Yup
 const validationSchema = Yup.object().shape({

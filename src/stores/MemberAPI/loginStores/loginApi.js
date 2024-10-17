@@ -1,5 +1,4 @@
-// import axios from "axios";
-import { axios } from "../../helper/axios";
+import { axios } from "../../../helper/axios";
 import { LOGIN, VALIDATE_MOBILE, WHATSAPP_OTP } from "./loginConstant";
 
 

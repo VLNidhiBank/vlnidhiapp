@@ -15,7 +15,7 @@ axios.interceptors.request.use(async request => {
     if (authToken) {
         request.headers.Authorization = `Bearer ${authToken}`;
     }
-    return request;
+    return request;a
 });
 
 axios.interceptors.response.use(async response => {
